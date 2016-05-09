@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ly_tab_menu"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/tab_height"
+    android:layout_alignParentBottom="true"
+    android:background="@drawable/shape_tab"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/ly_tab_menu_rent"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/tab_menu_rent"
+                style="@style/tab_text_style"
+                android:drawableTop="@drawable/selector_tab_chide"
+                android:text="@string/tab_rent" />
+
+            <TextView
+                android:id="@+id/tab_menu_rent_num"
+                style="@style/tab_text_xiaoxi_bgnum"
+                android:layout_toRightOf="@+id/tab_menu_rent"
+                android:text="99+"
+                android:visibility="invisible" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ly_tab_menu_event"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/tab_menu_event"
+                style="@style/tab_text_style"
+                android:drawableTop="@drawable/selector_tab_liaode"
+                android:text="@string/tab_event" />
+
+            <TextView
+                android:id="@+id/tab_menu_event_num"
+                style="@style/tab_text_xiaoxi_bgnum"
+                android:layout_toRightOf="@+id/tab_menu_event"
+                android:text="99+"
+                android:visibility="invisible" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/ly_tab_menu_show"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/tab_menu_show"
+                style="@style/tab_text_style"
+                android:drawableTop="@drawable/selector_tab_guangde"
+                android:text="@string/tab_show" />
+
+            <TextView
+                android:id="@+id/tab_menu_guangde_num"
+                style="@style/tab_text_xiaoxi_bgnum"
+                android:layout_toRightOf="@+id/tab_menu_show"
+                android:text="99+"
+                android:visibility="invisible" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ly_tab_menu_person"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/tab_menu_person"
+                style="@style/tab_text_style"
+                android:drawableTop="@drawable/selector_tab_wode"
+                android:text="@string/tab_person" />
+
+            <ImageView
+                android:id="@+id/tab_menu_wode_partner"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginLeft="-5dp"
+                android:layout_toRightOf="@id/tab_menu_person"
+                android:src="@mipmap/tab_text_xiaoxi"
+                android:visibility="invisible"  />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

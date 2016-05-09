@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="BaseTheme">
+
+        <!-- Customize your theme here. -->
+
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:colorControlHighlight">@color/colorAccent</item>
+    </style>
+
+    <style name="DetailTheme" parent="AppTheme">
+
+        <!-- Customize your theme here. -->
+
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+
+    <style name="selectedBackground">
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+</resources>
