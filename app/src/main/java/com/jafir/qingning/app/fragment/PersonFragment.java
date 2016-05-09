@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.Toolbar;
 
 import com.jafir.qingning.R;
-import com.jafir.qingning.app.activity.DetailActivity;
+import com.jafir.qingning.app.activity.CityPickerActivity;
 
 import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.ui.SupportFragment;
@@ -49,7 +49,7 @@ public class PersonFragment extends SupportFragment{
         if(v.getId() == R.id.fab) {
             KJLoger.debug("fab");
             Snackbar.make(v,"nsnaker",Snackbar.LENGTH_LONG).show();
-            startActivity(new Intent(aty, DetailActivity.class));
+            startActivity(new Intent(aty, CityPickerActivity.class));
         }
     }
 

@@ -5,6 +5,16 @@
     <color name="colorAccent">#FF4081</color>
 
 
+
+    <color name="divider">#E5E5E5</color>
+    <color name="shadow">#AAEBEBEB</color>
+    <color name="common_bg">#FAFAFA</color>
+    <color name="content_bg">#F3F3F3</color>
+    <color name="gray_deep">#5c5c5c</color>
+    <color name="alpha_gray">#CC646464</color>
+    <color name="theme_gray">#646464</color>
+
+
     <color name="red">#FFC93437</color>
     <color name="blue">#FF375BF1</color>
     <color name="yellow">#FFF7D23E</color>
