@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    app:cardCornerRadius="5dp"
+    android:elevation="2dp"
+    android:layout_height="120dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/item_chehang_img"
+            android:layout_width="90dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_height="90dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="123123"
+            android:id="@+id/item_chehang_name"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/item_chehang_desc"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/item_chehang_distance"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+
+</android.support.v7.widget.CardView>

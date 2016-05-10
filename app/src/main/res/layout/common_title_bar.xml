@@ -8,7 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/common_bg">
+        android:background="@color/colorPrimary">
 
         <ImageView
             android:id="@+id/back"
