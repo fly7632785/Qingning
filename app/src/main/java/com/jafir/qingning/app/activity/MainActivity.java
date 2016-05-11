@@ -1,17 +1,14 @@
 package com.jafir.qingning.app.activity;
 
-import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jafir.qingning.R;
-import com.jafir.qingning.app.ApiManager;
 import com.jafir.qingning.app.fragment.EventFragment;
 import com.jafir.qingning.app.fragment.PersonFragment;
 import com.jafir.qingning.app.fragment.RentFragment;
@@ -20,17 +17,12 @@ import org.kymjs.kjframe.SupportActivity;
 import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.ui.KJActivityStack;
 import org.kymjs.kjframe.ui.SupportFragment;
-import org.kymjs.kjframe.ui.ViewInject;
 import org.kymjs.kjframe.utils.DensityUtils;
 import org.kymjs.kjframe.utils.KJLoger;
 
 import rx.Observable;
-import rx.Observer;
 import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 import rx.functions.Func1;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by jafir on 16/4/18.
@@ -79,6 +71,7 @@ public class MainActivity extends SupportActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN|WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         mRentFragment = new RentFragment();
         mEventFragment = new EventFragment();
@@ -97,167 +90,167 @@ public class MainActivity extends SupportActivity {
 
         //初始化选中中间图标
         mMenuRent.setSelected(true);
-
-        Observable.just("hellow world","hwllo jafir").subscribe(new Action1<String>() {
-            @Override
-            public void call(String s) {
-                ViewInject.toast(s);
-            }
-        });
-
-
-        Observable.from(new String[]{"1","2","3"})
-                .subscribe(new Action1<String>() {
-            @Override
-            public void call(String s) {
-                KJLoger.debug(s);
-            }
-        });
-
-
-        Observable ob = Observable.create(new Observable.OnSubscribe<String>() {
-            @Override
-            public void call(Subscriber<? super String> subscriber) {
-                KJLoger.debug("call:"+subscriber);
-
-                String string = "11111";
-                subscriber.onNext(string);
-                subscriber.onCompleted();
-
-            }
-        });
-        //map转化 数据对象 类型  用map
-//        ob.map(new Func1<Integer,Drawable>() {
-//            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+//
+//        Observable.just("hellow world","hwllo jafir").subscribe(new Action1<String>() {
 //            @Override
-//            public Drawable call(Integer redID) {
-//                return  getTheme().getDrawable(redID);
+//            public void call(String s) {
+//                ViewInject.toast(s);
 //            }
 //        });
-
-        Subscriber s = new Subscriber() {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onNext(Object o) {
-                KJLoger.debug("subscriber:"+o);
-            }
-        };
-
-        Observer o = new Observer() {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onNext(Object o) {
-                KJLoger.debug("observer:"+o);
-            }
-        };
-
-
-        ob.doOnNext(new Action1<String>() {
-            @Override
-            public void call(String string) {
-                string=string+"doOnNext";
-                KJLoger.debug("doonnext....："+string);
-            }
-        }).subscribe(new Action1<String>() {
-            @Override
-            public void call(String string) {
-                KJLoger.debug("action....："+string);
-            }
-        });
-//        ob.subscribe(s);
-//        ob.subscribe(o);
-
-
-        //aciton1 有参没有返回值
-        ob.subscribe(new Action1() {
-            @Override
-            public void call(Object o) {
-
-            }
-        });
-
-
-       /*不能直接放action0*/
-//        ob.subscribe(aciton0)
-
-
-
-        final int resId = 0;
-        Observable.create(new Observable.OnSubscribe<Drawable>(){
-            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-            @Override
-            public void call(Subscriber<? super Drawable> subscriber) {
-                Drawable drawable  = getTheme().getDrawable(resId);
-                subscriber.onNext(drawable);
-                subscriber.onCompleted();
-            }
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<Drawable>() {
-
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onNext(Drawable drawable) {
-                //dosomethings
-            }
-        });
-
-
-        //。map可以 有很多次，每次都能 执行以下 类型变换的操作
-        //比如 我们可以通过resId把图片获取到 然后转化为Drawable返回
-        //这种链式的模式，就是可以轻易的不断地叠加 更多复杂的操作，扩展性很强
-        ob.map(new Func1<String, String>() {
-            @Override
-            public String call(String o) {
-                return o;
-            }
-        });
-
-
-        ob.map(new Func1<String,Observable<Drawable>>() {
-            @Override
-            public Observable<Drawable> call(String o) {
-
-                return ApiManager.getXXX(o);
-            }
-        });
-
-
-        ob.flatMap(new Func1<String,Observable<Drawable>>() {
-            @Override
-            public Observable<Drawable> call(String o) {
-
-                return ApiManager.getXXX(o);
-            }
-        });
+//
+//
+//        Observable.from(new String[]{"1","2","3"})
+//                .subscribe(new Action1<String>() {
+//            @Override
+//            public void call(String s) {
+//                KJLoger.debug(s);
+//            }
+//        });
+//
+//
+//        Observable ob = Observable.create(new Observable.OnSubscribe<String>() {
+//            @Override
+//            public void call(Subscriber<? super String> subscriber) {
+//                KJLoger.debug("call:"+subscriber);
+//
+//                String string = "11111";
+//                subscriber.onNext(string);
+//                subscriber.onCompleted();
+//
+//            }
+//        });
+//        //map转化 数据对象 类型  用map
+////        ob.map(new Func1<Integer,Drawable>() {
+////            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+////            @Override
+////            public Drawable call(Integer redID) {
+////                return  getTheme().getDrawable(redID);
+////            }
+////        });
+//
+//        Subscriber s = new Subscriber() {
+//            @Override
+//            public void onCompleted() {
+//
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//
+//            }
+//
+//            @Override
+//            public void onNext(Object o) {
+//                KJLoger.debug("subscriber:"+o);
+//            }
+//        };
+//
+//        Observer o = new Observer() {
+//            @Override
+//            public void onCompleted() {
+//
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//
+//            }
+//
+//            @Override
+//            public void onNext(Object o) {
+//                KJLoger.debug("observer:"+o);
+//            }
+//        };
+//
+//
+//        ob.doOnNext(new Action1<String>() {
+//            @Override
+//            public void call(String string) {
+//                string=string+"doOnNext";
+//                KJLoger.debug("doonnext....："+string);
+//            }
+//        }).subscribe(new Action1<String>() {
+//            @Override
+//            public void call(String string) {
+//                KJLoger.debug("action....："+string);
+//            }
+//        });
+////        ob.subscribe(s);
+////        ob.subscribe(o);
+//
+//
+//        //aciton1 有参没有返回值
+//        ob.subscribe(new Action1() {
+//            @Override
+//            public void call(Object o) {
+//
+//            }
+//        });
+//
+//
+//       /*不能直接放action0*/
+////        ob.subscribe(aciton0)
+//
+//
+//
+//        final int resId = 0;
+//        Observable.create(new Observable.OnSubscribe<Drawable>(){
+//            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+//            @Override
+//            public void call(Subscriber<? super Drawable> subscriber) {
+//                Drawable drawable  = getTheme().getDrawable(resId);
+//                subscriber.onNext(drawable);
+//                subscriber.onCompleted();
+//            }
+//        })
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Subscriber<Drawable>() {
+//
+//            @Override
+//            public void onCompleted() {
+//
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//
+//            }
+//
+//            @Override
+//            public void onNext(Drawable drawable) {
+//                //dosomethings
+//            }
+//        });
+//
+//
+//        //。map可以 有很多次，每次都能 执行以下 类型变换的操作
+//        //比如 我们可以通过resId把图片获取到 然后转化为Drawable返回
+//        //这种链式的模式，就是可以轻易的不断地叠加 更多复杂的操作，扩展性很强
+//        ob.map(new Func1<String, String>() {
+//            @Override
+//            public String call(String o) {
+//                return o;
+//            }
+//        });
+//
+//
+//        ob.map(new Func1<String,Observable<Drawable>>() {
+//            @Override
+//            public Observable<Drawable> call(String o) {
+//
+//                return ApiManager.getXXX(o);
+//            }
+//        });
+//
+//
+//        ob.flatMap(new Func1<String,Observable<Drawable>>() {
+//            @Override
+//            public Observable<Drawable> call(String o) {
+//
+//                return ApiManager.getXXX(o);
+//            }
+//        });
 
 
         test();

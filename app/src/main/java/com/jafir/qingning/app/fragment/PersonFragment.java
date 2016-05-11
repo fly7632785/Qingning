@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toolbar;
 
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.activity.CityPickerActivity;
@@ -25,8 +24,6 @@ public class PersonFragment extends SupportFragment{
 
      private Activity aty;
     private View layout;
-    @BindView(id = R.id.person_toolbar)
-    private Toolbar mToolbar;
     @BindView(id = R.id.fab,click = true)
     private ImageView mFab;
 

@@ -1,24 +1,33 @@
 package com.jafir.qingning.app.fragment;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toolbar;
+import android.widget.TextView;
 
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.AppContext;
+import com.jafir.qingning.app.activity.ChehangDetailActivity;
+import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
 import com.jafir.qingning.app.adapter.ChehangRecyclerAdapter;
 import com.jafir.qingning.model.bean.Chehang;
 
 import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.ui.SupportFragment;
+import org.kymjs.kjframe.ui.ViewInject;
 import org.kymjs.kjframe.utils.KJLoger;
 
 import java.util.ArrayList;
@@ -41,6 +50,7 @@ public class RentFragment extends SupportFragment {
     private int lastVisibleItem;
     private ArrayList<Object> list;
 
+
     @Override
     protected View inflaterView(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
         aty = getActivity();
@@ -48,11 +58,36 @@ public class RentFragment extends SupportFragment {
         return layout;
     }
 
-    private Handler hanlder = new Handler(){
+    private Handler hanlder = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            mSwipeLayout.setProgressViewEndTarget(false, (int) (64*aty.getResources().getDisplayMetrics().density));
+
+            switch (msg.what){
+                case 1:
+
+                    break;
+                case 2:
+                    //加载数据
+                    for (int i = 0; i < 10; i++) {
+                        Chehang c = new Chehang();
+                        c.setName("奔奔租车行" + i);
+                        c.setDesc("desc" + i);
+                        c.setDistance("[青城山]距离：" + i + "m");
+                        c.setImg(imgs[i % imgs.length]);
+                        c.setZuci("租次" + i);
+                        list.add(c);
+                    }
+                    mAdapter.notifyDataSetChanged();
+                    //加载完之后要把swip设置为默认位置
+                    mSwipeLayout.setProgressViewEndTarget(false, (int) (64 * aty.getResources().getDisplayMetrics().density));
+
+                    break;
+
+
+
+            }
+
             mSwipeLayout.setRefreshing(false);
         }
     };
@@ -60,14 +95,63 @@ public class RentFragment extends SupportFragment {
     @Override
     protected void initData() {
         super.initData();
-        mSwipeLayout.setProgressViewEndTarget(false, (int) (64*aty.getResources().getDisplayMetrics().density));
+
+        mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+
+                ViewInject.toast("click");
+                return false;
+            }
+        });
+
+        mToolbar.inflateMenu(R.menu.rent_menu);
+
+
+        SearchView searchView =
+                (SearchView) mToolbar.findViewById(R.id.ab_search);
+
+        AppCompatImageView search = (AppCompatImageView) searchView.findViewById(android.support.v7.appcompat.R.id.search_button);
+        search.setImageResource(R.mipmap.ic_search);
+        AppCompatImageView close = (AppCompatImageView) searchView.findViewById(android.support.v7.appcompat.R.id.search_close_btn);
+        close.setImageResource(R.mipmap.ic_search_clear);
+        TextView textView = (TextView) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
+        textView.setHintTextColor(Color.WHITE);
+        textView.setTextColor(Color.WHITE);
+        searchView.setQueryHint("输入商家名");
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                KJLoger.debug("close");
+                return false;
+            }
+        });
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                KJLoger.debug("query...." + query);
+
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                KJLoger.debug("changed...." + newText);
+//                mAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
+
+        mSwipeLayout.setProgressViewEndTarget(false, (int) (64 * aty.getResources().getDisplayMetrics().density));
         mSwipeLayout.setColorSchemeResources(android.R.color.holo_blue_bright, android.R.color.holo_green_light,
                 android.R.color.holo_orange_light, android.R.color.holo_red_light);
         mSwipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 // 加载数据
-                hanlder.sendEmptyMessageDelayed(1,2000);
+                hanlder.sendEmptyMessageDelayed(1, 2000);
                 KJLoger.debug("正在刷新");
 
             }
@@ -78,13 +162,20 @@ public class RentFragment extends SupportFragment {
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(manager);
         mAdapter = new ChehangRecyclerAdapter();
-         list = new ArrayList<>();
+        mAdapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                startActivity(new Intent(aty, ChehangDetailActivity.class));
+            }
+        });
+        list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             Chehang c = new Chehang();
-            c.setName("chehang" + i);
+            c.setName("奔奔租车行" + i);
             c.setDesc("desc" + i);
-            c.setDistance("距离：" + i);
+            c.setDistance("[青城山]距离：" + i + "m");
             c.setImg(imgs[i % imgs.length]);
+            c.setZuci("租次" + i);
             list.add(c);
         }
         mAdapter.setData(list);
@@ -94,35 +185,19 @@ public class RentFragment extends SupportFragment {
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
                 if (newState == RecyclerView.SCROLL_STATE_IDLE
-                        && lastVisibleItem + 1 == mAdapter.getItemCount()  && !mSwipeLayout.isRefreshing()) {
-                    mSwipeLayout.setProgressViewEndTarget(true, AppContext.screenH-400);
+                        && lastVisibleItem + 1 == mAdapter.getItemCount() && !mSwipeLayout.isRefreshing()) {
+                    mSwipeLayout.setProgressViewEndTarget(true, AppContext.screenH - 400);
                     mSwipeLayout.setRefreshing(true);
-
-                    for (int i = 0; i < 10; i++) {
-                        Chehang c = new Chehang();
-                        c.setName("chehang" + i);
-                        c.setDesc("desc" + i);
-                        c.setDistance("距离：" + i);
-                        c.setImg(imgs[i % imgs.length]);
-                        list.add(c);
-                    }
-                    mAdapter.notifyDataSetChanged();
-                    hanlder.sendEmptyMessageDelayed(1, 3000);
+                    hanlder.sendEmptyMessageDelayed(2, 2000);
                 }
             }
 
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                lastVisibleItem = ((LinearLayoutManager)recyclerView.getLayoutManager()).findLastVisibleItemPosition();
+                lastVisibleItem = ((LinearLayoutManager) recyclerView.getLayoutManager()).findLastVisibleItemPosition();
             }
         });
-
-    }
-
-    @Override
-    protected void initWidget(View parentView) {
-        super.initWidget(parentView);
 
     }
 

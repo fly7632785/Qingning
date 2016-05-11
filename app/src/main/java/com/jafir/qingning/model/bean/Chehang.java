@@ -9,7 +9,16 @@ public class Chehang {
     private String img;
     private String desc;
     private String distance;
+    private String zuci;
 
+
+    public String getZuci() {
+        return zuci;
+    }
+
+    public void setZuci(String zuci) {
+        this.zuci = zuci;
+    }
 
     public String getName() {
         return name;

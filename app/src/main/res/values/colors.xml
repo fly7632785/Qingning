@@ -20,8 +20,9 @@
     <color name="yellow">#FFF7D23E</color>
     <color name="green">#FF34A350</color>
     <color name="black">#000000</color>
+    <color name="light_black">#50000000</color>
     <color name="white">#ffffff</color>
-    <color name="gray">#109e9e9e</color>
+    <color name="gray">#159e9e9e</color>
 
     <color name="bt_updown">#1e000000</color>
 

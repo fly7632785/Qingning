@@ -2,43 +2,76 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
     android:layout_marginTop="5dp"
-    android:layout_marginBottom="5dp"
-    app:cardCornerRadius="5dp"
+    android:background="@drawable/bt_selector"
     android:elevation="2dp"
-    android:layout_height="120dp">
+    app:cardCornerRadius="5dp">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
 
         <ImageView
             android:id="@+id/item_chehang_img"
-            android:layout_width="90dp"
-            android:src="@mipmap/ic_launcher"
-            android:layout_height="90dp" />
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@mipmap/ic_launcher" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:text="123123"
-            android:id="@+id/item_chehang_name"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:id="@+id/item_chehang_desc"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:id="@+id/item_chehang_distance"
-            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="30dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginTop="15dp"
+                android:id="@+id/item_chehang_name"
+                android:layout_width="wrap_content"
+                android:text="奔奔租车行"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:textSize="12dp"
+                android:id="@+id/item_chehang_distance"
+                android:layout_width="wrap_content"
+                android:text="[青城山]距离500m"
+                android:layout_height="wrap_content" />
+            <View style="@style/line"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/item_chehang_zuci"
+                    android:text="租次203"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="查看"
+                    android:gravity="center"
+                    android:id="@+id/item_chehang_check"
+                    android:textColor="@color/yellow"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
-
 
 
 </android.support.v7.widget.CardView>

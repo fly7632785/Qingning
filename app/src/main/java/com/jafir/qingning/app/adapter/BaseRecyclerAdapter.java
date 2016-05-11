@@ -25,6 +25,18 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter {
         this.mDatas = list;
     }
 
+    public ArrayList<T> getmDatas() {
+        if(mDatas==null){
+            return null;
+        }
+        return mDatas;
+    }
+
+    public void updateData(ArrayList<T> list){
+        this.mDatas = list;
+        notifyDataSetChanged();
+    }
+
 
     @Override
     public long getItemId(int arg0) {
