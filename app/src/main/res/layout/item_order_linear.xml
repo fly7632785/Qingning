@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingTop="5dp"
+    android:layout_height="match_parent">
+
+    
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="普通山地车"
+        android:textColor="@color/black"
+        android:id="@+id/item_order_linear_name"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="￥5/h"
+            android:id="@+id/item_order_linear_price"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:text="X10"
+            android:id="@+id/item_order_linear_count"
+            android:layout_height="wrap_content" />
+
+
+
+    </LinearLayout>
+</LinearLayout>

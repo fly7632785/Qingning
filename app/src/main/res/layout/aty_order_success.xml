@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/colorPrimary"
+        app:title="预定成功"
+        app:titleTextColor="@color/white">
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:src="@mipmap/ic_launcher" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="预定成功" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp"
+            android:text="取车时间剩余" />
+        <com.jafir.qingning.app.view.TimeView
+            android:id="@+id/order_success_time"
+            android:layout_width="wrap_content"
+            app:time="30"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp"
+           />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/order_success_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="80dp"
+        android:drawableRight="@mipmap/ic_locate"
+        android:padding="10dp"
+        android:text="分享发红包哦"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp" />
+
+
+    <TextView
+        android:id="@+id/order_success_go_order_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="查看预定详情"
+        android:textColor="@color/colorPrimary" />
+
+
+</LinearLayout>
+
+

@@ -98,13 +98,14 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter {
         notifyDataSetChanged();
     }
 
+
     public interface OnItemClickListener{
         void onItemClick(View view, int position);
 
     }
 
 
-    protected static OnItemClickListener mOnItemClickListener = null;
+    protected  OnItemClickListener mOnItemClickListener = null;
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         mOnItemClickListener = listener;

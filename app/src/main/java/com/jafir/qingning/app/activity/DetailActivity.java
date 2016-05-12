@@ -5,11 +5,18 @@ import android.support.v7.widget.Toolbar;
 import com.jafir.qingning.R;
 
 import org.kymjs.kjframe.SupportActivity;
+import org.kymjs.kjframe.ui.BindView;
 
 /**
  * Created by jafir on 16/4/19.
  */
 public class DetailActivity extends SupportActivity {
+
+
+
+
+    @BindView(id = R.id.toolbar)
+    private Toolbar mToolbar;
 
 
     @Override
@@ -21,7 +28,6 @@ public class DetailActivity extends SupportActivity {
     @Override
     public void initData() {
         super.initData();
-        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(mToolbar);
     }
 }

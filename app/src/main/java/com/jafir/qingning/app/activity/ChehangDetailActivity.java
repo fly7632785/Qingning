@@ -1,5 +1,6 @@
 package com.jafir.qingning.app.activity;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -7,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.jafir.qingning.R;
 
@@ -28,6 +30,8 @@ public class ChehangDetailActivity extends SupportActivity {
     private ViewPager mViewpager;
     private ArrayList<View> viewList;
     private ArrayList<String> titleList;
+    @BindView(id = R.id.chehang_detail_xuanche,click = true)
+    private TextView mGoChooseBike;
 
     @BindView(id = R.id.chehang_detail_tab)
     private TabLayout mTabLayout;
@@ -77,9 +81,18 @@ public class ChehangDetailActivity extends SupportActivity {
 
 
 
-
     }
 
+    @Override
+    public void widgetClick(View v) {
+        super.widgetClick(v);
+        switch (v.getId()){
+            case R.id.chehang_detail_xuanche:
+                startActivity(new Intent(aty,ChooseBikeActivity.class));
+                break;
+
+        }
+    }
 
     PagerAdapter pagerAdapter = new PagerAdapter() {
 

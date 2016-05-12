@@ -27,46 +27,66 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingLeft="30dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="30dp">
+
             <TextView
-                android:layout_marginTop="15dp"
                 android:id="@+id/item_chehang_name"
                 android:layout_width="wrap_content"
-                android:text="奔奔租车行"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:layout_marginTop="5dp"
-                android:textSize="12dp"
-                android:id="@+id/item_chehang_distance"
-                android:layout_width="wrap_content"
-                android:text="[青城山]距离500m"
-                android:layout_height="wrap_content" />
-            <View style="@style/line"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="奔奔租车行" />
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                >
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:id="@+id/item_chehang_distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2
+                    "
+                    android:layout_marginTop="5dp"
+                    android:text="距您约500m"
+                    android:textSize="12dp" />
+                <TextView
+                    android:id="@+id/item_chehang_least_price"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="5/h起"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <View
+                style="@style/line"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
                     android:id="@+id/item_chehang_zuci"
-                    android:text="租次203"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="租次203" />
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:text="查看"
-                    android:gravity="center"
                     android:id="@+id/item_chehang_check"
-                    android:textColor="@color/yellow"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="查看"
+                    android:textColor="@color/yellow" />
             </LinearLayout>
 
         </LinearLayout>
