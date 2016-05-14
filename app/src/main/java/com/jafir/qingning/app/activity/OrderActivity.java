@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jafir.qingning.R;
+import com.jafir.qingning.app.manager.ActivityManager;
 import com.jafir.qingning.model.bean.Bike;
 
 import org.kymjs.kjframe.SupportActivity;
@@ -79,7 +80,9 @@ public class OrderActivity extends SupportActivity {
         switch (v.getId()){
             case R.id.order_done:
                 startActivity(new Intent(aty,OrderSuccessActivity.class));
-                aty.finish();
+                ActivityManager.getScreenManager().popActivity(ChooseBikeActivity.class);
+                ActivityManager.getScreenManager().popActivity(ChehangDetailActivity.class);
+                ActivityManager.getScreenManager().popActivity(this);
                 break;
         }
     }

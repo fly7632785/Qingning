@@ -13,7 +13,6 @@ import com.jafir.qingning.app.fragment.EventFragment;
 import com.jafir.qingning.app.fragment.PersonFragment;
 import com.jafir.qingning.app.fragment.RentFragment;
 
-import org.kymjs.kjframe.SupportActivity;
 import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.ui.KJActivityStack;
 import org.kymjs.kjframe.ui.SupportFragment;
@@ -27,7 +26,7 @@ import rx.functions.Func1;
 /**
  * Created by jafir on 16/4/18.
  */
-public class MainActivity extends SupportActivity {
+public class MainActivity extends BaseActivity {
 
 
     /**

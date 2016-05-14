@@ -1,20 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:toolbar="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
+    android:id="@+id/coordinator"
     android:layout_height="match_parent">
 
-
-    <android.support.v7.widget.Toolbar
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:toolbar="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:id="@+id/event_toolbar"
-        toolbar:title="event"
-        toolbar:titleTextColor="@color/white"
-        android:background="@color/colorPrimary"
-        android:layout_height="@dimen/toolbar_height"></android.support.v7.widget.Toolbar>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="event"
-        android:layout_height="wrap_content" />
-</LinearLayout>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/event_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="@color/colorPrimary"
+            toolbar:title="event"
+            toolbar:titleTextColor="@color/white" />
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            </android.support.v7.widget.RecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="45dp"
+        app:layout_anchor="@+id/coordinator"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:id="@+id/fab"
+        android:layout_marginBottom="@dimen/fab_margin"
+        app:layout_anchorGravity="bottom|right|end"
+        android:layout_height="45dp" />
+</android.support.design.widget.CoordinatorLayout>

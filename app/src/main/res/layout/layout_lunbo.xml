@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fpi="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/event_viewpager_height"></android.support.v4.view.ViewPager>
+
+    <com.flyco.pageindicator.indicator.FlycoPageIndicaor
+        android:id="@+id/page_indicator"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_alignBottom="@+id/view_pager"
+        android:layout_centerHorizontal="true"
+        fpi:fpi_cornerRadius="4dp"
+        fpi:fpi_gap="5dp"
+        fpi:fpi_height="5dp"
+        fpi:fpi_selectColor="@color/colorAccent"
+        fpi:fpi_unselectColor="@color/white"
+        fpi:fpi_width="5dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical"
+        android:layout_below="@+id/view_pager"
+        android:layout_height="20dp">
+
+        <View android:layout_width="8dp"
+            android:background="@color/colorPrimary"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="最新活动"
+            android:layout_marginLeft="8dp"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</RelativeLayout>

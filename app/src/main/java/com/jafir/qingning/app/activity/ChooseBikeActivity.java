@@ -12,7 +12,6 @@ import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
 import com.jafir.qingning.app.adapter.BikeRecyclerAdapter;
 import com.jafir.qingning.model.bean.Bike;
 
-import org.kymjs.kjframe.SupportActivity;
 import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.utils.KJLoger;
 
@@ -21,7 +20,7 @@ import java.util.ArrayList;
 /**
  * Created by jafir on 16/5/12.
  */
-public class ChooseBikeActivity extends SupportActivity {
+public class ChooseBikeActivity extends BaseActivity {
 
 
     @BindView(id = R.id.toolbar)
@@ -111,7 +110,7 @@ public class ChooseBikeActivity extends SupportActivity {
         startActivity(intent);
     }
 
-    String[] imgs = new String[]{
+    public  static  String[] imgs = new String[]{
             "http://img3.imgtn.bdimg.com/it/u=2484382233,4084850626&fm=21&gp=0.jpg",
             "http://img1.imgtn.bdimg.com/it/u=2483737534,1930849873&fm=21&gp=0.jpg",
             "http://img1.imgtn.bdimg.com/it/u=1032061705,2918501124&fm=21&gp=0.jpg",

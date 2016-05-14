@@ -34,6 +34,7 @@ public class OrderSuccessActivity extends SupportActivity {
     public void initData() {
         super.initData();
         mTime.setTime(30*60);
+//        mTime.setTime(10);
         mTime.reStart();
 
 

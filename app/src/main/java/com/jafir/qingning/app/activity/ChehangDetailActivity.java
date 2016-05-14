@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.jafir.qingning.R;
 
-import org.kymjs.kjframe.SupportActivity;
 import org.kymjs.kjframe.ui.BindView;
 
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ import java.util.ArrayList;
 /**
  * Created by jafir on 16/5/10.
  */
-public class ChehangDetailActivity extends SupportActivity {
+public class ChehangDetailActivity extends BaseActivity {
 
 
     @BindView(id = R.id.toolbar)

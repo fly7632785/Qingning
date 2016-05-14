@@ -20,7 +20,6 @@ import java.util.ArrayList;
 public class ChehangRecyclerAdapter extends BaseRecyclerAdapter implements Filterable {
 
 
-
     @Override
     public RecyclerView.ViewHolder createMyViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.item_chehang_recycler, parent, false);

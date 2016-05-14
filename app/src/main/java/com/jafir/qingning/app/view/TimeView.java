@@ -86,7 +86,7 @@ public class TimeView extends TextView {
                         Message message = handler.obtainMessage(1);
                         handler.sendMessageDelayed(message, 1000);
                     } else {
-                        setVisibility(View.GONE);
+//                        setVisibility(View.GONE);
                     }
                     break;
                 default:
