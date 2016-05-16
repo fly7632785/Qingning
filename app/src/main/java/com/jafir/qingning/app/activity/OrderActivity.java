@@ -35,7 +35,7 @@ public class OrderActivity extends SupportActivity {
 
     @Override
     public void setRootView() {
-        setContentView(R.layout.aty_order_detail);
+        setContentView(R.layout.aty_order);
     }
 
 

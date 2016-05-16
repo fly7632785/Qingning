@@ -1,5 +1,6 @@
 package com.jafir.qingning.app.activity;
 
+import android.content.Intent;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
@@ -47,8 +48,10 @@ public class OrderSuccessActivity extends SupportActivity {
 
         switch (v.getId()){
             case R.id.order_success_go_order_detail:
+                startActivity(new Intent(aty,OrderDetailActivity.class));
                 break;
             case R.id.order_success_share:
+
                 break;
         }
 

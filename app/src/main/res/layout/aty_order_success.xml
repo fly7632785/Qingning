@@ -77,6 +77,11 @@
         android:padding="5dp"
         android:text="查看预定详情"
         android:textColor="@color/colorPrimary" />
+    <View
+        android:background="@color/colorPrimary"
+        android:layout_marginLeft="150dp"
+        android:layout_marginRight="150dp"
+        style="@style/line"/>
 
 
 </LinearLayout>
