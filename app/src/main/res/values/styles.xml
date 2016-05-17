@@ -21,11 +21,15 @@
 
 
 
+    <!--ratingbar-->
+    <style name="foodRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/ratingbar</item>
+        <item name="android:maxHeight">12dp</item>
+        <item name="android:minHeight">12dp</item>
+    </style>
+
 
     <!--toolbar-->
-
-
-
 
     <style name="GalaxyZooThemeToolbarDarkOverflow" parent="Theme.AppCompat.NoActionBar">
         <!-- android:textColorPrimary is the  color of the title text
@@ -78,9 +82,9 @@
     </style>
     <style name="chehang_detail_desc">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_marginTop">10dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginLeft">10dp</item>
     </style>
 
     <style name="chehang_detail_line">

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/nestedScroll1"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -7,123 +8,60 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp"
+        >
 
+        <View style="@style/line"
+            android:layout_marginTop="20dp"
+            />
 
-        <TextView
-            style="@style/chehang_detail_title"
-            android:text="地址" />
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <ImageView
+                android:src="@mipmap/ic_launcher"
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
 
-        <TextView
-            android:id="@+id/chehang_detail_address"
-            style="@style/chehang_detail_desc"
-            android:text="青城山上善栖" />
+            <TextView
+                style="@style/chehang_detail_desc"
+                android:text="青城山上善栖100米" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <ImageView
+                android:src="@mipmap/ic_launcher"
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
 
-        <TextView
-            style="@style/chehang_detail_title"
-            android:layout_marginTop="15dp"
-            android:text="电话" />
+            <TextView
+                style="@style/chehang_detail_desc"
+                android:text="13982004324   " />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <ImageView
+                android:src="@mipmap/ic_launcher"
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
 
-        <TextView
-            android:id="@+id/chehang_detail_phone"
-            style="@style/chehang_detail_desc"
-
-            android:text="13982004324" />
-
-        <TextView
-            style="@style/chehang_detail_title"
-            android:layout_marginTop="15dp"
-            android:text="介绍" />
-
-        <TextView
-            android:id="@+id/chehang_detail_introduce"
-            style="@style/chehang_detail_desc"
-            android:text="奔奔车行车型丰富安全，包括：山地自行车、变速自行车、
-女式自行车、多人自行车、电动车等可供租用，欢迎租车！" />
-
-        <TextView
-            style="@style/chehang_detail_title"
-            android:text="地址" />
-
-        <TextView
-            style="@style/chehang_detail_desc"
-            android:text="青城山上善栖" />
-
-        <TextView
-            style="@style/chehang_detail_title"
-            android:layout_marginTop="15dp"
-            android:text="电话" />
-
-        <TextView
-            style="@style/chehang_detail_desc"
-
-            android:text="13982004324" />
-
-        <TextView
-            style="@style/chehang_detail_title"
-            android:layout_marginTop="15dp"
-            android:text="介绍" />
-
-        <TextView
-            style="@style/chehang_detail_desc"
-            android:text="奔奔车行车型丰富安全，包括：山地自行车、变速自行车、
-女式自行车、多人自行车、电动车等可供租用，欢迎租车！" />
-
-        <TextView
-            style="@style/chehang_detail_title"
-            android:text="地址" />
-
-        <TextView
-            style="@style/chehang_detail_desc"
-            android:text="青城山上善栖" />
-
-        <TextView
-            style="@style/chehang_detail_title"
-            android:layout_marginTop="15dp"
-            android:text="电话" />
-
-        <TextView
-            style="@style/chehang_detail_desc"
-
-            android:text="13982004324" />
-
-        <TextView
-            style="@style/chehang_detail_title"
-            android:layout_marginTop="15dp"
-            android:text="介绍" />
-
-        <TextView
-            style="@style/chehang_detail_desc"
-            android:text="奔奔车行车型丰富安全，包括：山地自行车、变速自行车、
-女式自行车、多人自行车、电动车等可供租用，欢迎租车！" />
-
-        <TextView
-            style="@style/chehang_detail_title"
-            android:text="地址" />
-
-        <TextView
-            style="@style/chehang_detail_desc"
-            android:text="青城山上善栖" />
-
-        <TextView
-            style="@style/chehang_detail_title"
-            android:layout_marginTop="15dp"
-            android:text="电话" />
-
-        <TextView
-            style="@style/chehang_detail_desc"
-
-            android:text="13982004324" />
-
-        <TextView
-            style="@style/chehang_detail_title"
-            android:layout_marginTop="15dp"
-            android:text="介绍" />
-
-        <TextView
-            style="@style/chehang_detail_desc"
-            android:text="奔奔车行车型丰富安全，包括：山地自行车、变速自行车、
-女式自行车、多人自行车、电动车等可供租用，欢迎租车！" />
+            <TextView
+                style="@style/chehang_detail_desc"
+                android:text="8:00AM-10:30PM" />
+        </LinearLayout>
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

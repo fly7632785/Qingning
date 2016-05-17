@@ -2,6 +2,7 @@ package com.jafir.qingning.app.activity;
 
 import android.content.Intent;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 
@@ -37,8 +38,8 @@ public class OrderSuccessActivity extends SupportActivity {
         mTime.setTime(30*60);
 //        mTime.setTime(10);
         mTime.reStart();
-
-
+        mGo.setText(Html.fromHtml("<u>使用html实现下划线样式</u>"));
+//        mGo.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);//下划线
 
     }
 

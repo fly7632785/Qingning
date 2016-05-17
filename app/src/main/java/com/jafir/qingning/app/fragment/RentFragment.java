@@ -150,7 +150,7 @@ public class RentFragment extends SupportFragment {
         mSwipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                // 加载数据
+                // 刷新加载数据
                 hanlder.sendEmptyMessageDelayed(1, 2000);
                 KJLoger.debug("正在刷新");
 
@@ -188,6 +188,7 @@ public class RentFragment extends SupportFragment {
                         && lastVisibleItem + 1 == mAdapter.getItemCount() && !mSwipeLayout.isRefreshing()) {
                     mSwipeLayout.setProgressViewEndTarget(true, AppContext.screenH - 400);
                     mSwipeLayout.setRefreshing(true);
+                    //网络请求  加载更多数据
                     hanlder.sendEmptyMessageDelayed(2, 2000);
                 }
             }
@@ -203,14 +204,14 @@ public class RentFragment extends SupportFragment {
 
 
     String[] imgs = new String[]{
-            "http://img1.imgtn.bdimg.com/it/u=778667008,2576582091&fm=11&gp=0.jpg",
-            "http://img0.imgtn.bdimg.com/it/u=2710176087,2375657815&fm=11&gp=0.jpg",
-            "http://img4.imgtn.bdimg.com/it/u=1976928526,3694285366&fm=11&gp=0.jpg",
-            "http://img2.imgtn.bdimg.com/it/u=420941773,639909175&fm=11&gp=0.jpg",
-            "http://img0.imgtn.bdimg.com/it/u=3965374379,1508737823&fm=11&gp=0.jpg",
-            "http://img5.imgtn.bdimg.com/it/u=976617532,2015171899&fm=21&gp=0.jpg",
-            "http://img4.imgtn.bdimg.com/it/u=1004958281,780364475&fm=21&gp=0.jpg",
-            "http://img4.imgtn.bdimg.com/it/u=896221891,1227406065&fm=11&gp=0.jpg"
+            "http://img1.imgtn.bdimg.com/it/u=1089582262,166446285&fm=21&gp=0.jpg",
+            "http://img5.imgtn.bdimg.com/it/u=3603943369,1952417318&fm=21&gp=0.jpg",
+            "http://img5.imgtn.bdimg.com/it/u=1390800033,3298177266&fm=21&gp=0.jpg",
+            "http://img0.imgtn.bdimg.com/it/u=1584429376,3184583112&fm=21&gp=0.jpg",
+            "http://img5.imgtn.bdimg.com/it/u=3999722898,2097813441&fm=21&gp=0.jpg",
+            "http://img0.imgtn.bdimg.com/it/u=1599679285,12778853&fm=21&gp=0.jpg",
+            "http://img3.imgtn.bdimg.com/it/u=1003865389,4203869868&fm=21&gp=0.jpg",
+            "http://img4.imgtn.bdimg.com/it/u=3910218416,3261859686&fm=21&gp=0.jpg"
     };
 
 
