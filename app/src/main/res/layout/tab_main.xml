@@ -63,32 +63,32 @@
 
 
 
-    <!--<LinearLayout-->
-        <!--android:id="@+id/ly_tab_menu_show"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_weight="1"-->
-        <!--android:gravity="center">-->
+    <LinearLayout
+        android:id="@+id/ly_tab_menu_show"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center">
 
-        <!--<RelativeLayout-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:padding="5dp">-->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="5dp">
 
-            <!--<TextView-->
-                <!--android:id="@+id/tab_menu_show"-->
-                <!--style="@style/tab_text_style"-->
-                <!--android:drawableTop="@drawable/selector_tab_guangde"-->
-                <!--android:text="@string/tab_show" />-->
+            <TextView
+                android:id="@+id/tab_menu_show"
+                style="@style/tab_text_style"
+                android:drawableTop="@drawable/selector_tab_guangde"
+                android:text="@string/tab_show" />
 
-            <!--<TextView-->
-                <!--android:id="@+id/tab_menu_guangde_num"-->
-                <!--style="@style/tab_text_xiaoxi_bgnum"-->
-                <!--android:layout_toRightOf="@+id/tab_menu_show"-->
-                <!--android:text="99+"-->
-                <!--android:visibility="invisible" />-->
-        <!--</RelativeLayout>-->
-    <!--</LinearLayout>-->
+            <TextView
+                android:id="@+id/tab_menu_guangde_num"
+                style="@style/tab_text_xiaoxi_bgnum"
+                android:layout_toRightOf="@+id/tab_menu_show"
+                android:text="99+"
+                android:visibility="invisible" />
+        </RelativeLayout>
+    </LinearLayout>
 
 
     <LinearLayout

@@ -15,22 +15,39 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/toolbar_height"
+            android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
-            app:navigationIcon="@mipmap/ic_back"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:title="预定详情"
             app:titleTextColor="@color/white">
 
         </android.support.v7.widget.Toolbar>
 
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="车辆信息" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <View style="@style/line" />
+            
+            <ImageView
+                android:layout_width="30dp"
+                android:padding="5dp"
+                android:src="@mipmap/reservation_message_bike_message"
+                android:layout_height="30dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="车辆信息" />
+
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:background="@mipmap/pay_color_bar"
+            android:layout_height="2dp"/>
 
 
         <!--插入车辆信息的layout-->
@@ -53,5 +70,8 @@
         android:background="@color/colorPrimary"
         android:gravity="center"
         android:text="提交预定"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="15dp"
         android:textColor="@color/white" />
 </RelativeLayout>

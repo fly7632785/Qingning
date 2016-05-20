@@ -3,8 +3,8 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:toolbar="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
     android:id="@+id/coordinator"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -17,10 +17,12 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/event_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/toolbar_height"
+            android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
             toolbar:title="event"
-            toolbar:titleTextColor="@color/white" />
+            toolbar:titleTextColor="@color/white">
+
+        </android.support.v7.widget.Toolbar>
 
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipeLayout"
@@ -40,11 +42,11 @@
 
 
     <android.support.design.widget.FloatingActionButton
-        android:layout_width="45dp"
-        app:layout_anchor="@+id/coordinator"
-        android:layout_marginRight="@dimen/fab_margin"
         android:id="@+id/fab"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_marginBottom="@dimen/fab_margin"
-        app:layout_anchorGravity="bottom|right|end"
-        android:layout_height="45dp" />
+        android:layout_marginRight="@dimen/fab_margin"
+        app:layout_anchor="@+id/coordinator"
+        app:layout_anchorGravity="bottom|right|end" />
 </android.support.design.widget.CoordinatorLayout>

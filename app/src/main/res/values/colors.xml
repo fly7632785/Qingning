@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#03a9f4</color>
-    <color name="colorPrimaryDark">#0288d1</color>
+    <color name="colorPrimary">#0097ff</color>
+    <color name="colorPrimaryDark">#007dd5</color>
     <color name="colorAccent">#FF4081</color>
 
 
@@ -41,10 +41,30 @@
     <color name="pink_600">#d81b60</color>
 
 
+    <!--字体-->
+    <color name="text_color_dark_gray">#999999</color>
+    <color name="text_color_gray">#b2b2b2</color>
+    <color name="text_color_black">#353535</color>
+    <color name="text_color_light_gray">#aeb8bf</color>
 
 
     <!-- tab-->
-    <color name="tab_bg_color">#ffffff</color>
-    <color name="tab_text_color_normal">#3b3b3b</color>
-    <color name="tab_text_color_checked">#FF4081</color>
+    <color name="tab_bg_color">@color/white</color>
+    <color name="tab_text_color_normal">@color/text_color_dark_gray</color>
+    <color name="tab_text_color_checked">@color/colorPrimary</color>
+
+
+
+
+
+    <!--item chehang-->
+    <color name="item_chehang_name_color">#757575</color>
+    <color name="item_chehang_distance_color">@color/text_color_dark_gray</color>
+    <color name="item_chehang_check_color">#c2e300</color>
+    <color name="chehang_detail_text_color">@color/text_color_black</color>
+
+
+
+
+
 </resources>

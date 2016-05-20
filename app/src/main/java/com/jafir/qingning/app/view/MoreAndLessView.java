@@ -19,7 +19,7 @@ public class MoreAndLessView extends LinearLayout implements View.OnClickListene
     private ImageView left;
     private TextView text;
     private int count;
-    private int leftImg0 = R.mipmap.ic_locate;
+    private int leftImg0 = R.mipmap.ic_launcher;
     private int leftImg = R.mipmap.ic_launcher;
     private int rightImg = R.mipmap.ic_launcher;
     private Context context;
@@ -68,6 +68,9 @@ public class MoreAndLessView extends LinearLayout implements View.OnClickListene
         this.leftImg = leftImg;
         this.leftImg0 = leftImg0;
         this.rightImg = rightImg;
+
+        left.setImageResource(leftImg0);
+        right.setImageResource(rightImg);
     }
 
     public int getCount() {
@@ -77,12 +80,22 @@ public class MoreAndLessView extends LinearLayout implements View.OnClickListene
 
     public void setImgSize(int size) {
         size = (int) (size * context.getResources().getDisplayMetrics().density);
-        left.setLayoutParams(new ViewGroup.LayoutParams(size, size));
-        right.setLayoutParams(new ViewGroup.LayoutParams(size, size));
+        left.setLayoutParams(new LayoutParams(size, size));
+        right.setLayoutParams(new LayoutParams(size, size));
     }
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public void changeCount(int count){
+        this.count = count;
+        text.setText(""+count);
+        if(count == 0){
+            left.setImageResource(leftImg0);
+        }else {
+            left.setImageResource(leftImg);
+        }
     }
 
 

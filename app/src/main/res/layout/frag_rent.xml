@@ -13,7 +13,17 @@
         toolbar:title="rent"
         toolbar:titleTextColor="@color/white"
         android:background="@color/colorPrimary"
-        android:layout_height="@dimen/toolbar_height"></android.support.v7.widget.Toolbar>
+        android:layout_height="?attr/actionBarSize">
+        <!--<ImageView-->
+            <!--android:layout_width="30dp"-->
+            <!--android:padding="5dp"-->
+            <!--android:layout_marginTop="2dp"-->
+            <!--android:src="@mipmap/common_locate"-->
+            <!--android:id="@+id/rent_locate"-->
+            <!--android:layout_gravity="right|center_vertical"-->
+            <!--android:layout_height="30dp" />-->
+
+    </android.support.v7.widget.Toolbar>
 
     <android.support.v4.widget.SwipeRefreshLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

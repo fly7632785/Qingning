@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:gravity="center_vertical"
+   >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+       >
+
+        <org.kymjs.kjframe.widget.RoundImageView
+            android:id="@+id/item_comment_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/common_locate" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/item_comment_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jafir"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp" />
+
+            <TextView
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/item_comment_time"
+                android:text="5楼 · 05.12 11：09 "
+                android:textColor="@color/tab_text_color_normal" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="13sp"
+        android:layout_width="match_parent"
+        android:id="@+id/item_comment_content"
+        android:text="评论评评论评论评论评论评论评论评论评论评论评论评论评论论评论评论"
+        android:textColor="@color/chehang_detail_text_color"
+        android:layout_height="wrap_content" />
+</LinearLayout>

@@ -34,6 +34,7 @@
                 android:id="@+id/item_chehang_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/item_chehang_name_color"
                 android:layout_marginTop="15dp"
                 android:text="奔奔租车行" />
 
@@ -46,6 +47,7 @@
                 <TextView
                     android:id="@+id/item_chehang_distance"
                     android:layout_width="wrap_content"
+                    android:textColor="@color/item_chehang_distance_color"
                     android:layout_height="wrap_content"
                     android:layout_weight="2
                     "
@@ -55,7 +57,8 @@
                 <TextView
                     android:id="@+id/item_chehang_least_price"
                     android:layout_width="wrap_content"
-                    android:layout_weight="3"
+                    android:layout_weight="2"
+                    android:textColor="@color/item_chehang_distance_color"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="5/h起"
@@ -77,6 +80,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/item_chehang_name_color"
                     android:text="租次203" />
 
                 <TextView
@@ -86,7 +90,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="查看"
-                    android:textColor="@color/yellow" />
+                    android:textColor="@color/item_chehang_check_color" />
             </LinearLayout>
 
         </LinearLayout>

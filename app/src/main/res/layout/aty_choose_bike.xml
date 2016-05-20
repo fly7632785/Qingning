@@ -9,11 +9,11 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         app:title="选择车辆"
-        app:navigationIcon="@mipmap/ic_back"
         app:titleTextColor="@color/white"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/toolbar_height"></android.support.v7.widget.Toolbar>
+        android:layout_height="?attr/actionBarSize"></android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
@@ -44,14 +44,13 @@
             android:paddingLeft="20dp"
             android:gravity="center_vertical"
             android:layout_height="match_parent" />
-        <TextView
+        <ImageView
             android:layout_width="0dp"
-            android:text="去预定"
             android:id="@+id/choose_bike_go_order"
             android:gravity="center"
-            android:background="@color/colorPrimary"
+            android:padding="5dp"
             android:layout_weight="1"
-            android:textColor="@color/white"
+            android:src="@mipmap/choose_bike_arrow"
             android:layout_height="match_parent" />
 
     </LinearLayout>

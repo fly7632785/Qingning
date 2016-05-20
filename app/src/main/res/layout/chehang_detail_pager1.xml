@@ -14,17 +14,16 @@
         >
 
         <View style="@style/line"
-            android:layout_marginTop="20dp"
             />
 
         <LinearLayout
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal">
             <ImageView
-                android:src="@mipmap/ic_launcher"
+                android:src="@mipmap/store_locate"
                 android:layout_width="24dp"
                 android:layout_height="24dp" />
 
@@ -39,7 +38,8 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
             <ImageView
-                android:src="@mipmap/ic_launcher"
+                android:padding="1dp"
+                android:src="@mipmap/store_phone"
                 android:layout_width="24dp"
                 android:layout_height="24dp" />
 
@@ -54,7 +54,8 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
             <ImageView
-                android:src="@mipmap/ic_launcher"
+                android:padding="1dp"
+                android:src="@mipmap/store_time"
                 android:layout_width="24dp"
                 android:layout_height="24dp" />
 

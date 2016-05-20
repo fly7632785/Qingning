@@ -33,7 +33,7 @@ public class TimeView extends TextView {
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TimeView);
         diff = a.getInteger(R.styleable.TimeView_time, 50) * 1000;
-        Log.d("TAG", "再打印  onCreate :" + diff);
+//        Log.d("TAG", "再打印  onCreate :" + diff);
 
         onCreate();
 
@@ -60,7 +60,7 @@ public class TimeView extends TextView {
     }
 
     public void log() {
-        Log.d("TAG", "再打印  log/////////////////////////////////////////////////////////////////");
+//        Log.d("TAG", "再打印  log/////////////////////////////////////////////////////////////////");
     }
 
 
@@ -76,7 +76,7 @@ public class TimeView extends TextView {
     final Handler handler = new Handler(Looper.getMainLooper()) {
 
         public void handleMessage(Message msg) {         // handle message
-            Log.d("TAG", "再打印  handleMessage");
+//            Log.d("TAG", "再打印  handleMessage");
             switch (msg.what) {
                 case 1:
                     setVisibility(View.VISIBLE);
@@ -92,7 +92,7 @@ public class TimeView extends TextView {
                 default:
                     break;
             }
-            Log.d("TAG", "再打印");
+//            Log.d("TAG", "再打印");
             super.handleMessage(msg);
         }
     };
@@ -101,7 +101,7 @@ public class TimeView extends TextView {
      * 得到时间差
      */
     private void getTime() {
-        Log.d("TAG", "再打印 :getTime");
+//        Log.d("TAG", "再打印 :getTime");
 
         try {
 
@@ -123,7 +123,7 @@ public class TimeView extends TextView {
      * 获得要显示的时间
      */
     private void getShowTime() {
-        Log.d("TAG", "再打印 :getShowTime");
+//        Log.d("TAG", "再打印 :getShowTime");
 
         days = diff / (1000 * 60 * 60 * 24);
         hours = (diff - days * (1000 * 60 * 60 * 24)) / (1000 * 60 * 60);
@@ -154,7 +154,7 @@ public class TimeView extends TextView {
     public void reStart(long time) {
         if (time > 0) {
             this.diff = time * 1000;
-            Log.d("TAG", "+=========================" + diff);
+//            Log.d("TAG", "+=========================" + diff);
         }
         start();
     }

@@ -8,4 +8,10 @@
         android:title="搜索"
         app:actionViewClass="android.support.v7.widget.SearchView"
         app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/ab_locate"
+        android:orderInCategory="90"
+        android:icon="@mipmap/common_locate"
+        android:title="搜索"
+        app:showAsAction="always"/>
 </menu>

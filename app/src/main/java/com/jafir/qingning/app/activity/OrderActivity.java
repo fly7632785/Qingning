@@ -42,6 +42,8 @@ public class OrderActivity extends SupportActivity {
     @Override
     public void initData() {
         super.initData();
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,7 +81,9 @@ public class OrderActivity extends SupportActivity {
         super.widgetClick(v);
         switch (v.getId()){
             case R.id.order_done:
-                startActivity(new Intent(aty,OrderSuccessActivity.class));
+                Intent intent = new Intent(aty,OrderSuccessActivity.class);
+                intent.putExtra("orderdata",mData);
+                startActivity(intent);
                 ActivityManager.getScreenManager().popActivity(ChooseBikeActivity.class);
                 ActivityManager.getScreenManager().popActivity(ChehangDetailActivity.class);
                 ActivityManager.getScreenManager().popActivity(this);

@@ -12,34 +12,44 @@
         android:orientation="vertical"
         android:layout_height="wrap_content">
 
-    <Button
-        android:layout_width="match_parent"
-        android:text="123123123123"
-        android:background="?android:attr/selectableItemBackground"
-        android:layout_height="50dp" />
-    <Button
-        android:layout_width="150dp"
-        android:layout_gravity="center_horizontal"
-        android:text="dsfasadfasdfasdfa"
-        style="@style/selectedBackground"
-        android:layout_height="50dp" />
-
-    <LinearLayout
-        android:layout_width="150dp"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center"
-        android:background="@drawable/bt_selector"
-        android:orientation="vertical"
-        android:layout_height="50dp" >
-
-
-        <TextView
+        <Button
             android:layout_width="match_parent"
-            android:text="21312"
-            android:clickable="true"
+            android:text="123123123123"
+            android:background="?android:attr/selectableItemBackground"
+            android:layout_height="50dp" />
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_gravity="center_horizontal"
+            android:text="dsfasadfasdfasdfa"
+            style="@style/selectedBackground"
+            android:layout_height="50dp" />
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
             android:background="@drawable/bt_selector"
-            android:layout_height="match_parent" />
+            android:orientation="vertical"
+            android:layout_height="50dp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="21312"
+                android:clickable="true"
+                android:background="@drawable/bt_selector"
+                android:layout_height="match_parent" />
+
+
         </LinearLayout>
+
+
+        <com.jafir.qingning.app.view.Bezier
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
     </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton

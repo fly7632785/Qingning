@@ -6,6 +6,8 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.jafir.qingning.R;
+import com.jafir.qingning.app.adapter.CommentRecyclerAdapter;
+import com.jafir.qingning.model.bean.Comment;
 
 import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.utils.KJLoger;
@@ -40,6 +44,18 @@ public class ChehangDetailActivity extends BaseActivity implements NestedScrollV
     private TabLayout mTabLayout;
     @BindView(id = R.id.chehang_detail_cover)
     private ImageView mImg;
+    private RecyclerView mCommentRecycler;
+    private CommentRecyclerAdapter mAdapter;
+    private ArrayList<Comment> comments = new ArrayList<>();
+
+     private String[] imgUrl = new String[]{
+             "http://f.hiphotos.baidu.com/image/h%3D200/sign=f3f6ab70cc134954611eef64664f92dd/dcc451da81cb39db1bd474a7d7160924ab18302e.jpg",
+             "http://b.hiphotos.baidu.com/image/h%3D200/sign=0afb9ebc4c36acaf46e091fc4cd88d03/bd3eb13533fa828b670a4066fa1f4134970a5a0e.jpg",
+             "http://img2.imgtn.bdimg.com/it/u=2147665307,4031352505&fm=23&gp=0.jpg",
+             "http://img0.imgtn.bdimg.com/it/u=2769901330,4132322556&fm=23&gp=0.jpg",
+             "http://img1.imgtn.bdimg.com/it/u=693362385,3280695814&fm=23&gp=0.jpg",
+             "http://img4.imgtn.bdimg.com/it/u=3047710011,1274531363&fm=23&gp=0.jpg"
+     };
 
     @Override
     public void setRootView() {
@@ -51,6 +67,10 @@ public class ChehangDetailActivity extends BaseActivity implements NestedScrollV
     public void initData() {
         super.initData();
 
+
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("");
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,10 +85,23 @@ public class ChehangDetailActivity extends BaseActivity implements NestedScrollV
 
         NestedScrollView n1 = (NestedScrollView) view1.findViewById(R.id.nestedScroll1);
         NestedScrollView n2 = (NestedScrollView) view2.findViewById(R.id.nestedScroll2);
-        NestedScrollView n3 = (NestedScrollView) view3.findViewById(R.id.nestedScroll3);
-        n1.setOnScrollChangeListener(this);
-        n2.setOnScrollChangeListener(this);
-        n3.setOnScrollChangeListener(this);
+
+        mCommentRecycler = (RecyclerView) view3.findViewById(R.id.recyclerview);
+        mCommentRecycler.setLayoutManager(new LinearLayoutManager(aty,LinearLayoutManager.VERTICAL,false));
+        mAdapter = new CommentRecyclerAdapter();
+        //模拟数据
+        for (int i = 0; i < 20; i++) {
+            Comment comment = new Comment();
+            comment.setName("我的名字");
+            comment.setContent("评论评论评论评论评论评论评论评论评论评论评论评论");
+            comment.setTime("2014-3-3 11:32");
+            comment.setImgUrl(imgUrl[i%imgUrl.length]);
+            comments.add(comment);
+        }
+        mAdapter.setData(comments);
+        mCommentRecycler.setAdapter(mAdapter);
+
+
 
         viewList = new ArrayList<View>();// 将要分页显示的View装入数组中
         viewList.add(view1);
@@ -157,3 +190,7 @@ public class ChehangDetailActivity extends BaseActivity implements NestedScrollV
         KJLoger.debug(""+scrollX+"\n"+scrollY+"\n"+oldScrollX+"\n"+oldScrollY);
     }
 }
+
+
+
+

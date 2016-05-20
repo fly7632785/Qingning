@@ -21,13 +21,13 @@ import android.widget.TextView;
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.AppContext;
 import com.jafir.qingning.app.activity.ChehangDetailActivity;
+import com.jafir.qingning.app.activity.CityPickerActivity;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
 import com.jafir.qingning.app.adapter.ChehangRecyclerAdapter;
 import com.jafir.qingning.model.bean.Chehang;
 
 import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.ui.SupportFragment;
-import org.kymjs.kjframe.ui.ViewInject;
 import org.kymjs.kjframe.utils.KJLoger;
 
 import java.util.ArrayList;
@@ -99,8 +99,11 @@ public class RentFragment extends SupportFragment {
         mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+                if(item.getItemId()==R.id.ab_search){
 
-                ViewInject.toast("click");
+                }else if (item.getItemId() == R.id.ab_locate){
+                    startActivity(new Intent(aty, CityPickerActivity.class));
+                }
                 return false;
             }
         });
@@ -108,11 +111,12 @@ public class RentFragment extends SupportFragment {
         mToolbar.inflateMenu(R.menu.rent_menu);
 
 
+
         SearchView searchView =
                 (SearchView) mToolbar.findViewById(R.id.ab_search);
 
         AppCompatImageView search = (AppCompatImageView) searchView.findViewById(android.support.v7.appcompat.R.id.search_button);
-        search.setImageResource(R.mipmap.ic_search);
+        search.setImageResource(R.mipmap.common_search);
         AppCompatImageView close = (AppCompatImageView) searchView.findViewById(android.support.v7.appcompat.R.id.search_close_btn);
         close.setImageResource(R.mipmap.ic_search_clear);
         TextView textView = (TextView) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
@@ -131,8 +135,8 @@ public class RentFragment extends SupportFragment {
             public boolean onQueryTextSubmit(String query) {
                 KJLoger.debug("query...." + query);
 
-
                 return false;
+
             }
 
             @Override

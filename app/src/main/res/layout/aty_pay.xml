@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:title="付款"
+            app:titleTextColor="@color/white">
+
+        </android.support.v7.widget.Toolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="5dp"
+                        android:src="@mipmap/pay_bike_message" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="车辆信息" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@mipmap/pay_color_bar"
+                    android:layout_height="2dp"/>
+
+
+                <!--插入车辆信息的layout-->
+                <LinearLayout
+                    android:id="@+id/pay_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="5dp"
+                        android:src="@mipmap/pay_discount" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="优惠折扣" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@mipmap/pay_color_bar"
+                    android:layout_height="2dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:textColor="@color/text_color_black"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_weight="3"
+                        android:padding="5dp"
+                        android:src="@mipmap/pay_discount"
+                        android:text="商家代金券" />
+
+                    <ImageView
+                        android:id="@+id/pay_store_go"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:padding="10dp"
+                        android:src="@mipmap/pay_arrow" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_weight="3"
+                        android:padding="5dp"
+                        android:textColor="@color/text_color_black"
+                        android:src="@mipmap/pay_discount"
+                        android:text="青柠红包" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:padding="10dp"
+                        android:id="@+id/pay_red_bag_go"
+                        android:src="@mipmap/pay_arrow" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="5dp"
+                        android:src="@mipmap/pay_cash" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="支付方式" />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@mipmap/pay_color_bar"
+                    android:layout_height="2dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_weight="3"
+                        android:padding="5dp"
+                        android:textColor="@color/text_color_black"
+                        android:src="@mipmap/pay_discount"
+                        android:text="在线支付" />
+
+                    <ImageView
+                        android:id="@+id/pay_way_online_go"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:padding="10dp"
+                        android:src="@mipmap/pay_style_checked" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_weight="3"
+                        android:padding="5dp"
+                        android:textColor="@color/text_color_black"
+                        android:src="@mipmap/pay_discount"
+                        android:text="青柠红包" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:id="@+id/pay_way_red_bag_go"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:padding="10dp"
+                        android:src="@mipmap/pay_style_normal" />
+                </LinearLayout>
+                <View style="@style/line" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/pay_done"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_height"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="付款80"
+        android:textColor="@color/white" />
+</RelativeLayout>

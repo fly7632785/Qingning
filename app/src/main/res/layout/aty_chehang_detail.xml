@@ -131,9 +131,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 app:layout_scrollFlags="scroll|enterAlways|snap"
-                app:navigationIcon="@mipmap/ic_launcher"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+                >
 
             </android.support.v7.widget.Toolbar>
 
@@ -143,7 +143,7 @@
         <android.support.design.widget.TabLayout
             android:id="@+id/chehang_detail_tab"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="70dp"
             android:layout_gravity="bottom"
             android:background="@color/white"
             app:tabIndicatorHeight="0dp" />
@@ -179,11 +179,16 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginRight="16dp"
-        android:src="@mipmap/ic_back"
+        app:fabSize="mini"
+        app:borderWidth="0dp"
+        app:elevation="6dp"
+        app:pressedTranslationZ="8dp"
+        android:src="@mipmap/store_arrow"
+        app:backgroundTint="@color/white"
         app:layout_anchor="@id/main_content"
         app:layout_anchorGravity="bottom|right|end" />
 

@@ -11,6 +11,6 @@
         toolbar:title="show"
         toolbar:titleTextColor="@color/white"
         android:background="@color/colorPrimary"
-        android:layout_height="@dimen/toolbar_height"></android.support.v7.widget.Toolbar>
+        android:layout_height="?attr/actionBarSize"></android.support.v7.widget.Toolbar>
 
 </LinearLayout>

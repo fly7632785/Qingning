@@ -13,7 +13,6 @@ import com.jafir.qingning.app.adapter.BikeRecyclerAdapter;
 import com.jafir.qingning.model.bean.Bike;
 
 import org.kymjs.kjframe.ui.BindView;
-import org.kymjs.kjframe.utils.KJLoger;
 
 import java.util.ArrayList;
 
@@ -26,7 +25,7 @@ public class ChooseBikeActivity extends BaseActivity {
     @BindView(id = R.id.toolbar)
     private Toolbar mToolbar;
     @BindView(id = R.id.choose_bike_go_order, click = true)
-    private TextView mGoOrder;
+    private View mGoOrder;
     @BindView(id = R.id.choose_bike_count)
     private TextView mCount;
     @BindView(id = R.id.choose_bike_recycler)
@@ -44,13 +43,15 @@ public class ChooseBikeActivity extends BaseActivity {
     @Override
     public void initData() {
         super.initData();
+
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ChooseBikeActivity.this.finish();
             }
         });
-
         LinearLayoutManager manager = new LinearLayoutManager(aty);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(manager);
@@ -70,7 +71,6 @@ public class ChooseBikeActivity extends BaseActivity {
         mAdapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                KJLoger.debug("ccccccc");
             }
         });
         mAdapter.setListener(new BikeRecyclerAdapter.TotalCountListener() {

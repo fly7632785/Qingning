@@ -4,9 +4,10 @@
     <style name="AppTheme" parent="BaseTheme">
 
         <!-- Customize your theme here. -->
-
+        <item name="searchViewStyle">@style/MySearchViewStyle</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:colorControlHighlight">@color/colorAccent</item>
+
     </style>
 
     <style name="DetailTheme" parent="AppTheme">
@@ -19,5 +20,12 @@
 
     <style name="selectedBackground">
         <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+
+
+    <style name="MySearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:searchIcon">@mipmap/ic_launcher</item>
+        <item name="android:voiceIcon">@mipmap/common_locate</item>
+        <item name="android:commitIcon">@mipmap/common_back</item>
     </style>
 </resources>

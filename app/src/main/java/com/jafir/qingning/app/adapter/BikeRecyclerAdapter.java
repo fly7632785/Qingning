@@ -11,11 +11,12 @@ import com.jafir.qingning.R;
 import com.jafir.qingning.app.view.MoreAndLessView;
 import com.jafir.qingning.model.bean.Bike;
 
+import org.kymjs.kjframe.utils.KJLoger;
+
 /**
  * Created by jafir on 16/5/10.
  */
 public class BikeRecyclerAdapter extends BaseRecyclerAdapter<Bike> {
-
 
     private int totalCount;
     private TotalCountListener listener;
@@ -23,6 +24,7 @@ public class BikeRecyclerAdapter extends BaseRecyclerAdapter<Bike> {
     @Override
     public RecyclerView.ViewHolder createMyViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.item_bike_recycler, parent, false);
+        KJLoger.debug("ceateViewHoder");
         return new ImageViewHolder(view);
     }
 
@@ -32,16 +34,20 @@ public class BikeRecyclerAdapter extends BaseRecyclerAdapter<Bike> {
         ImageViewHolder holder = (ImageViewHolder) myholder;
         holder.mMoreAndLessView.setListener(new MyListener(position));
 
-        if(mDatas == null){
+
+        if (mDatas == null) {
             return;
         }
-
         Bike bike = mDatas.get(position);
+//        KJLoger.debug("bindVIewholder:"+position+" order:"+bike.getOrderCount()+"viewhoder:"+holder.toString());
         Glide.with(mContext).load(bike.getImg()).into(holder.mImageView);
         holder.mName.setText(bike.getName());
         holder.mKind.setText(bike.getKind());
         holder.mPrice.setText(bike.getPrice());
-        holder.mSpareCount.setText("（剩余"+bike.getSpareCount()+"辆)");
+        holder.mSpareCount.setText("（剩余" + bike.getSpareCount() + "辆)");
+        holder.mMoreAndLessView.changeCount(bike.getOrderCount());
+
+
 
 
     }
@@ -72,8 +78,8 @@ public class BikeRecyclerAdapter extends BaseRecyclerAdapter<Bike> {
             mPrice = (TextView) itemView.findViewById(R.id.item_bike_price);
             mSpareCount = (TextView) itemView.findViewById(R.id.item_bike_spare_count);
             mMoreAndLessView = (MoreAndLessView) itemView.findViewById(R.id.item_bike_more_less);
-
-
+            mMoreAndLessView.setImgs(R.mipmap.choose_bike_minus, R.mipmap.choose_bike_minus_normal, R.mipmap.choose_bike_add);
+            mMoreAndLessView.setImgSize(20);
         }
     }
 
@@ -91,20 +97,23 @@ public class BikeRecyclerAdapter extends BaseRecyclerAdapter<Bike> {
             mDatas.get(position).setOrderCount(count);
             calcTotalCount();
             listener.onTotalCountChanged(totalCount);
+
+
+
         }
     }
 
 
     private int calcTotalCount() {
         totalCount = 0;
-        for(Bike bike : mDatas){
-            totalCount +=bike.getOrderCount();
+        for (Bike bike : mDatas) {
+            totalCount += bike.getOrderCount();
         }
         return totalCount;
     }
 
 
-    public interface TotalCountListener{
+    public interface TotalCountListener {
         void onTotalCountChanged(int totalCount);
     }
 

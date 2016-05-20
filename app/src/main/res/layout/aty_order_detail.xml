@@ -10,9 +10,9 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/toolbar_height"
+        android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        app:navigationIcon="@mipmap/ic_back"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:title="预定详情"
         app:titleTextColor="@color/white" />
 
@@ -21,6 +21,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:background="@mipmap/reservation_detail_bg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -41,10 +42,11 @@
 
 
                     <ImageView
+                        android:id="@+id/order_detail_state1_img"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_marginTop="10dp"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@mipmap/reservation_details_tick_checked" />
 
                     <View
                         android:layout_width="2dp"
@@ -85,6 +87,7 @@
 
                             <TextView
                                 android:id="@+id/order_detail_state1_time"
+                                style="@style/order_detail_text"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
@@ -111,58 +114,6 @@
                             android:layout_marginTop="10dp"
                             android:orientation="vertical">
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="普通山地自行车" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="20dp"
-                                    android:text="X6  5/h" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="普通山地自行车" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="20dp"
-                                    android:text="X6  5/h" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="普通山地自行车" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="20dp"
-                                    android:text="X6  5/h" />
-                            </LinearLayout>
 
                         </LinearLayout>
 
@@ -186,10 +137,11 @@
 
 
                     <ImageView
+                        android:id="@+id/order_detail_state2_img"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_marginTop="10dp"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@mipmap/reservation_details_tick_checked" />
 
                     <View
                         android:layout_width="2dp"
@@ -230,8 +182,8 @@
 
                             <TextView
                                 android:id="@+id/order_detail_state2_time"
+                                style="@style/order_detail_text"
                                 android:layout_width="0dp"
-
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
                                 android:gravity="center_vertical|right"
@@ -278,6 +230,108 @@
 
             </LinearLayout>
 
+
+            <LinearLayout
+
+                android:id="@+id/order_detail_spend_linear"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:id="@+id/order_detail_spend_img"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@mipmap/reservation_details_tick_checked" />
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorAccent" />
+                </LinearLayout>
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="15dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/order_detail_spend_time"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:layout_weight="1"
+                                android:gravity="right"
+                                android:text="已行驶时间"
+                                android:textColor="#c2e300"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="34：09"
+                                android:textColor="@color/text_color_dark_gray"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:layout_weight="1"
+                                android:gravity="right"
+                                android:text="花费"
+                                android:textColor="#c2e300"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/order_detail_spend_money"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="￥30元"
+                                android:textColor="@color/text_color_dark_gray"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
             <LinearLayout
 
                 android:layout_width="match_parent"
@@ -292,10 +346,11 @@
 
 
                     <ImageView
+                        android:id="@+id/order_detail_state3_img"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_marginTop="10dp"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@mipmap/reservation_description_tick_normal" />
 
 
                 </LinearLayout>
@@ -333,8 +388,8 @@
 
                             <TextView
                                 android:id="@+id/order_detail_state3_time"
+                                style="@style/order_detail_text"
                                 android:layout_width="0dp"
-
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
                                 android:gravity="center_vertical|right"
@@ -348,29 +403,30 @@
                             android:layout_marginBottom="5dp"
                             android:layout_marginTop="5dp" />
 
-                        <LinearLayout
+                        <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-
-                            >
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:id="@+id/order_detail_state3_end"
-                                android:layout_width="0dp"
+                                android:layout_width="wrap_content"
+                                android:layout_centerVertical="true"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:text="旅途结束" />
 
                             <TextView
+                                android:background="@color/colorPrimary"
                                 android:id="@+id/order_detail_state3_pay"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
+                                android:layout_height="30dp"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:layout_alignParentRight="true"
                                 android:gravity="center_vertical|right"
                                 android:text="付款￥80"
-                                android:textColor="@color/colorPrimary" />
-                        </LinearLayout>
+                                android:textColor="@color/white" />
+                        </RelativeLayout>
 
                     </LinearLayout>
                 </android.support.v7.widget.CardView>

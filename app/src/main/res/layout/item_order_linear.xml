@@ -1,38 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:paddingLeft="10dp"
-    android:paddingTop="5dp"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    
-    
+    <View style="@style/line"
+        android:background="#e9e9e9"
+        />
+
+
     <TextView
-        android:layout_width="wrap_content"
-        android:text="普通山地车"
-        android:textColor="@color/black"
         android:id="@+id/item_order_linear_name"
-        android:layout_height="wrap_content" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="5dp"
+        android:text="普通山地车"
+        android:textColor="@color/text_color_black" />
 
     <LinearLayout
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:text="￥5/h"
-            android:id="@+id/item_order_linear_price"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:layout_marginLeft="20dp"
-            android:layout_width="wrap_content"
-            android:text="X10"
-            android:id="@+id/item_order_linear_count"
-            android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
 
+        <TextView
+            android:id="@+id/item_order_linear_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="￥5/h"
+            android:textSize="13sp"
+            android:textColor="@color/text_color_dark_gray" />
+
+        <TextView
+            android:id="@+id/item_order_linear_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="X10"
+            android:textSize="13sp"
+            android:textColor="@color/text_color_dark_gray" />
 
 
     </LinearLayout>
+
+    <View style="@style/line"
+        android:background="#e9e9e9"
+        />
 </LinearLayout>

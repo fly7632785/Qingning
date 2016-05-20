@@ -12,6 +12,7 @@ import com.jafir.qingning.R;
 import com.jafir.qingning.app.fragment.EventFragment;
 import com.jafir.qingning.app.fragment.PersonFragment;
 import com.jafir.qingning.app.fragment.RentFragment;
+import com.jafir.qingning.app.fragment.ShowFragment;
 
 import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.ui.KJActivityStack;
@@ -33,8 +34,8 @@ public class MainActivity extends BaseActivity {
      * tab
      */
     //tab图片宽高
-    private static final float IMG_WIDTH = 23;
-    private static final float IMG_HEIGHT = 23;
+    private static final float IMG_WIDTH = 21;
+    private static final float IMG_HEIGHT = 21;
     private static final String TAG = MainActivity.class.getSimpleName();
 
     //tab
@@ -42,8 +43,8 @@ public class MainActivity extends BaseActivity {
     private TextView mTvRent;
     @BindView(id = R.id.tab_menu_event)
     private TextView mTvEvent;
-//    @BindView(id = R.id.tab_menu_show)
-//    private TextView mTvShow;
+    @BindView(id = R.id.tab_menu_show)
+    private TextView mTvShow;
     @BindView(id = R.id.tab_menu_person)
     private TextView mTvPerson;
     //tab layout
@@ -51,15 +52,15 @@ public class MainActivity extends BaseActivity {
     private LinearLayout mMenuRent;
     @BindView(id = R.id.ly_tab_menu_event, click = true)
     private LinearLayout mMenuEvent;
-//    @BindView(id = R.id.ly_tab_menu_show, click = true)
-//    private LinearLayout mMenuShow;
+    @BindView(id = R.id.ly_tab_menu_show, click = true)
+    private LinearLayout mMenuShow;
     @BindView(id = R.id.ly_tab_menu_person, click = true)
     private LinearLayout mMenuPerson;
 
 
     private RentFragment mRentFragment;
     private EventFragment mEventFragment;
-//    private ShowFragment mShowFragment;
+    private ShowFragment mShowFragment;
     private PersonFragment mPersonFragment;
 
     private SupportFragment mCurrentFragment;
@@ -74,7 +75,7 @@ public class MainActivity extends BaseActivity {
 
         mRentFragment = new RentFragment();
         mEventFragment = new EventFragment();
-//        mShowFragment = new ShowFragment();
+        mShowFragment = new ShowFragment();
         mPersonFragment = new PersonFragment();
 
         //初始化
@@ -84,7 +85,7 @@ public class MainActivity extends BaseActivity {
         //设置tab中图片的大小
         setImgSize(mTvEvent);
         setImgSize(mTvRent);
-//        setImgSize(mTvShow);
+        setImgSize(mTvShow);
         setImgSize(mTvPerson);
 
         //初始化选中中间图标
@@ -252,7 +253,7 @@ public class MainActivity extends BaseActivity {
 //        });
 
 
-        test();
+//        test();
     }
 
     public void test (){
@@ -364,14 +365,14 @@ public class MainActivity extends BaseActivity {
                 //设置现在的fragment
                 mCurrentFragment = mEventFragment;
                 break;
-//            case R.id.ly_tab_menu_show:
-//                resetSelected();
-//                mMenuShow.setSelected(true);
-//                //改变内容
-//                changeFragment(R.id.main_contain, mShowFragment);
-//                //设置现在的fragment
-//                mCurrentFragment = mShowFragment;
-//                break;
+            case R.id.ly_tab_menu_show:
+                resetSelected();
+                mMenuShow.setSelected(true);
+                //改变内容
+                changeFragment(R.id.main_contain, mShowFragment);
+                //设置现在的fragment
+                mCurrentFragment = mShowFragment;
+                break;
             case R.id.ly_tab_menu_person:
                 resetSelected();
                 mMenuPerson.setSelected(true);
@@ -400,7 +401,7 @@ public class MainActivity extends BaseActivity {
     private void resetSelected() {
         mMenuRent.setSelected(false);
         mMenuEvent.setSelected(false);
-//        mMenuShow.setSelected(false);
+        mMenuShow.setSelected(false);
         mMenuPerson.setSelected(false);
     }
 
