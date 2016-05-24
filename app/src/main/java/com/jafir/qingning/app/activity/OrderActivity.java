@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /**
  * Created by jafir on 16/5/12.
  */
-public class OrderActivity extends SupportActivity {
+public class OrderActivity extends BaseActivity {
 
     @BindView(id = R.id.toolbar)
     private Toolbar mToolbar;

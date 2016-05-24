@@ -19,4 +19,12 @@ public abstract  class  BaseActivity extends SupportActivity {
         ActivityManager.getScreenManager().pushActivity(this);
 
     }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityManager.getScreenManager().popActivity(this);
+
+    }
 }

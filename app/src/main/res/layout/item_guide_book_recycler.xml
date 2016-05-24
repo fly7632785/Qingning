@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="5dp"
+    android:background="@drawable/bt_selector"
+    android:elevation="2dp"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:id="@+id/item_guide_book_img"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/pic" />
+
+        <TextView
+            android:id="@+id/item_guide_book_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="120dp"
+            android:paddingTop="10dp"
+            android:text="美食是一道风景。挑战纽约经典面包，亲手做一个糖霜包"
+            android:textColor="@color/text_color_black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/item_guide_book_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="目的地：都江堰朝阳路12号"
+            android:textSize="11sp" />
+
+        <LinearLayout
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="3dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp">
+
+
+            <ImageView
+                android:layout_width="20dp"
+                android:padding="2dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/guide_edit" />
+
+            <TextView
+                android:id="@+id/item_guide_book_time"
+                android:layout_width="wrap_content"
+                android:text="2016.04.5"
+                android:textSize="11sp"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:layout_width="20dp"
+                android:padding="2dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/guide_like" />
+
+            <TextView
+                android:id="@+id/item_guide_book_likes"
+                android:layout_width="wrap_content"
+                android:textSize="11sp"
+                android:text="5人喜欢"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <org.kymjs.kjframe.widget.RoundImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/item_guide_book_avatar"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="160dp"
+        android:src="@mipmap/ic_launcher" />
+
+
+</android.support.v7.widget.CardView>

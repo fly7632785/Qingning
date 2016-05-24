@@ -51,6 +51,10 @@
         <item name="android:maxHeight">12dp</item>
         <item name="android:minHeight">12dp</item>
     </style>
+    <!--ratingbar-->
+    <style name="evaluateRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/evaluate_ratingbar</item>
+    </style>
 
 
     <!--toolbar-->

@@ -12,7 +12,7 @@ import com.jafir.qingning.R;
 import com.jafir.qingning.app.fragment.EventFragment;
 import com.jafir.qingning.app.fragment.PersonFragment;
 import com.jafir.qingning.app.fragment.RentFragment;
-import com.jafir.qingning.app.fragment.ShowFragment;
+import com.jafir.qingning.app.fragment.GuideBookFragment;
 
 import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.ui.KJActivityStack;
@@ -60,10 +60,12 @@ public class MainActivity extends BaseActivity {
 
     private RentFragment mRentFragment;
     private EventFragment mEventFragment;
-    private ShowFragment mShowFragment;
+    private GuideBookFragment mGuideBookFragment;
     private PersonFragment mPersonFragment;
 
     private SupportFragment mCurrentFragment;
+
+
 
     /**
      * @param savedInstanceState
@@ -75,7 +77,7 @@ public class MainActivity extends BaseActivity {
 
         mRentFragment = new RentFragment();
         mEventFragment = new EventFragment();
-        mShowFragment = new ShowFragment();
+        mGuideBookFragment = new GuideBookFragment();
         mPersonFragment = new PersonFragment();
 
         //初始化
@@ -369,9 +371,9 @@ public class MainActivity extends BaseActivity {
                 resetSelected();
                 mMenuShow.setSelected(true);
                 //改变内容
-                changeFragment(R.id.main_contain, mShowFragment);
+                changeFragment(R.id.main_contain, mGuideBookFragment);
                 //设置现在的fragment
-                mCurrentFragment = mShowFragment;
+                mCurrentFragment = mGuideBookFragment;
                 break;
             case R.id.ly_tab_menu_person:
                 resetSelected();

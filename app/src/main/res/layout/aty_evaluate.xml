@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/windowback"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="评价"
+        app:titleTextColor="@color/white">
+
+    </android.support.v7.widget.Toolbar>
+    
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_height="130dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:layout_height="wrap_content">
+                
+                <ImageView
+                    android:layout_width="25dp"
+                    android:src="@mipmap/evaluate_bike_safe"
+                    android:layout_height="25dp" />
+                
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:text="车辆安全指数"
+                    android:layout_height="wrap_content" />
+
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                style="@style/line"
+                />
+
+
+            <RatingBar
+                android:id="@+id/evaluate_bike"
+                android:layout_width="wrap_content"
+                android:numStars="5"
+                android:stepSize="1"
+                android:max="5"
+                style="@style/evaluateRatingBar"
+                android:isIndicator="false"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="40dp" />
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_height="130dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:src="@mipmap/evaluate_store"
+                    android:layout_height="25dp" />
+
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:text="商家"
+                    android:layout_height="wrap_content" />
+
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                style="@style/line"
+                />
+
+
+            <RatingBar
+                android:id="@+id/evaluate_store"
+                android:layout_width="wrap_content"
+                android:numStars="5"
+                android:stepSize="1"
+                android:max="5"
+                style="@style/evaluateRatingBar"
+                android:isIndicator="false"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="40dp" />
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_height="130dp">
+
+
+        <EditText
+            android:id="@+id/evaluate_comment"
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:background="@null"
+            android:hint="写下评论吧..."
+            android:textSize="13sp"
+            android:gravity="left"
+            android:layout_height="match_parent" />
+
+    </android.support.v7.widget.CardView>
+    
+    <TextView
+        android:id="@+id/evaluate_submit"
+        android:layout_width="match_parent"
+        android:text="提交"
+        android:gravity="center"
+        android:background="@color/colorPrimary"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="40dp" />
+</LinearLayout>

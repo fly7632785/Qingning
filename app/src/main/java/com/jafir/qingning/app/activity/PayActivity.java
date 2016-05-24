@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.jafir.qingning.R;
 import com.jafir.qingning.model.bean.Bike;
 
-import org.kymjs.kjframe.SupportActivity;
 import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.utils.KJLoger;
 
@@ -19,7 +18,7 @@ import java.util.ArrayList;
 /**
  * Created by jafir on 16/5/12.
  */
-public class PayActivity extends SupportActivity {
+public class PayActivity extends BaseActivity {
 
     @BindView(id = R.id.toolbar)
     private Toolbar mToolbar;
@@ -87,10 +86,14 @@ public class PayActivity extends SupportActivity {
         super.widgetClick(v);
         switch (v.getId()){
             case R.id.pay_done:
-//                startActivity(new Intent(aty,OrderSuccessActivity.class));
-//                ActivityManager.getScreenManager().popActivity(ChooseBikeActivity.class);
-//                ActivityManager.getScreenManager().popActivity(ChehangDetailActivity.class);
-//                ActivityManager.getScreenManager().popActivity(this);
+                startActivity(new Intent(aty,EvaluateActivity.class));
+                break;
+
+            case R.id.pay_red_bag_go:
+                startActivity(new Intent(aty,RedBagActivity.class));
+                break;
+            case R.id.pay_store_go:
+                startActivity(new Intent(aty,StoreChitActivity.class));
                 break;
         }
     }

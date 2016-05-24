@@ -43,13 +43,16 @@
         <activity
             android:name="com.jafir.qingning.app.activity.DetailActivity"
             android:theme="@style/DetailTheme" />
-        <activity android:name="com.jafir.qingning.app.activity.CityPickerActivity" />
-        <activity android:name="com.jafir.qingning.app.activity.ChooseBikeActivity" />
-        <activity android:name="com.jafir.qingning.app.activity.OrderActivity" />
-        <activity android:name="com.jafir.qingning.app.activity.OrderSuccessActivity" />
-        <activity android:name="com.jafir.qingning.app.activity.OrderDetailActivity" />
-        <activity android:name="com.jafir.qingning.app.activity.PayActivity" />
-        <activity android:name="com.jafir.qingning.app.activity.BezierAcitvity" />
+        <activity android:name="app.activity.CityPickerActivity" />
+        <activity android:name=".app.activity.ChooseBikeActivity" />
+        <activity android:name=".app.activity.OrderActivity" />
+        <activity android:name=".app.activity.OrderSuccessActivity" />
+        <activity android:name=".app.activity.OrderDetailActivity" />
+        <activity android:name=".app.activity.PayActivity" />
+        <activity android:name=".app.activity.EvaluateActivity" />
+        <activity android:name=".app.activity.RedBagActivity" />
+        <activity android:name=".app.activity.StoreChitActivity" />
+        <activity android:name=".app.activity.BezierAcitvity" />
         <activity
             android:name="com.jafir.qingning.app.activity.ChehangDetailActivity"
             android:theme="@style/DetailTheme" />

@@ -1,16 +1,29 @@
 package com.jafir.qingning.model.bean;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by jafir on 16/5/10.
  */
 public class Chehang {
 
+    @SerializedName(value = "emailAddress", alternate = {"email", "email_address"})
     private String name;
     private String img;
     private String desc;
     private String distance;
     private String zuci;
 
+    @Override
+    public String toString() {
+        return "Chehang{" +
+                "name='" + name + '\'' +
+                ", img='" + img + '\'' +
+                ", desc='" + desc + '\'' +
+                ", distance='" + distance + '\'' +
+                ", zuci='" + zuci + '\'' +
+                '}';
+    }
 
     public String getZuci() {
         return zuci;

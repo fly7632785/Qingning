@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:toolbar="http://schemas.android.com/apk/res-auto"
     android:id="@+id/coordinator"
+    android:background="@color/windowback"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -15,11 +15,11 @@
         android:orientation="vertical">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/event_toolbar"
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
-            toolbar:title="event"
+            toolbar:title="攻略"
             toolbar:titleTextColor="@color/white">
 
         </android.support.v7.widget.Toolbar>
@@ -31,6 +31,7 @@
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerview"
+                android:paddingTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -43,12 +44,13 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
+        app:backgroundTint="@color/item_chehang_check_color"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        app:backgroundTint="@color/item_chehang_check_color"
-        android:src="@mipmap/plus"
         android:layout_marginBottom="@dimen/fab_margin"
         android:layout_marginRight="@dimen/fab_margin"
+        android:src="@mipmap/plus"
         app:layout_anchor="@+id/coordinator"
-        app:layout_anchorGravity="bottom|right|end" />
+        app:layout_anchorGravity="bottom|right|end"
+        app:rippleColor="@color/colorAccent" />
 </android.support.design.widget.CoordinatorLayout>

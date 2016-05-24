@@ -9,14 +9,13 @@ import android.widget.ImageView;
 
 import com.jafir.qingning.R;
 
-import org.kymjs.kjframe.SupportActivity;
 import org.kymjs.kjframe.utils.PreferenceHelper;
 
 /**
  * Created by jafir on 10/15/15.
  * 应用程序的开始和入口，有一个动画界面
  */
-public class SplashActivity extends SupportActivity {
+public class SplashActivity extends BaseActivity {
 
     public static String TAG = SplashActivity.class.getSimpleName();
     private ImageView image;

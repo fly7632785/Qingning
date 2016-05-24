@@ -10,7 +10,6 @@ import com.jafir.qingning.R;
 import com.jafir.qingning.app.view.TimeView;
 import com.jafir.qingning.model.bean.Bike;
 
-import org.kymjs.kjframe.SupportActivity;
 import org.kymjs.kjframe.ui.BindView;
 
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 /**
  * Created by jafir on 16/5/12.
  */
-public class OrderSuccessActivity extends SupportActivity {
+public class OrderSuccessActivity extends BaseActivity {
 
     @BindView(id = R.id.toolbar)
     private Toolbar mToolbar;
