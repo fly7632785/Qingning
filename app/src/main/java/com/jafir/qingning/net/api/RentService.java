@@ -22,4 +22,8 @@ public interface RentService {
     @GET("chel")
     Call<ResponseBody> getResponse(String id);
 
+    
+
+
+
 }

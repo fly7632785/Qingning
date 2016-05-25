@@ -3,7 +3,7 @@
     <color name="colorPrimary">#0097ff</color>
     <color name="colorPrimaryDark">#007dd5</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="windowback">#d8d8d8</color>
+    <color name="windowback">#f3f3f3</color>
 
 
 
@@ -46,6 +46,7 @@
     <color name="text_color_dark_gray">#999999</color>
     <color name="text_color_gray">#b2b2b2</color>
     <color name="text_color_black">#353535</color>
+    <color name="text_color_light_black">#b6b6b6</color>
     <color name="text_color_light_gray">#aeb8bf</color>
 
 

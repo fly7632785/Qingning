@@ -189,6 +189,10 @@ public class ChehangDetailActivity extends BaseActivity implements NestedScrollV
     public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
         KJLoger.debug(""+scrollX+"\n"+scrollY+"\n"+oldScrollX+"\n"+oldScrollY);
     }
+
+
+
+
 }
 
 

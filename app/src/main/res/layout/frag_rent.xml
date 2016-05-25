@@ -10,7 +10,7 @@
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:id="@+id/rent_toolbar"
-        toolbar:title="rent"
+        toolbar:title="租车"
         toolbar:titleTextColor="@color/white"
         android:background="@color/colorPrimary"
         android:layout_height="?attr/actionBarSize">
@@ -34,6 +34,7 @@
         <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/recyclerview"
             android:paddingTop="5dp"
+            android:background="@color/windowback"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

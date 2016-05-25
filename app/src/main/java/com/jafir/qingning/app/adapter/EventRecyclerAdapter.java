@@ -24,10 +24,19 @@ import org.kymjs.kjframe.widget.RoundImageView;
  */
 public class EventRecyclerAdapter extends BaseRecyclerAdapter<Event> {
 
+    private boolean hasHeader = true;
+
+    public boolean isHasHeader() {
+        return hasHeader;
+    }
+
+    public void setHasHeader(boolean hasHeader) {
+        this.hasHeader = hasHeader;
+    }
 
     @Override
     public RecyclerView.ViewHolder createMyViewHolder(ViewGroup parent, int viewType) {
-        if (viewType == 1) {
+        if (viewType == 1 && hasHeader) {
             View view = LayoutInflater.from(mContext).inflate(R.layout.layout_lunbo, parent, false);
             return new LunboHolder(view);
         } else {
@@ -79,10 +88,7 @@ public class EventRecyclerAdapter extends BaseRecyclerAdapter<Event> {
             ImageViewHolder holder = (ImageViewHolder) myholder;
             holder.mName.setText(event.getName());
             holder.mTime.setText(event.getTime());
-            holder.mTimes.setText(event.getTimes());
-            holder.mSpareTime.setText(event.getSpareTime());
             holder.mPeople.setText(event.getPeople());
-            holder.mAuthor.setText(event.getAuthor());
             holder.mBussiness.setText(event.getBussiness());
             Glide.with(mContext).load(event.getImg()).into(holder.mImageView);
 //            Glide.with(mContext).load(event.getPortrait()).into(holder.mPortrait);
@@ -96,7 +102,7 @@ public class EventRecyclerAdapter extends BaseRecyclerAdapter<Event> {
 
     @Override
     public int getItemViewType(int position) {
-        if (position == 0) {
+        if (position == 0 && hasHeader) {
             return 1;
         } else {
             return 2;
@@ -107,10 +113,7 @@ public class EventRecyclerAdapter extends BaseRecyclerAdapter<Event> {
         private ImageView mImageView;
         private RoundImageView mPortrait;
         private TextView mName;
-        private TextView mAuthor;
         private TextView mTime;
-        private TextView mSpareTime;
-        private TextView mTimes;
         private TextView mPeople;
         private TextView mBussiness;
 
@@ -130,13 +133,10 @@ public class EventRecyclerAdapter extends BaseRecyclerAdapter<Event> {
             });
             mImageView = (ImageView) itemView.findViewById(R.id.item_event_img);
             mName = (TextView) itemView.findViewById(R.id.item_event_name);
-            mAuthor = (TextView) itemView.findViewById(R.id.item_event_author);
             mPeople = (TextView) itemView.findViewById(R.id.item_event_people);
             mPortrait = (RoundImageView) itemView.findViewById(R.id.item_event_portrait);
-            mBussiness = (TextView) itemView.findViewById(R.id.item_event_bussiness);
-            mTimes = (TextView) itemView.findViewById(R.id.item_event_times);
+            mBussiness = (TextView) itemView.findViewById(R.id.item_event_business);
             mTime = (TextView) itemView.findViewById(R.id.item_event_time);
-            mSpareTime = (TextView) itemView.findViewById(R.id.item_event_spare_time);
         }
     }
 

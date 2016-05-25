@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
-            toolbar:title="event"
+            toolbar:title="活动"
             toolbar:titleTextColor="@color/white">
 
         </android.support.v7.widget.Toolbar>
@@ -30,6 +30,7 @@
             android:layout_height="match_parent">
 
             <android.support.v7.widget.RecyclerView
+                android:background="@color/windowback"
                 android:id="@+id/recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

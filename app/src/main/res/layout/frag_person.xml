@@ -1,64 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:toolbar="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/tools"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:layout_height="match_parent">
+    android:background="@color/windowback"
+    android:orientation="vertical">
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
+        android:layout_height="150dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-        <Button
-            android:layout_width="match_parent"
-            android:text="123123123123"
-            android:background="?android:attr/selectableItemBackground"
-            android:layout_height="50dp" />
+        <org.kymjs.kjframe.widget.RoundImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:src="@mipmap/ic_launcher" />
 
-        <Button
-            android:layout_width="150dp"
-            android:layout_gravity="center_horizontal"
-            android:text="dsfasadfasdfasdfa"
-            style="@style/selectedBackground"
-            android:layout_height="50dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Jafir"
+            android:textColor="@color/white" />
 
-        <LinearLayout
-            android:layout_width="150dp"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:background="@drawable/bt_selector"
-            android:orientation="vertical"
-            android:layout_height="50dp">
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:text="21312"
-                android:clickable="true"
-                android:background="@drawable/bt_selector"
-                android:layout_height="match_parent" />
-
-
-        </LinearLayout>
-
-
-        <com.jafir.qingning.app.view.Bezier
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="what can't kill you makes you stronger"
+            android:textColor="@color/white" />
 
 
     </LinearLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:id="@+id/fab"
-        android:src="@mipmap/ic_launcher"
-        android:layout_marginRight="20dp"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:id="@+id/person_my_event"
+        style="@style/person_linear">
 
-</RelativeLayout>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/person_event" />
+
+        <TextView
+            style="@style/person_text"
+            android:text="我的活动" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:id="@+id/person_my_guidebook"
+        style="@style/person_linear"
+        >
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/person_guide" />
+
+        <TextView
+            style="@style/person_text"
+            android:text="我的攻略" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        style="@style/person_linear"
+        android:id="@+id/person_my_order"
+        >
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/person_pen" />
+
+        <TextView
+            style="@style/person_text"
+            android:text="我的订单" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        style="@style/person_linear"
+        android:id="@+id/person_my_likes"
+       >
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/person_like" />
+
+        <TextView
+            style="@style/person_text"
+            android:text="我的喜欢" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        style="@style/person_linear"
+        android:id="@+id/person_setting">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/person_set" />
+
+        <TextView
+            style="@style/person_text"
+            android:text="设置" />
+    </LinearLayout>
+</LinearLayout>

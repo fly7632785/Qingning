@@ -18,30 +18,28 @@ import com.jafir.qingning.R;
 
 import org.kymjs.kjframe.ui.BindView;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends BaseActivity {
+public class RegisterActivity extends BaseActivity {
 
 
     // UI references.
-    @BindView(id = R.id.email)
+    @BindView(id = R.id.register_phone)
     private AutoCompleteTextView mPhoneView;
-    @BindView(id = R.id.password)
+    @BindView(id = R.id.register_password)
     private EditText mPasswordView;
-    @BindView(id = R.id.login_progress)
+    @BindView(id = R.id.register_name)
+    private EditText mNickname;
+    @BindView(id = R.id.register_progress)
     private View mProgressView;
-    @BindView(id = R.id.login_form)
+    @BindView(id = R.id.register_form)
     private View mLoginFormView;
 
     @Override
     public void initData() {
         super.initData();
 
-        // Set up the login form.
 //        populateAutoComplete();
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -54,12 +52,12 @@ public class LoginActivity extends BaseActivity {
             }
         });
 
-        TextView mEmailSignInButton = (TextView) findViewById(R.id.email_sign_in_button);
+        TextView mEmailSignInButton = (TextView) findViewById(R.id.register_sign_up);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
-
+//                attemptLogin();
+                startActivity(new Intent(aty, MainActivity.class));
             }
         });
 
@@ -105,23 +103,15 @@ public class LoginActivity extends BaseActivity {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
         }
     }
 
     private boolean isPhoneValid(String phone) {
-        return org.kymjs.kjframe.utils.StringUtils.isPhone(phone);
+        return false;
     }
 
     private boolean isPasswordValid(String password) {
-        //密码规则 正则
-        String reg = "^[\\@A-Za-z0-9\\!\\#\\$\\%\\^\\&\\*\\.\\~]{6,22}$";
-        Pattern pattern = Pattern.compile(reg);
-        Matcher matcher = pattern.matcher(password);
-        if (!matcher.matches()) {
-            return false;
-        }
-        return true;
+        return false;
     }
 
 
@@ -161,7 +151,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void setRootView() {
-        setContentView(R.layout.aty_login);
+        setContentView(R.layout.aty_register);
     }
 }
 

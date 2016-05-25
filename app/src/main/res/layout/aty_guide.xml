@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fpi="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/guide_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
+
+
+    <com.flyco.pageindicator.indicator.FlycoPageIndicaor
+        android:layout_width="60dp"
+        android:id="@+id/guide_indicator"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="20dp"
+        fpi:fpi_cornerRadius="4dp"
+        fpi:fpi_gap="5dp"
+        fpi:fpi_height="5dp"
+        fpi:fpi_selectColor="#ffffff"
+        fpi:fpi_unselectColor="#60ffffff"
+        fpi:fpi_width="5dp"
+        >
+
+    </com.flyco.pageindicator.indicator.FlycoPageIndicaor>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_height="60dp">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:text="登录"
+            android:id="@+id/guide_signin"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="注册"
+            android:id="@+id/guide_register"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</RelativeLayout>

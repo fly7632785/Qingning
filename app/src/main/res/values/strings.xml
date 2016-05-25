@@ -1,15 +1,15 @@
 <resources>
     <string name="app_name">青柠</string>
-    
+
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
+    <string name="prompt_email">手机号</string>
+    <string name="prompt_password">密码</string>
+    <string name="action_sign_in">登录</string>
+    <string name="action_sign_in_short">登录</string>
+    <string name="error_invalid_email">手机号不合法</string>
+    <string name="error_invalid_password">密码太短</string>
+    <string name="error_incorrect_password">密码不正确</string>
+    <string name="error_field_required">此项必填哦</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
@@ -18,7 +18,7 @@
     <!-- tab-->
     <string name="tab_rent">租车</string>
     <string name="tab_event">活动</string>
-    <string name="tab_show">秀秀</string>
+    <string name="tab_show">攻略</string>
     <string name="tab_person">个人</string>
 
 
@@ -29,7 +29,7 @@
     the big cheese.</string>
 
 
-<!--city picker-->
+    <!--city picker-->
     <string name="select_city">选择城市</string>
     <string name="hot_city">热门城市</string>
     <string name="located_city">定位城市</string>
