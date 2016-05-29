@@ -23,7 +23,11 @@
         <activity
             android:name="com.jafir.qingning.app.activity.MainActivity"
             android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
@@ -39,7 +43,10 @@
         <activity
             android:name="com.jafir.qingning.app.activity.DetailActivity"
             android:theme="@style/DetailTheme" />
-        <activity android:name="app.activity.CityPickerActivity" />
+        <activity
+            android:name="com.jafir.qingning.app.activity.EventDetailActivity"
+            android:theme="@style/DetailTheme" />
+        <activity android:name=".app.activity.CityPickerActivity" />
         <activity android:name=".app.activity.ChooseBikeActivity" />
         <activity android:name=".app.activity.OrderActivity" />
         <activity android:name=".app.activity.OrderSuccessActivity" />
@@ -50,8 +57,13 @@
         <activity android:name=".app.activity.StoreChitActivity" />
         <activity android:name=".app.activity.BezierAcitvity" />
 
+        <activity
+            android:name=".app.activity.SelectActivity"
+            android:theme="@style/DialogStyleBottom" />
+
 
         <activity android:name=".app.activity.MyEventActivity" />
+        <activity android:name=".app.activity.MyGuideBookActivity" />
 
 
         <activity
@@ -63,11 +75,7 @@
             android:label="注册"
             android:theme="@style/DialoglTheme"></activity>
         <activity android:name=".app.activity.GuideActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity

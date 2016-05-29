@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/nestedScroll1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp"
+        >
+
+        <View style="@style/line"
+            />
+
+        <LinearLayout
+            android:layout_marginTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <ImageView
+                android:src="@mipmap/store_locate"
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
+
+            <TextView
+                style="@style/chehang_detail_desc"
+                android:text="青城山上善栖100米" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <ImageView
+                android:padding="1dp"
+                android:src="@mipmap/store_phone"
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
+
+            <TextView
+                style="@style/chehang_detail_desc"
+                android:text="13982004324   " />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <ImageView
+                android:padding="1dp"
+                android:src="@mipmap/store_time"
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
+
+            <TextView
+                style="@style/chehang_detail_desc"
+                android:text="8:00AM-10:30PM" />
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

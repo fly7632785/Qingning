@@ -69,6 +69,7 @@ public class GuideBookRecyclerAdapter extends BaseRecyclerAdapter<GuideBook> {
             mTitle = (TextView) itemView.findViewById(R.id.item_guide_book_title);
             mAddress = (TextView) itemView.findViewById(R.id.item_guide_book_address);
             mLikes = (TextView) itemView.findViewById(R.id.item_guide_book_likes);
+            mPortrait.setBorderThickness(6);
         }
     }
 

@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.AppContext;
-import com.jafir.qingning.app.activity.ChehangDetailActivity;
+import com.jafir.qingning.app.activity.EventDetailActivity;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
 import com.jafir.qingning.app.adapter.EventRecyclerAdapter;
 import com.jafir.qingning.model.bean.Event;
@@ -73,7 +73,7 @@ public class EventFragment extends SupportFragment {
                         event.setTime("2015.4.4");
                         event.setTimes("123次浏览");
                         event.setSpareTime("2天");
-                        event.setImg(imgs[i%imgs.length]);
+                        event.setImg(imgs[i % imgs.length]);
                         event.setPortrait("http://img3.imgtn.bdimg.com/it/u=2103190071,4127559232&fm=23&gp=0.jpg");
                         list.add(event);
                     }
@@ -116,9 +116,57 @@ public class EventFragment extends SupportFragment {
         mAdapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                startActivity(new Intent(aty, ChehangDetailActivity.class));
+                startActivity(new Intent(aty, EventDetailActivity.class));
             }
         });
+
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl("www.qingning.com")
+//                .build();
+//         final ApiService service = retrofit.create(ApiService.class);
+//        Call<List<Chehang>> call = service.listShop("uid");
+//        call.enqueue(new Callback<List<Chehang>>() {
+//            @Override
+//            public void onResponse(Call<List<Chehang>> call, Response<List<Chehang>> response) {
+//                List<Chehang> list = response.body();
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<Chehang>> call, Throwable t) {
+//
+//            }
+//        });
+//        service.login("zhanghu", "password")
+//                .flatMap(new Func1<String, Observable<User>>() {
+//            @Override
+//            public Observable<User> call(String s) {
+//                return service.getUser(s);
+//            }
+//        }).subscribeOn(AndroidSchedulers.mainThread()) //请求完成后在io线程中执行
+//                .observeOn(Schedulers.newThread())//请求在新的线程中执行请求
+//                .doOnNext(new Action1<User>() {
+//                    @Override
+//                    public void call(User user) {
+//
+//                    }
+//                })
+//                .subscribe(new Observer<User>() {
+//                    @Override
+//                    public void onCompleted() {
+//
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onNext(User user) {
+//
+//                    }
+//                });
+
         list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             Event event = new Event();
@@ -129,7 +177,7 @@ public class EventFragment extends SupportFragment {
             event.setTime("2015.4.4");
             event.setTimes("123次浏览");
             event.setSpareTime("2天");
-            event.setImg(imgs[i%imgs.length]);
+            event.setImg(imgs[i % imgs.length]);
             event.setPortrait("http://img3.imgtn.bdimg.com/it/u=2103190071,4127559232&fm=23&gp=0.jpg");
             list.add(event);
         }
@@ -158,7 +206,7 @@ public class EventFragment extends SupportFragment {
     }
 
 
-    public static  String[] imgs = new String[]{
+    public static String[] imgs = new String[]{
             "http://img1.imgtn.bdimg.com/it/u=1089582262,166446285&fm=21&gp=0.jpg",
             "http://img5.imgtn.bdimg.com/it/u=3603943369,1952417318&fm=21&gp=0.jpg",
             "http://img5.imgtn.bdimg.com/it/u=1390800033,3298177266&fm=21&gp=0.jpg",
