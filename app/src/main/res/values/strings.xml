@@ -1,13 +1,15 @@
 <resources>
     <string name="app_name">青柠</string>
 
-    <!-- Strings related to login -->
+    <!-- Strings related to login and sign-->
     <string name="prompt_email">手机号</string>
     <string name="prompt_password">密码</string>
     <string name="action_sign_in">登录</string>
     <string name="action_sign_in_short">登录</string>
+    <string name="action_sign_up_short">注册</string>
     <string name="error_invalid_email">手机号不合法</string>
     <string name="error_invalid_password">密码太短</string>
+    <string name="error_invalid_nickname">昵称2-8位</string>
     <string name="error_incorrect_password">密码不正确</string>
     <string name="error_field_required">此项必填哦</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email

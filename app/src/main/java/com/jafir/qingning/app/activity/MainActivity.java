@@ -10,9 +10,9 @@ import android.widget.TextView;
 
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.fragment.EventFragment;
+import com.jafir.qingning.app.fragment.GuideBookFragment;
 import com.jafir.qingning.app.fragment.PersonFragment;
 import com.jafir.qingning.app.fragment.RentFragment;
-import com.jafir.qingning.app.fragment.GuideBookFragment;
 
 import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.ui.KJActivityStack;
@@ -74,6 +74,8 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN|WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+
+//        KJLoger.debug("还有activity："+ActivityManager.getScreenManager().getActivityStack().toString());
 
         mRentFragment = new RentFragment();
         mEventFragment = new EventFragment();

@@ -24,7 +24,5 @@ public abstract  class  BaseActivity extends SupportActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ActivityManager.getScreenManager().popActivity(this);
-
     }
 }

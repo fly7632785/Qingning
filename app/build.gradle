@@ -62,4 +62,10 @@ dependencies {
 
 //    图片裁剪
     compile 'cn.finalteam:galleryfinal:1.4.3'
+
+//    富文本
+    compile 'jp.wasabeef:richeditor-android:1.2.0'
+
+// log
+    compile "com.squareup.okhttp3:logging-interceptor:3.0.1"
 }

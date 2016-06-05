@@ -14,12 +14,10 @@
             android:id="@+id/back"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:scaleType="center"
             android:padding="10dp"
+            android:scaleType="center"
             android:src="@mipmap/common_back"
             tools:ignore="ContentDescription" />
 
@@ -28,12 +26,12 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/select_city"
-            android:textSize="20sp"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="20sp" />
     </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/shadow"/>
+        android:background="@color/shadow" />
 </LinearLayout>

@@ -19,15 +19,12 @@
             android:name="com.jafir.qingning.app.activity.SplashActivity"
             android:label="@string/app_name">
 
+
         </activity>
         <activity
             android:name="com.jafir.qingning.app.activity.MainActivity"
             android:windowSoftInputMode="adjustPan|stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
@@ -64,18 +61,25 @@
 
         <activity android:name=".app.activity.MyEventActivity" />
         <activity android:name=".app.activity.MyGuideBookActivity" />
+        <activity android:name=".app.activity.EditGuidebookActivity" />
 
 
         <activity
             android:name=".app.activity.LoginActivity"
             android:label="登录"
+            android:windowSoftInputMode="stateVisible"
             android:theme="@style/DialoglTheme"></activity>
         <activity
             android:name=".app.activity.RegisterActivity"
             android:label="注册"
+            android:windowSoftInputMode="stateVisible"
             android:theme="@style/DialoglTheme"></activity>
         <activity android:name=".app.activity.GuideActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
         <activity

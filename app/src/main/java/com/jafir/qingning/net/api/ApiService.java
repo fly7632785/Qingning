@@ -1,35 +1,82 @@
 package com.jafir.qingning.net.api;
 
-import com.jafir.qingning.model.bean.Chehang;
+import com.jafir.qingning.model.entity.LoginEntity;
+import com.jafir.qingning.model.entity.RegitsterEntity;
+import com.jafir.qingning.model.bean.Result;
 import com.jafir.qingning.model.bean.User;
 
-import java.util.List;
-
+import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 import rx.Observable;
 
 /**
+ * 主要是公共api
  * Created by jafir on 16/5/26.
  */
 public interface ApiService {
 
-    @GET("/rent/getShopList")
-    Call <List<Chehang>> listShop(@Query("userid") String uid);
-
-
 
     //登录，获取token
+    @FormUrlEncoded
+    @POST("user/login")
+    Observable<Result<LoginEntity>> loginRx(
+            @Field("phone") String username,
+            @Field("password") String password);
 
-    @GET("/login")
-    Observable<String> login(
-            @Query("username") String username,
+
+    @FormUrlEncoded
+    @POST("user/login")
+    Call<ResponseBody> login(
+            @Field("phone") String username,
+            @Field("password") String password);
+
+
+    //注册
+    @FormUrlEncoded
+    @POST("user/register")
+    Call<ResponseBody> register(
+            @Field("phone") String username,
+            @Field("nickName") String nickname,
+            @Field("password") String password,
+            @Field("headImgUrl") String url);
+
+    @FormUrlEncoded
+    @POST("user/register")
+    Observable<Result<RegitsterEntity>> registerRx(
+            @Field("phone") String username,
+            @Field("nickName") String nickname,
+            @Field("password") String password
+            );
+
+
+    /**
+     * 这里的 post + query 参数会在url中构造，而上面的不会，但是都是会被抓包工具抓出明文
+     * 所以之后还要加密验证
+     * 一般用上面的方法
+     *
+     * @param username
+     * @param nickname
+     * @param url
+     * @param password
+     * @return
+     */
+    @POST("user/register")
+    Call<ResponseBody> register1(
+            @Query("phone") String username,
+            @Query("nickName") String nickname,
+            @Query("headImgUrl") String url,
             @Query("password") String password);
+
+
     //根据token获取用户信息
     @GET("/user")
-    public Observable<User> getUser(
+    Observable<User> getUser(
             @Query("token") String token);
 
 

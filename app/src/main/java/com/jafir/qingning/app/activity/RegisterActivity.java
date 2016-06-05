@@ -15,8 +15,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.jafir.qingning.R;
+import com.jafir.qingning.app.util.CommonValidate;
+import com.jafir.qingning.app.util.KeyboardUtil;
+import com.jafir.qingning.model.bean.Result;
+import com.jafir.qingning.model.entity.LoginEntity;
+import com.jafir.qingning.model.entity.RegitsterEntity;
+import com.jafir.qingning.net.impl.MyHttpClient;
 
 import org.kymjs.kjframe.ui.BindView;
+import org.kymjs.kjframe.ui.ViewInject;
+import org.kymjs.kjframe.utils.KJLoger;
+
+import rx.Observable;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Func1;
+import rx.schedulers.Schedulers;
 
 /**
  * A login screen that offers login via email/password.
@@ -40,12 +54,11 @@ public class RegisterActivity extends BaseActivity {
     public void initData() {
         super.initData();
 
-//        populateAutoComplete();
-        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        mNickname.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.login || id == EditorInfo.IME_NULL) {
-                    attemptLogin();
+                if (id == R.id.register || id == EditorInfo.IME_NULL) {
+                    attemptRegister();
                     return true;
                 }
                 return false;
@@ -56,42 +69,53 @@ public class RegisterActivity extends BaseActivity {
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-//                attemptLogin();
-                startActivity(new Intent(aty, MainActivity.class));
+                attemptRegister();
             }
         });
 
     }
 
 
-    private void attemptLogin() {
+    private void attemptRegister() {
 
         // Reset errors.
         mPhoneView.setError(null);
         mPasswordView.setError(null);
+        mNickname.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = mPhoneView.getText().toString();
+        String phone = mPhoneView.getText().toString();
         String password = mPasswordView.getText().toString();
+        String nickname = mNickname.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
 
         // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+        if (!TextUtils.isEmpty(password) && !CommonValidate.PasswordValidate(password)) {
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
             cancel = true;
         }
 
-        // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
+        // Check for a valid phone address.
+        if (TextUtils.isEmpty(phone)) {
             mPhoneView.setError(getString(R.string.error_field_required));
             focusView = mPhoneView;
             cancel = true;
-        } else if (!isPhoneValid(email)) {
+        } else if (!CommonValidate.PhoneValidate(phone)) {
             mPhoneView.setError(getString(R.string.error_invalid_email));
             focusView = mPhoneView;
+            cancel = true;
+        }
+        // Check for a valid nickname .
+        if (TextUtils.isEmpty(nickname)) {
+            mNickname.setError(getString(R.string.error_field_required));
+            focusView = mNickname;
+            cancel = true;
+        } else if (!CommonValidate.NickNameValidate(nickname)) {
+            mNickname.setError(getString(R.string.error_invalid_nickname));
+            focusView = mNickname;
             cancel = true;
         }
 
@@ -103,15 +127,72 @@ public class RegisterActivity extends BaseActivity {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
+            //注册
+            requestRegister(phone, nickname, password);
         }
     }
 
-    private boolean isPhoneValid(String phone) {
-        return false;
+    class registerException extends RuntimeException {
+        private String message;
+
+        public registerException(String message) {
+            this.message = message;
+        }
+
+        @Override
+        public String getMessage() {
+            return message;
+        }
     }
 
-    private boolean isPasswordValid(String password) {
-        return false;
+    private void requestRegister(final String phone, String nickname, final String password) {
+        MyHttpClient.getInstance()
+                .getApiService()
+                .registerRx(phone, nickname, password)
+                .flatMap(new Func1<Result<RegitsterEntity>, Observable<Result<LoginEntity>>>() {
+                    @Override
+                    public Observable<Result<LoginEntity>> call(Result<RegitsterEntity> regitsterEntityResult) {
+                        KJLoger.debug("flat");
+                        if (regitsterEntityResult.getRcode() != 1000) {
+//                          不成功的话抛异常 然后捕获
+                            throw new registerException(regitsterEntityResult.getMessage());
+                        }
+                        return MyHttpClient.getInstance().getApiService().loginRx(phone, password);
+                    }
+                }).subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<Result<LoginEntity>>() {
+                    @Override
+                    public void onNext(Result<LoginEntity> userResult) {
+//                              登录判断
+                        KJLoger.debug("response:" + userResult.toString());
+                        showProgress(false);
+                        ViewInject.toast(userResult.getMessage());
+                        if (userResult.getRcode() == 1000) {
+                            //成功
+                            //请求登录 然后 跳转mainactivity
+                            startActivity(new Intent(aty, MainActivity.class));
+                            aty.finish();
+
+                        }
+                    }
+
+                    @Override
+                    public void onCompleted() {
+                        KJLoger.debug("completed:");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        KJLoger.debug("error:" + e);
+                        if (e instanceof registerException) {
+                            showProgress(false);
+                            ViewInject.toast(e.getMessage());
+
+                        }
+                    }
+                });
+
     }
 
 

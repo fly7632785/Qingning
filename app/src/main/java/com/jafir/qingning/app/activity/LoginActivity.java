@@ -15,11 +15,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.jafir.qingning.R;
+import com.jafir.qingning.app.util.CommonValidate;
+import com.jafir.qingning.model.bean.Result;
+import com.jafir.qingning.model.entity.LoginEntity;
+import com.jafir.qingning.net.impl.MyHttpClient;
 
 import org.kymjs.kjframe.ui.BindView;
+import org.kymjs.kjframe.ui.ViewInject;
+import org.kymjs.kjframe.utils.KJLoger;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import rx.Observer;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * A login screen that offers login via email/password.
@@ -36,6 +43,8 @@ public class LoginActivity extends BaseActivity {
     private View mProgressView;
     @BindView(id = R.id.login_form)
     private View mLoginFormView;
+    private String password;
+    private String phone;
 
     @Override
     public void initData() {
@@ -73,25 +82,25 @@ public class LoginActivity extends BaseActivity {
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = mPhoneView.getText().toString();
-        String password = mPasswordView.getText().toString();
+        phone = mPhoneView.getText().toString();
+        password = mPasswordView.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
 
         // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+        if (!TextUtils.isEmpty(password) && !CommonValidate.PasswordValidate(password)) {
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
             cancel = true;
         }
 
         // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
+        if (TextUtils.isEmpty(phone)) {
             mPhoneView.setError(getString(R.string.error_field_required));
             focusView = mPhoneView;
             cancel = true;
-        } else if (!isPhoneValid(email)) {
+        } else if (!CommonValidate.PhoneValidate(phone)) {
             mPhoneView.setError(getString(R.string.error_invalid_email));
             focusView = mPhoneView;
             cancel = true;
@@ -105,25 +114,48 @@ public class LoginActivity extends BaseActivity {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            //网络请求
+
+            requestLogin();
+
+
         }
     }
 
-    private boolean isPhoneValid(String phone) {
-        return org.kymjs.kjframe.utils.StringUtils.isPhone(phone);
-    }
+    private void requestLogin() {
 
-    private boolean isPasswordValid(String password) {
-        //密码规则 正则
-        String reg = "^[\\@A-Za-z0-9\\!\\#\\$\\%\\^\\&\\*\\.\\~]{6,22}$";
-        Pattern pattern = Pattern.compile(reg);
-        Matcher matcher = pattern.matcher(password);
-        if (!matcher.matches()) {
-            return false;
-        }
-        return true;
-    }
+        MyHttpClient.getInstance()
+                .getApiService()
+                .loginRx(phone, password)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Result<LoginEntity>>() {
+                    @Override
+                    public void onCompleted() {
+                        KJLoger.debug("completed:");
+                    }
 
+                    @Override
+                    public void onError(Throwable e) {
+                        KJLoger.debug("error:" + e);
+                    }
+
+                    @Override
+                    public void onNext(Result<LoginEntity> user) {
+                        KJLoger.debug("response:" + user.toString());
+                        showProgress(false);
+                        ViewInject.toast(user.getMessage());
+                        if (user.getRcode() == 1000) {
+                            //成功
+                            //请求登录 然后 跳转mainactivity
+                            startActivity(new Intent(aty, MainActivity.class));
+                            aty.finish();
+                        }
+
+                    }
+                });
+
+    }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     private void showProgress(final boolean show) {

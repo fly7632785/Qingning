@@ -1,6 +1,7 @@
 package com.jafir.qingning.app;
 
 import android.app.Application;
+import android.content.Context;
 import android.graphics.Color;
 
 import com.jafir.qingning.R;
@@ -24,11 +25,13 @@ public class AppContext extends Application {
     public static int screenH;
     public static int screenW;
 
+    public static Context context;
 
     @Override
     public void onCreate() {
         super.onCreate();
         HttpConfig.CACHEPATH = AppConfig.httpCachePath;
+        context = getApplicationContext();
         screenH = DensityUtils.getScreenH(this);
         screenW = DensityUtils.getScreenW(this);
 

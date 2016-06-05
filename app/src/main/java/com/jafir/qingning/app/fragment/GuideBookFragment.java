@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.AppContext;
 import com.jafir.qingning.app.activity.ChehangDetailActivity;
+import com.jafir.qingning.app.activity.EditGuidebookActivity;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
 import com.jafir.qingning.app.adapter.GuideBookRecyclerAdapter;
 import com.jafir.qingning.model.bean.GuideBook;
@@ -151,6 +152,15 @@ public class GuideBookFragment extends SupportFragment {
 
     }
 
+    @Override
+    protected void widgetClick(View v) {
+        super.widgetClick(v);
+        switch (v.getId()){
+            case R.id.fab:
+                startActivity(new Intent(aty, EditGuidebookActivity.class));
+                break;
+        }
+    }
 
     public static String[] imgs = new String[]{
             "http://img1.imgtn.bdimg.com/it/u=477258041,2687201414&fm=21&gp=0.jpg",

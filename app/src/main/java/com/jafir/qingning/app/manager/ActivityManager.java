@@ -30,7 +30,9 @@ public class ActivityManager {
         }
     }
 
-
+    public Stack<Activity> getActivityStack() {
+        return activityStack;
+    }
 
     public void popActivity(Activity activity) {
         if (activity != null) {
@@ -67,7 +69,7 @@ public class ActivityManager {
         activityStack.add(activity);
     }
 
-    public void popAllActivityExceptOne(Class cls) {
+        public void popAllActivityExceptOne(Class cls) {
         while (true) {
             Activity activity = currentActivity();
             if (activity == null) {
@@ -80,7 +82,7 @@ public class ActivityManager {
         }
     }
 
-    public void popAllActivity(){
+    public void popAllActivity() {
         for (int i = 0, size = activityStack.size(); i < size; i++) {
             if (null != activityStack.get(i)) {
                 (activityStack.get(i)).finish();
@@ -90,7 +92,7 @@ public class ActivityManager {
     }
 
 
-    public int getCount(){
+    public int getCount() {
         return activityStack.size();
     }
 }

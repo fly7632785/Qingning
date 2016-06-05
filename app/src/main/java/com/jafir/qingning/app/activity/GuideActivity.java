@@ -29,7 +29,7 @@ public class GuideActivity extends BaseActivity {
     @BindView(id = R.id.guide_indicator)
     private FlycoPageIndicaor mIndicator;
 
-    private int[] imgIds = new int[]{R.mipmap.start, R.mipmap.start, R.mipmap.start};
+    private int[] imgIds = new int[]{R.mipmap.guide1, R.mipmap.guide2, R.mipmap.guide3};
 
     @Override
     public void setRootView() {
