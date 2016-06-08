@@ -7,6 +7,7 @@
 >《青柠》平台的客户流分为横纵两条流线，年轻人和志同道合出游的人；我们会通过试用策略、客户决策、第三平台宣传、线下宣传等营销手段进行首发试水。
 
 ![](https://github.com/fly7632785/Qingning/raw/master/app/pic/dingwei.png)  
+![](https://github.com/fly7632785/Qingning/raw/master/app/pic/choosebike.png)  
 ![](https://github.com/fly7632785/Qingning/raw/master/app/pic/event.png)  
 ![](https://github.com/fly7632785/Qingning/raw/master/app/pic/eventdetail.png)  
 ![](https://github.com/fly7632785/Qingning/raw/master/app/pic/shop.png)  
