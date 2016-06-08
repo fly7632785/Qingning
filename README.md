@@ -10,4 +10,4 @@
 ![](https://github.com/fly7632785/Qingning/raw/master/app/pic/choosebike.png)  
 ![](https://github.com/fly7632785/Qingning/raw/master/app/pic/event.png)  
 ![](https://github.com/fly7632785/Qingning/raw/master/app/pic/eventdetail.png)  
-![](https://github.com/fly7632785/Qingning/raw/master/app/pic/shop.png)  
+![](https://github.com/fly7632785/Qingning/raw/master/app/pic/shopdetail.png)  
