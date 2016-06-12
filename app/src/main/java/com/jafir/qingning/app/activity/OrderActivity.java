@@ -7,10 +7,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jafir.qingning.R;
+import com.jafir.qingning.app.activity.rent.ChehangDetailActivity;
+import com.jafir.qingning.app.activity.rent.ChooseBikeActivity;
 import com.jafir.qingning.app.manager.ActivityManager;
 import com.jafir.qingning.model.bean.Bike;
 
-import org.kymjs.kjframe.SupportActivity;
 import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.utils.KJLoger;
 

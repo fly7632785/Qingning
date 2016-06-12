@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.flyco.pageindicator.indicator.FlycoPageIndicaor;
 import com.jafir.qingning.R;
-import com.jafir.qingning.app.activity.ChooseBikeActivity;
+import com.jafir.qingning.app.activity.rent.ChooseBikeActivity;
 import com.jafir.qingning.app.fragment.EventFragment;
 import com.jafir.qingning.model.bean.Event;
 

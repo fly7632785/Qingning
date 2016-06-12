@@ -1,4 +1,4 @@
-package com.jafir.qingning.app.activity;
+package com.jafir.qingning.app.activity.rent;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

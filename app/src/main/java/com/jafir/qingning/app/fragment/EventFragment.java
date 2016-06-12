@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.AppContext;
 import com.jafir.qingning.app.activity.EventDetailActivity;
-import com.jafir.qingning.app.activity.PublishEventActivity;
+import com.jafir.qingning.app.activity.publishEvent.PublishEventActivity;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
 import com.jafir.qingning.app.adapter.EventRecyclerAdapter;
 import com.jafir.qingning.model.bean.Event;

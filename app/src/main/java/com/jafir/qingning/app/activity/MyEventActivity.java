@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jafir.qingning.R;
+import com.jafir.qingning.app.activity.rent.ChehangDetailActivity;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
 import com.jafir.qingning.app.adapter.EventRecyclerAdapter;
 import com.jafir.qingning.model.bean.Event;

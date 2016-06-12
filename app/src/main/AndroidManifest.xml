@@ -47,8 +47,8 @@
         <activity
             android:name="com.jafir.qingning.app.activity.EventDetailActivity"
             android:theme="@style/DetailTheme" />
-        <activity android:name=".app.activity.CityPickerActivity" />
-        <activity android:name=".app.activity.ChooseBikeActivity" />
+        <activity android:name=".app.activity.rent.CityPickerActivity" />
+        <activity android:name=".app.activity.rent.ChooseBikeActivity" />
         <activity android:name=".app.activity.OrderActivity" />
         <activity android:name=".app.activity.OrderSuccessActivity" />
         <activity android:name=".app.activity.OrderDetailActivity" />
@@ -83,20 +83,20 @@
 
         </activity>
         <activity
-            android:name="com.jafir.qingning.app.activity.ChehangDetailActivity"
+            android:name=".app.activity.rent.ChehangDetailActivity"
             android:theme="@style/DetailTheme" />
 
 
         <!--发布-->
 
-        <activity android:name=".app.activity.PublishEventActivity" />
-        <activity android:name=".app.activity.WriteTextActivity"
+        <activity android:name=".app.activity.publishEvent.PublishEventActivity" />
+        <activity android:name=".app.activity.publishEvent.WriteTextActivity"
             android:windowSoftInputMode="stateVisible"
             />
-        <activity android:name=".app.activity.WriteDaysActivity" />
-        <activity android:name=".app.activity.WriteDateActivity" />
+        <activity android:name=".app.activity.publishEvent.WriteDaysActivity" />
+        <activity android:name=".app.activity.publishEvent.WriteDateActivity" />
         <activity
-            android:name=".app.activity.WriteRequireActivity"
+            android:name=".app.activity.publishEvent.WriteRequireActivity"
             android:windowSoftInputMode="stateVisible" />
 
 

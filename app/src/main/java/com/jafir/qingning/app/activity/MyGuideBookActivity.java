@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.jafir.qingning.R;
+import com.jafir.qingning.app.activity.rent.ChehangDetailActivity;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
 import com.jafir.qingning.app.adapter.GuideBookRecyclerAdapter;
 import com.jafir.qingning.model.bean.GuideBook;

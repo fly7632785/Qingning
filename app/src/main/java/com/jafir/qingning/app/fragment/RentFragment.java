@@ -20,8 +20,8 @@ import android.widget.TextView;
 
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.AppContext;
-import com.jafir.qingning.app.activity.ChehangDetailActivity;
-import com.jafir.qingning.app.activity.CityPickerActivity;
+import com.jafir.qingning.app.activity.rent.ChehangDetailActivity;
+import com.jafir.qingning.app.activity.rent.CityPickerActivity;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
 import com.jafir.qingning.app.adapter.ChehangRecyclerAdapter;
 import com.jafir.qingning.model.bean.Chehang;

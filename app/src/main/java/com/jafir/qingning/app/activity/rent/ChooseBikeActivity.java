@@ -1,4 +1,4 @@
-package com.jafir.qingning.app.activity;
+package com.jafir.qingning.app.activity.rent;
 
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.jafir.qingning.R;
+import com.jafir.qingning.app.activity.BaseActivity;
+import com.jafir.qingning.app.activity.OrderActivity;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
 import com.jafir.qingning.app.adapter.BikeRecyclerAdapter;
 import com.jafir.qingning.model.bean.Bike;

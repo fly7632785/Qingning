@@ -1,4 +1,4 @@
-package com.jafir.qingning.app.activity;
+package com.jafir.qingning.app.activity.publishEvent;
 
 
 import android.content.DialogInterface;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.jafir.qingning.R;
+import com.jafir.qingning.app.activity.BaseActivity;
 
 import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.ui.ViewInject;

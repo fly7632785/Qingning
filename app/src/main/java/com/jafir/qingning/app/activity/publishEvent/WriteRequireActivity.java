@@ -1,4 +1,4 @@
-package com.jafir.qingning.app.activity;
+package com.jafir.qingning.app.activity.publishEvent;
 
 
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jafir.qingning.R;
+import com.jafir.qingning.app.activity.BaseActivity;
 
 import org.kymjs.kjframe.ui.BindView;
 

@@ -7,6 +7,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jafir.qingning.R;
+import com.jafir.qingning.app.activity.BaseActivity;
+import com.jafir.qingning.app.activity.PayActivity;
 import com.jafir.qingning.model.bean.Bike;
 
 import org.kymjs.kjframe.SupportActivity;

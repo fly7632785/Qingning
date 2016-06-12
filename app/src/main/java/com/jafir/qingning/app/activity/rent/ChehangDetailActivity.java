@@ -1,4 +1,4 @@
-package com.jafir.qingning.app.activity;
+package com.jafir.qingning.app.activity.rent;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.jafir.qingning.R;
+import com.jafir.qingning.app.activity.BaseActivity;
 import com.jafir.qingning.app.adapter.CommentRecyclerAdapter;
 import com.jafir.qingning.model.bean.Comment;
 
