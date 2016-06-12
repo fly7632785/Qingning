@@ -93,8 +93,12 @@
         <activity android:name=".app.activity.publishEvent.WriteTextActivity"
             android:windowSoftInputMode="stateVisible"
             />
-        <activity android:name=".app.activity.publishEvent.WriteDaysActivity" />
-        <activity android:name=".app.activity.publishEvent.WriteDateActivity" />
+        <activity android:name=".app.activity.publishEvent.WriteDaysActivity"
+            android:windowSoftInputMode="stateVisible"
+            />
+        <activity android:name=".app.activity.publishEvent.WriteDateActivity"
+
+            />
         <activity
             android:name=".app.activity.publishEvent.WriteRequireActivity"
             android:windowSoftInputMode="stateVisible" />

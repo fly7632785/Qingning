@@ -99,6 +99,7 @@ public class WriteRequireActivity extends BaseActivity {
 
     private void getData() {
 
+        data.clear();
         for (int i = 0; i < mLinear.getChildCount(); i++) {
             EditText e = (EditText) mLinear.getChildAt(i);
             String s = e.getText().toString().trim();

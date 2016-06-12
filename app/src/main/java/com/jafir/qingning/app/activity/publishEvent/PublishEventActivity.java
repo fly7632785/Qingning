@@ -156,10 +156,13 @@ public class PublishEventActivity extends BaseActivity {
                         .setEnableCamera(true)
                         .setEnableEdit(true)
                         .setEnableCrop(true)
+                        .setCropHeight(720)
+                        .setForceCrop(true)
+                        .setCropWidth(1280)
                         .setEnableRotate(true)
-                        .setCropSquare(true)
                         .setEnablePreview(true)
                         .build();
+
                 GalleryFinal.openGallerySingle(REQUEST_COVER, functionConfig, new GalleryFinal.OnHanlderResultCallback() {
                     @Override
                     public void onHanlderSuccess(int reqeustCode, List<PhotoInfo> resultList) {
@@ -171,6 +174,7 @@ public class PublishEventActivity extends BaseActivity {
                             Bitmap bm = BitmapFactory.decodeFile(path);
                             if (bm != null && mCoverTip != null) {
                                 KJLoger.debug("有照片");
+                                KJLoger.debug("width:"+bm.getWidth()+"height:"+bm.getHeight());
                                 mCoverTip.setImageBitmap(bm);
                                 OssUtil.upload(aty.getApplicationContext(), path, handler);
                             }
