@@ -27,6 +27,7 @@ public class WriteTextActivity extends BaseActivity {
 
     private int index;
 
+    private String data;
 
     @Override
     public void setRootView() {
@@ -52,6 +53,8 @@ public class WriteTextActivity extends BaseActivity {
         mConfirm.setOnClickListener(this);
 
         index = getIntent().getIntExtra("key", 0);
+        data = getIntent().getStringExtra("data");
+        mEdit.setText(data);
         switch (index) {
             case 1:
                 getSupportActionBar().setTitle("填写主题");

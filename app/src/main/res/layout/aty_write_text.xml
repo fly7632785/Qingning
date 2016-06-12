@@ -6,23 +6,7 @@
     android:orientation="vertical">
 
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
-        toolbar:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        toolbar:titleTextColor="@color/white">
-
-        <TextView
-            android:id="@+id/toolbar_confirm"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:gravity="center"
-            android:text="确定"
-            android:textColor="@color/white" />
-    </android.support.v7.widget.Toolbar>
+    <include layout="@layout/toolbar1"/>
 
     <EditText
         android:id="@+id/edit"

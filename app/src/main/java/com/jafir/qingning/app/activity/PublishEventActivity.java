@@ -19,6 +19,7 @@ import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.ui.ViewInject;
 import org.kymjs.kjframe.utils.KJLoger;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.finalteam.galleryfinal.FunctionConfig;
@@ -30,16 +31,16 @@ import cn.finalteam.galleryfinal.model.PhotoInfo;
  */
 public class PublishEventActivity extends BaseActivity {
 
-    private static final int REQUEST_TITLE = 1;
-    private static final int REQUEST_COVER = 2;
-    private static final int REQUEST_DESC = 3;
-    private static final int REQUEST_DESTINATION = 4;
-    private static final int REQUEST_END_TIME = 5;
-    private static final int REQUEST_START_TIME = 6;
-    private static final int REQUEST_DAYS = 7;
-    private static final int REQUEST_PEOPLE = 8;
-    private static final int REQUEST_MONEY = 9;
-    private static final int REQUEST_REQUIRE = 10;
+    public static final int REQUEST_TITLE = 1;
+    public static final int REQUEST_COVER = 2;
+    public static final int REQUEST_DESC = 3;
+    public static final int REQUEST_DESTINATION = 4;
+    public static final int REQUEST_END_TIME = 5;
+    public static final int REQUEST_START_TIME = 6;
+    public static final int REQUEST_DAYS = 7;
+    public static final int REQUEST_PEOPLE = 8;
+    public static final int REQUEST_MONEY = 9;
+    public static final int REQUEST_REQUIRE = 10;
 
 
     @BindView(id = R.id.toolbar)
@@ -86,6 +87,16 @@ public class PublishEventActivity extends BaseActivity {
     private TextView mMoneyTip;
     @BindView(id = R.id.pulish_require_tip)
     private TextView mRequireTip;
+
+    private String desc;
+    private String title;
+    private String destination;
+    private String days;
+    private String people;
+    private String money;
+    private String endTime;
+    private String startTime;
+    private ArrayList<String> require = new ArrayList<>();
 
     @Override
     public void setRootView() {
@@ -135,6 +146,7 @@ public class PublishEventActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.pulish_title:
                 Intent intent = new Intent(aty, WriteTextActivity.class);
+                intent.putExtra("data", title);
                 intent.putExtra("key", REQUEST_TITLE);
                 startActivityForResult(intent, REQUEST_TITLE);
                 break;
@@ -173,27 +185,47 @@ public class PublishEventActivity extends BaseActivity {
 
                 break;
             case R.id.pulish_desc:
-                Intent intent1 = new Intent(aty, WriteTextActivity.class);
-                intent1.putExtra("key", REQUEST_DESC);
-                startActivityForResult(intent1, REQUEST_DESC);
+                Intent descIntent = new Intent(aty, WriteTextActivity.class);
+                descIntent.putExtra("data", desc);
+                descIntent.putExtra("key", REQUEST_DESC);
+                startActivityForResult(descIntent, REQUEST_DESC);
                 break;
             case R.id.pulish_destination:
-                Intent intent2 = new Intent(aty, WriteTextActivity.class);
-                intent2.putExtra("key", REQUEST_DESTINATION);
-                startActivityForResult(intent2, REQUEST_DESTINATION);
+                Intent destinationIntent = new Intent(aty, WriteTextActivity.class);
+                destinationIntent.putExtra("data", destination);
+                destinationIntent.putExtra("key", REQUEST_DESTINATION);
+                startActivityForResult(destinationIntent, REQUEST_DESTINATION);
                 break;
             case R.id.pulish_end_time:
+                Intent endTime = new Intent(aty, WriteDateActivity.class);
+                endTime.putExtra("key", REQUEST_END_TIME);
+                startActivityForResult(endTime, REQUEST_END_TIME);
                 break;
             case R.id.pulish_start_time:
+                Intent startTime = new Intent(aty, WriteDateActivity.class);
+                startTime.putExtra("key", REQUEST_START_TIME);
+                startActivityForResult(startTime, REQUEST_START_TIME);
                 break;
             case R.id.pulish_days:
-                startActivityForResult(new Intent(aty,WriteDaysActivity.class),REQUEST_DAYS);
+                Intent days = new Intent(aty, WriteDaysActivity.class);
+                days.putExtra("key", REQUEST_DAYS);
+                startActivityForResult(days, REQUEST_DAYS);
                 break;
             case R.id.pulish_people:
+                Intent people = new Intent(aty, WriteDaysActivity.class);
+                people.putExtra("key", REQUEST_PEOPLE);
+                startActivityForResult(people, REQUEST_PEOPLE);
                 break;
             case R.id.pulish_money:
+                Intent money = new Intent(aty, WriteDaysActivity.class);
+                money.putExtra("key", REQUEST_MONEY);
+                startActivityForResult(money, REQUEST_MONEY);
                 break;
             case R.id.pulish_require:
+                Intent requireIntent = new Intent(aty, WriteRequireActivity.class);
+                requireIntent.putExtra("key", REQUEST_REQUIRE);
+                requireIntent.putExtra("data", require);
+                startActivityForResult(requireIntent, REQUEST_REQUIRE);
                 break;
         }
 
@@ -209,17 +241,47 @@ public class PublishEventActivity extends BaseActivity {
 
         switch (requestCode) {
             case REQUEST_TITLE:
-                mTitleTip.setText(data.getStringExtra("data"));
+                title = data.getStringExtra("data");
+                mTitleTip.setText(title);
                 break;
             case REQUEST_DESC:
-                mDescTip.setText(data.getStringExtra("data"));
+                desc = data.getStringExtra("data");
+                mDescTip.setText(desc);
                 break;
             case REQUEST_DESTINATION:
-                mDestinationTip.setText(data.getStringExtra("data"));
+                destination = data.getStringExtra("data");
+                mDestinationTip.setText(destination);
                 break;
-
             case REQUEST_DAYS:
-                mDaysTip.setText("活动持续时间"+data.getStringExtra("data")+"天");
+                days = data.getStringExtra("data");
+                mDaysTip.setText("活动持续时间" + days + "天");
+                break;
+            case REQUEST_PEOPLE:
+                people = data.getStringExtra("data");
+                mPeopleTip.setText("活动人数" + people + "人");
+                break;
+            case REQUEST_MONEY:
+                money = data.getStringExtra("data");
+                mMoneyTip.setText("人均" + money + "元");
+                break;
+            case REQUEST_END_TIME:
+                endTime = data.getStringExtra("data");
+                mEndTimeTip.setText(endTime);
+                break;
+            case REQUEST_START_TIME:
+                startTime = data.getStringExtra("data");
+                mStartTimeTip.setText(startTime);
+                break;
+            case REQUEST_REQUIRE:
+                String ss = "";
+                require = (ArrayList<String>) data.getSerializableExtra("data");
+                if (require.size() == 0) {
+                    return;
+                }
+                for (int i = 0; i < require.size(); i++) {
+                    ss = ss + (i + 1) + "、" + require.get(i) + "  ";
+                }
+                mRequireTip.setText(ss);
                 break;
         }
 

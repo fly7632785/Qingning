@@ -90,8 +90,14 @@
         <!--发布-->
 
         <activity android:name=".app.activity.PublishEventActivity" />
-        <activity android:name=".app.activity.WriteTextActivity" />
+        <activity android:name=".app.activity.WriteTextActivity"
+            android:windowSoftInputMode="stateVisible"
+            />
         <activity android:name=".app.activity.WriteDaysActivity" />
+        <activity android:name=".app.activity.WriteDateActivity" />
+        <activity
+            android:name=".app.activity.WriteRequireActivity"
+            android:windowSoftInputMode="stateVisible" />
 
 
         <!--高德地图定位-->

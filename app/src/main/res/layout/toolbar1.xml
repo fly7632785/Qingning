@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/colorPrimary"
+    toolbar:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    toolbar:titleTextColor="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:toolbar="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/toolbar_confirm"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:gravity="center"
+        android:text="确定"
+        android:textColor="@color/white" />
+</android.support.v7.widget.Toolbar>
