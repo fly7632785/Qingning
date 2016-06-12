@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.AppContext;
 import com.jafir.qingning.app.activity.EventDetailActivity;
+import com.jafir.qingning.app.activity.PublishEventActivity;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
 import com.jafir.qingning.app.adapter.EventRecyclerAdapter;
 import com.jafir.qingning.model.bean.Event;
@@ -205,6 +206,15 @@ public class EventFragment extends SupportFragment {
 
     }
 
+    @Override
+    protected void widgetClick(View v) {
+        super.widgetClick(v);
+        switch (v.getId()){
+            case R.id.fab:
+                startActivity(new Intent(aty, PublishEventActivity.class));
+                break;
+        }
+    }
 
     public static String[] imgs = new String[]{
             "http://img1.imgtn.bdimg.com/it/u=1089582262,166446285&fm=21&gp=0.jpg",

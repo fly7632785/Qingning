@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:toolbar="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:toolbar="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            toolbar:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            toolbar:title="发布活动"
+            toolbar:titleTextColor="@color/white"></android.support.v7.widget.Toolbar>
+
+        <LinearLayout
+            android:id="@+id/pulish_title"
+            style="@style/publish_event_linear">
+
+            <TextView
+                style="@style/publish_event_text_style"
+                android:text="主题" />
+
+            <TextView
+                android:id="@+id/pulish_title_tip"
+                style="@style/publish_event_text_tip_style"
+                android:text="填写主题" />
+
+            <ImageView style="@style/publish_event_arrow_img" />
+
+        </LinearLayout>
+
+        <View
+            style="@style/line"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" />
+
+        <LinearLayout
+            android:id="@+id/pulish_cover"
+            style="@style/publish_event_linear">
+
+            <TextView
+                style="@style/publish_event_text_style"
+                android:text="封面" />
+
+            <ImageView
+                android:id="@+id/pulish_cover_tip"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <ImageView style="@style/publish_event_arrow_img" />
+
+        </LinearLayout>
+
+        <View
+            style="@style/line"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" />
+
+        <LinearLayout
+            android:id="@+id/pulish_desc"
+            style="@style/publish_event_linear">
+
+            <TextView
+                style="@style/publish_event_text_style"
+                android:text="描述" />
+
+            <TextView
+                android:id="@+id/pulish_desc_tip"
+                style="@style/publish_event_text_tip_style"
+                android:text="填写描述" />
+
+            <ImageView style="@style/publish_event_arrow_img" />
+
+        </LinearLayout>
+
+        <View
+            style="@style/line"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" />
+
+        <LinearLayout
+            android:id="@+id/pulish_destination"
+            style="@style/publish_event_linear">
+
+            <TextView
+                style="@style/publish_event_text_style"
+                android:text="目的地" />
+
+            <TextView
+                android:id="@+id/pulish_destination_tip"
+                style="@style/publish_event_text_tip_style"
+                android:text="填写目的地" />
+
+            <ImageView style="@style/publish_event_arrow_img" />
+
+
+        </LinearLayout>
+
+        <View
+            style="@style/line"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" />
+
+        <LinearLayout
+            android:id="@+id/pulish_end_time"
+            style="@style/publish_event_linear">
+
+
+            <TextView
+                style="@style/publish_event_text_style"
+                android:text="截止报名时间" />
+
+            <TextView
+                android:id="@+id/pulish_end_time_tip"
+                style="@style/publish_event_text_tip_style"
+                android:text="选择时间" />
+
+            <ImageView style="@style/publish_event_arrow_img" />
+
+
+        </LinearLayout>
+
+        <View
+            style="@style/line"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" />
+
+        <LinearLayout
+            android:id="@+id/pulish_start_time"
+            style="@style/publish_event_linear">
+
+
+            <TextView
+                style="@style/publish_event_text_style"
+                android:text="活动开始时间" />
+
+            <TextView
+                android:id="@+id/pulish_start_time_tip"
+                style="@style/publish_event_text_tip_style"
+                android:text="选择时间" />
+
+            <ImageView style="@style/publish_event_arrow_img" />
+
+
+        </LinearLayout>
+
+        <View
+            style="@style/line"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" />
+
+        <LinearLayout
+            android:id="@+id/pulish_days"
+            style="@style/publish_event_linear">
+
+            <TextView
+                style="@style/publish_event_text_style"
+                android:text="活动持续天数" />
+
+            <TextView
+                android:id="@+id/pulish_days_tip"
+                style="@style/publish_event_text_tip_style"
+                android:text="填写天数" />
+
+            <ImageView style="@style/publish_event_arrow_img" />
+
+
+        </LinearLayout>
+
+        <View
+            style="@style/line"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" />
+
+        <LinearLayout
+            android:id="@+id/pulish_people"
+            style="@style/publish_event_linear">
+
+            <TextView
+                style="@style/publish_event_text_style"
+                android:text="活动人数" />
+
+            <TextView
+                android:id="@+id/pulish_people_tip"
+                style="@style/publish_event_text_tip_style"
+                android:text="填写人数" />
+
+            <ImageView style="@style/publish_event_arrow_img" />
+
+
+        </LinearLayout>
+
+        <View
+            style="@style/line"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" />
+
+        <LinearLayout
+            android:id="@+id/pulish_money"
+            style="@style/publish_event_linear">
+
+            <TextView
+                style="@style/publish_event_text_style"
+                android:text="人均活动预算" />
+
+            <TextView
+                android:id="@+id/pulish_money_tip"
+                style="@style/publish_event_text_tip_style"
+                android:text="填写金额" />
+
+            <ImageView style="@style/publish_event_arrow_img" />
+
+
+        </LinearLayout>
+
+        <View
+            style="@style/line"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" />
+
+        <LinearLayout
+            android:id="@+id/pulish_require"
+            style="@style/publish_event_linear">
+
+            <TextView
+                style="@style/publish_event_text_style"
+                android:text="特殊要求" />
+
+            <TextView
+                android:id="@+id/pulish_require_tip"
+                style="@style/publish_event_text_tip_style"
+                android:text="填写要求" />
+
+            <ImageView style="@style/publish_event_arrow_img" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/publish"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="发布"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

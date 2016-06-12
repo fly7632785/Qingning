@@ -18,6 +18,7 @@ import com.alibaba.sdk.android.oss.model.GetObjectResult;
 import com.alibaba.sdk.android.oss.model.PutObjectRequest;
 import com.alibaba.sdk.android.oss.model.PutObjectResult;
 
+import org.kymjs.kjframe.ui.ViewInject;
 import org.kymjs.kjframe.utils.KJLoger;
 
 import java.io.IOException;
@@ -70,6 +71,7 @@ public class OssUtil {
 
             @Override
             public void onFailure(PutObjectRequest request, ClientException clientExcepion, ServiceException serviceException) {
+                ViewInject.toast("网络异常");
                 // 请求异常
                 if (clientExcepion != null) {
                     // 本地异常如网络异常等

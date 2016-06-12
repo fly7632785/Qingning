@@ -24,7 +24,11 @@
         <activity
             android:name="com.jafir.qingning.app.activity.MainActivity"
             android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
@@ -67,24 +71,27 @@
         <activity
             android:name=".app.activity.LoginActivity"
             android:label="登录"
-            android:windowSoftInputMode="stateVisible"
-            android:theme="@style/DialoglTheme"></activity>
+            android:theme="@style/DialoglTheme"
+            android:windowSoftInputMode="stateVisible"></activity>
         <activity
             android:name=".app.activity.RegisterActivity"
             android:label="注册"
-            android:windowSoftInputMode="stateVisible"
-            android:theme="@style/DialoglTheme"></activity>
+            android:theme="@style/DialoglTheme"
+            android:windowSoftInputMode="stateVisible"></activity>
         <activity android:name=".app.activity.GuideActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity
             android:name="com.jafir.qingning.app.activity.ChehangDetailActivity"
             android:theme="@style/DetailTheme" />
+
+
+        <!--发布-->
+
+        <activity android:name=".app.activity.PublishEventActivity" />
+        <activity android:name=".app.activity.WriteTextActivity" />
+        <activity android:name=".app.activity.WriteDaysActivity" />
 
 
         <!--高德地图定位-->

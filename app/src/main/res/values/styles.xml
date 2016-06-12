@@ -6,7 +6,6 @@
     </style>
 
 
-
     <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
         <!-- Customize your theme here. -->
@@ -23,6 +22,7 @@
         <!-- Customize your theme here. -->
 
     </style>
+
     <style name="DialoglTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
 
         <!-- Customize your theme here. -->
@@ -35,7 +35,7 @@
         <item name="android:windowExitAnimation">@anim/anim_bottom_out</item>
     </style>
 
-<!--选择图片 dialog样式-->
+    <!--选择图片 dialog样式-->
     <style name="DialogStyleBottom" parent="android:Theme.Dialog">
         <item name="android:windowAnimationStyle">@style/AnimBottom</item>
         <item name="android:windowFrame">@null</item>
@@ -52,25 +52,24 @@
         <!-- 模糊 -->
     </style>
 
-        <!--
-    Background for the search query section (e.g. EditText)
-    <item name="queryBackground">...</item>
-    Background for the actions section (e.g. voice, submit)
-    <item name="submitBackground">...</item>
-    Close button icon
-    <item name="closeIcon">...</item>
-    Search button icon
-    <item name="searchIcon">...</item>
-    Go/commit button icon
-    <item name="goIcon">...</item>
-    Voice search button icon
-    <item name="voiceIcon">...</item>
-    Commit icon shown in the query suggestion row
-    <item name="commitIcon">...</item>
-    Layout for query suggestion rows
-    <item name="suggestionRowLayout">...</item>
-        -->
-
+    <!--
+Background for the search query section (e.g. EditText)
+<item name="queryBackground">...</item>
+Background for the actions section (e.g. voice, submit)
+<item name="submitBackground">...</item>
+Close button icon
+<item name="closeIcon">...</item>
+Search button icon
+<item name="searchIcon">...</item>
+Go/commit button icon
+<item name="goIcon">...</item>
+Voice search button icon
+<item name="voiceIcon">...</item>
+Commit icon shown in the query suggestion row
+<item name="commitIcon">...</item>
+Layout for query suggestion rows
+<item name="suggestionRowLayout">...</item>
+    -->
 
 
     <!--ratingbar-->
@@ -131,11 +130,13 @@
         <item name="android:layout_marginRight">35dp</item>
 
     </style>
+
     <style name="chehang_detail_title">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/light_black</item>
     </style>
+
     <style name="chehang_detail_desc">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -165,7 +166,6 @@
         <item name="android:paddingBottom">24dp</item>
         <item name="android:orientation">vertical</item>
     </style>
-
 
 
     <!--order tetail-->
@@ -217,7 +217,6 @@
     </style>
 
 
-
     <!--city picker-->
     <style name="LetterIndexTextViewStyle">
         <item name="android:layout_width">wrap_content</item>
@@ -228,5 +227,46 @@
         <item name="android:paddingBottom">8dp</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/gray</item>
+    </style>
+
+
+    <!-- 活动发布 -->
+
+
+    <style name="publish_event_linear">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/white</item>
+
+
+    </style>
+    <style name="publish_event_text_style">
+        <item name="android:textColor">@color/text_color_black</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">3</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="publish_event_text_tip_style">
+        <item name="android:textColor">@color/text_color_gray</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:gravity">right</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="publish_event_arrow_img">
+        <item name="android:layout_width">15dp</item>
+        <item name="android:layout_height">15dp</item>
+        <item name="android:src">@mipmap/pay_arrow</item>
+
     </style>
 </resources>
