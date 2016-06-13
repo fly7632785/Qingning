@@ -78,6 +78,11 @@ Layout for query suggestion rows
         <item name="android:maxHeight">12dp</item>
         <item name="android:minHeight">12dp</item>
     </style>
+    <style name="shopRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/shop_ratingbar</item>
+        <item name="android:maxHeight">12dp</item>
+        <item name="android:minHeight">12dp</item>
+    </style>
     <!--ratingbar-->
     <style name="evaluateRatingBar" parent="@android:style/Widget.RatingBar">
         <item name="android:progressDrawable">@drawable/evaluate_ratingbar</item>
@@ -243,6 +248,7 @@ Layout for query suggestion rows
 
 
     </style>
+
     <style name="publish_event_text_style">
         <item name="android:textColor">@color/text_color_black</item>
         <item name="android:textSize">12sp</item>
@@ -263,10 +269,31 @@ Layout for query suggestion rows
         <item name="android:layout_height">wrap_content</item>
         <item name="android:singleLine">true</item>
     </style>
+
     <style name="publish_event_arrow_img">
         <item name="android:layout_width">15dp</item>
         <item name="android:layout_height">15dp</item>
         <item name="android:src">@mipmap/pay_arrow</item>
 
     </style>
+
+
+    <!-- 活动 -->
+    <style name="event_detail_title">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">@color/text_color_black</item>
+    </style>
+
+    <style name="event_detail_desc">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:gravity">center_vertical</item>
+
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">@color/text_color_gray</item>
+    </style>
+
 </resources>

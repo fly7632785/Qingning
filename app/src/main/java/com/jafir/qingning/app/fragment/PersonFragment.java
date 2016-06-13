@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.activity.BezierAcitvity;
@@ -56,9 +57,9 @@ public class PersonFragment extends SupportFragment {
     @BindView(id = R.id.person_avatar, click = true)
     private RoundImageView mAvatar;
     @BindView(id = R.id.person_name)
-    private String mName;
+    private TextView mName;
     @BindView(id = R.id.person_motto)
-    private String mMotto;
+    private TextView mMotto;
     private String picPath;
 
     private ProgressDialog mProgress;

@@ -15,7 +15,16 @@ public class Event {
     private String bussiness;
     private String people;
     private String portrait;
+    private String phone;
 
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     public String getImg() {
         return img;

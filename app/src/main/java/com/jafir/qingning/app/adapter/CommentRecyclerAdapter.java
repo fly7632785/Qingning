@@ -46,7 +46,7 @@ public class CommentRecyclerAdapter extends BaseRecyclerAdapter<Comment> {
         }
         if (myholder instanceof HeaderViewHolder) {
             HeaderViewHolder holder = (HeaderViewHolder) myholder;
-            holder.mTotal.setText("100条评论");
+            holder.mTotal.setText(mDatas.size()+"条评论");
         }else if(myholder instanceof  ImageViewHolder){
             ImageViewHolder holder = (ImageViewHolder) myholder;
             Comment comment = mDatas.get(position);

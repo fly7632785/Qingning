@@ -3,6 +3,7 @@
     package="com.jafir.qingning">
 
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <application
         android:name="com.jafir.qingning.app.AppContext"
         android:allowBackup="true"
@@ -46,6 +47,9 @@
             android:theme="@style/DetailTheme" />
         <activity
             android:name="com.jafir.qingning.app.activity.EventDetailActivity"
+            android:theme="@style/DetailTheme" />
+        <activity
+            android:name="com.jafir.qingning.app.activity.ShopDetailActivity"
             android:theme="@style/DetailTheme" />
         <activity android:name=".app.activity.rent.CityPickerActivity" />
         <activity android:name=".app.activity.rent.ChooseBikeActivity" />
@@ -120,6 +124,7 @@
     </application>
 
 
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <!-- 这个权限用于进行网络定位-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>

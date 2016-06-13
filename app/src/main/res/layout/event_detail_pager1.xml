@@ -10,59 +10,199 @@
         android:orientation="vertical"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:paddingBottom="20dp"
+        android:paddingBottom="60dp"
         >
 
         <View style="@style/line"
             />
 
         <LinearLayout
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
-            <ImageView
-                android:src="@mipmap/store_locate"
-                android:layout_width="24dp"
-                android:layout_height="24dp" />
+            <TextView
+                style="@style/event_detail_title"
+                android:text="发起人" />
+            <org.kymjs.kjframe.widget.RoundImageView
+                android:id="@+id/event_detail_user_avatar"
+                android:layout_marginLeft="25dp"
+                android:layout_width="30dp"
+                android:src="@mipmap/ic_launcher"
+                android:layout_height="30dp" />
 
             <TextView
-                style="@style/chehang_detail_desc"
-                android:text="青城山上善栖100米" />
+                android:id="@+id/event_detail_user_name"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/colorPrimary"
+                style="@style/event_detail_desc"
+                android:text="大猫" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/event_detail_title"
+                android:text="电话" />
+
+            <TextView
+                android:id="@+id/event_detail_user_phone"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/colorPrimary"
+                style="@style/event_detail_desc"
+                android:text="13982004324" />
+        </LinearLayout>
+
+
+        <View style="@style/line"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/event_detail_title"
+                android:text="目的地" />
+
+            <TextView
+                android:id="@+id/event_detail_destination"
+                android:layout_marginLeft="5dp"
+                style="@style/event_detail_desc"
+                android:text="虹口" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/event_detail_title"
+                android:text="截止报名时间" />
+
+            <TextView
+                android:id="@+id/event_detail_end_time"
+                android:layout_marginLeft="5dp"
+                style="@style/event_detail_desc"
+                android:text="2016-6-10-7:30PM" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/event_detail_title"
+                android:text="活动开始时间" />
+
+            <TextView
+                android:id="@+id/event_detail_start_time"
+                android:layout_marginLeft="5dp"
+                style="@style/event_detail_desc"
+                android:text="2016-6-10-7:30PM" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/event_detail_title"
+                android:text="活动持续天数" />
+
+            <TextView
+                android:id="@+id/event_detail_days"
+                android:layout_marginLeft="5dp"
+                style="@style/event_detail_desc"
+                android:text="2天" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/event_detail_title"
+                android:text="活动人数" />
+
+            <TextView
+                android:id="@+id/event_detail_people"
+                android:layout_marginLeft="5dp"
+                style="@style/event_detail_desc"
+                android:text="10人" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/event_detail_title"
+                android:text="人均消费" />
+
+            <TextView
+                android:id="@+id/event_detail_money"
+                android:layout_marginLeft="5dp"
+                style="@style/event_detail_desc"
+                android:text="100元每人" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
-            <ImageView
-                android:padding="1dp"
-                android:src="@mipmap/store_phone"
-                android:layout_width="24dp"
-                android:layout_height="24dp" />
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                style="@style/event_detail_title"
+                android:text="特殊要求" />
 
             <TextView
-                style="@style/chehang_detail_desc"
-                android:text="13982004324   " />
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/event_detail_require"
+                style="@style/event_detail_desc"
+                android:text="1、饭菜要有特色，有钓鱼项目优先  \n2、可以游泳 \n3、可以打麻将" />
         </LinearLayout>
+
+        <View style="@style/line"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            />
+
         <LinearLayout
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
-            <ImageView
-                android:padding="1dp"
-                android:src="@mipmap/store_time"
-                android:layout_width="24dp"
-                android:layout_height="24dp" />
+            <TextView
+                style="@style/event_detail_title"
+                android:text="剩余名额" />
 
             <TextView
-                style="@style/chehang_detail_desc"
-                android:text="8:00AM-10:30PM" />
+                android:id="@+id/event_detail_spare_people"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                style="@style/event_detail_desc"
+                android:text="5人" />
         </LinearLayout>
+
+
+
+
 
     </LinearLayout>
+
+
 </android.support.v4.widget.NestedScrollView>

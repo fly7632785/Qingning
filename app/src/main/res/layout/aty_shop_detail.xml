@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="30dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/shop_detail_cover"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/event_detail"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.7" />
+
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:title="活动详情">
+
+            </android.support.v7.widget.Toolbar>
+
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/shop_detail_score"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.9"
+                    android:gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:text="4.2"
+                    android:textColor="@color/colorPrimary" />
+
+                <RatingBar
+                    android:id="@+id/shop_detail_ratingbar"
+                    style="@style/shopRatingBar"
+                    android:layout_height="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:isIndicator="true"
+                    android:max="5"
+                    android:numStars="5"
+                    android:rating="4.2"
+                    android:stepSize="0.5" />
+
+
+                <TextView
+                    android:layout_marginRight="10dp"
+                    android:gravity="right"
+                    android:id="@+id/shop_detail_orders"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:text="消费单数：45单" />
+            </LinearLayout>
+
+            <View style="@style/line" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@mipmap/store_locate" />
+
+                <TextView
+                    android:id="@+id/shop_detail_address"
+                    android:layout_width="0dp"
+                    android:layout_weight="5"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="虹口迎宾大道123号天府广场2楼" />
+
+
+                <ImageView
+                    android:id="@+id/shop_detail_call"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="30dp"
+                    android:scaleType="center"
+                    android:src="@mipmap/store_phone" />
+            </LinearLayout>
+
+
+            <View
+                style="@style/line"
+                android:layout_height="10dp"
+                android:background="@color/windowback" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="商家介绍"
+                android:textColor="@color/text_color_black" />
+
+            <TextView
+                android:id="@+id/shop_detail_introduce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:text="曼沙牛排海鲜自助餐厅，8年老店。食材鲜鲜可口，并经常更换菜品种类，让顾客有味蕾的刺激。餐厅牛排和海鲜均是当天空运至餐厅，以保证最新鲜的食材提供给顾客。"
+                android:textColor="@color/text_color_black" />
+
+            <View
+                style="@style/line"
+                android:layout_height="10dp"
+                android:background="@color/windowback" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="商家图册"
+                android:textColor="@color/text_color_black" />
+
+            <com.lsjwzh.widget.recyclerviewpager.RecyclerViewPager
+                android:id="@+id/recyler_pager"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:clipToPadding="false"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                app:singlePageFling="true"
+                app:triggerOffset="0.2"/>
+
+
+            <View
+                style="@style/line"
+                android:layout_height="10dp"
+                android:background="@color/windowback" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="评论"
+                android:textColor="@color/text_color_black" />
+
+
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:id="@+id/recyclerview"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="5dp"
+    android:background="@drawable/bt_selector"
+    android:elevation="2dp"
+    app:cardCornerRadius="3dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp">
+
+            <org.kymjs.kjframe.widget.RoundImageView
+                android:id="@+id/item_shop_avatar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="3"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/item_shop_name"
+                    android:textColor="@color/text_color_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="海底捞火锅" />
+
+                <RatingBar
+                    style="@style/foodRatingBar"
+                    android:id="@+id/item_shop_ratingbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center_vertical"
+                    android:isIndicator="true"
+                    android:max="5"
+                    android:numStars="5"
+                    android:rating="4.5"
+                    android:stepSize="0.5" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/item_shop_call"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:scaleType="center"
+                android:src="@mipmap/store_phone" />
+        </LinearLayout>
+
+
+        <View style="@style/line" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:textColor="@color/text_color_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:text="特色" />
+
+            <TextView
+                android:id="@+id/item_shop_content"
+                android:textColor="@color/text_color_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:text="本店可提供10人豪华特色餐食，更有钓鱼项目，可免费烹饪。 更有一体的田更有一体的田更有一体的田.." />
+
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="10dp">
+        <TextView
+            android:id="@+id/item_shop_choose"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:paddingRight="5dp"
+            android:background="@drawable/shape_shop_choose"
+            android:text="就选这家" />
+
+        <TextView
+            android:id="@+id/item_shop_goto"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:background="@drawable/shape_shop_goto"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:paddingRight="5dp"
+            android:layout_marginLeft="25dp"
+            android:text="进入店铺" />
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>
