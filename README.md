@@ -6,8 +6,9 @@
 >《青柠》相比目前出游APP别具特色，与旅游APP服务范畴不同，在《青柠》平台制定活动方案，是通过租车（自行车，电动车等非机动车）的方式出游，那么目标群体首先得接受骑游，让骑游也变旅游；《青柠》比市场早已存在的骑游APP更加丰富，传统骑游APP是针对专业骑游人士的骑游训练，只为达到目的地记时，测心率等的小众软件，而《青柠》平台可以让接受骑游的人参与进来，以群体骑游的方式，在沿途享受风景，在目的地享受商家为您定制的最优服务方案，得到旅游级别的活动体验。<br> 
 >《青柠》平台的客户流分为横纵两条流线，年轻人和志同道合出游的人；我们会通过试用策略、客户决策、第三平台宣传、线下宣传等营销手段进行首发试水。
 
-![](https://github.com/fly7632785/Qingning/raw/master/app/pic/dingwei.png)  
-![](https://github.com/fly7632785/Qingning/raw/master/app/pic/choosebike.png)  
-![](https://github.com/fly7632785/Qingning/raw/master/app/pic/event.png)  
-![](https://github.com/fly7632785/Qingning/raw/master/app/pic/eventdetail.png)  
-![](https://github.com/fly7632785/Qingning/raw/master/app/pic/shopdetail.png)  
+<br>
+### 截图
+<img src="app/pic/dingwei.png" width="30%"/>
+<img src="app/pic/choosebike.png" width="30%"/>
+<img src="app/pic/event.png" width="30%"/>
+<img src="app/pic/eventdetail.png" width="30%"/>
