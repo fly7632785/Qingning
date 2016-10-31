@@ -2,12 +2,10 @@ package com.jafir.qingning.app.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -16,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.AppContext;
@@ -115,13 +112,13 @@ public class RentFragment extends SupportFragment {
         SearchView searchView =
                 (SearchView) mToolbar.findViewById(R.id.ab_search);
 
-        AppCompatImageView search = (AppCompatImageView) searchView.findViewById(android.support.v7.appcompat.R.id.search_button);
-        search.setImageResource(R.mipmap.common_search);
-        AppCompatImageView close = (AppCompatImageView) searchView.findViewById(android.support.v7.appcompat.R.id.search_close_btn);
-        close.setImageResource(R.mipmap.ic_search_clear);
-        TextView textView = (TextView) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
-        textView.setHintTextColor(Color.WHITE);
-        textView.setTextColor(Color.WHITE);
+//        AppCompatImageView search = (AppCompatImageView) searchView.findViewById(android.support.v7.appcompat.R.id.search_button);
+//        search.setImageResource(R.mipmap.common_search);
+//        AppCompatImageView close = (AppCompatImageView) searchView.findViewById(android.support.v7.appcompat.R.id.search_close_btn);
+//        close.setImageResource(R.mipmap.ic_search_clear);
+//        TextView textView = (TextView) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
+//        textView.setHintTextColor(Color.WHITE);
+//        textView.setTextColor(Color.WHITE);
         searchView.setQueryHint("输入商家名");
         searchView.setOnCloseListener(new SearchView.OnCloseListener() {
             @Override

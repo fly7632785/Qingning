@@ -75,7 +75,7 @@
                     android:id="@+id/shop_detail_score"
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
-                    android:layout_weight="0.9"
+                    android:layout_weight="0.5"
                     android:gravity="center"
                     android:layout_marginLeft="10dp"
                     android:text="4.2"

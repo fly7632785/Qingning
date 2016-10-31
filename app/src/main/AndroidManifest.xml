@@ -72,6 +72,9 @@
         <activity android:name=".app.activity.EditGuidebookActivity" />
 
 
+        <activity android:name=".app.activity.ContactActivity" />
+
+
         <activity
             android:name=".app.activity.LoginActivity"
             android:label="登录"
@@ -94,12 +97,12 @@
         <!--发布-->
 
         <activity android:name=".app.activity.publishEvent.PublishEventActivity" />
-        <activity android:name=".app.activity.publishEvent.WriteTextActivity"
-            android:windowSoftInputMode="stateVisible"
-            />
-        <activity android:name=".app.activity.publishEvent.WriteDaysActivity"
-            android:windowSoftInputMode="stateVisible"
-            />
+        <activity
+            android:name=".app.activity.publishEvent.WriteTextActivity"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".app.activity.publishEvent.WriteDaysActivity"
+            android:windowSoftInputMode="stateVisible" />
         <activity android:name=".app.activity.publishEvent.WriteDateActivity"
 
             />
@@ -124,7 +127,7 @@
     </application>
 
 
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <!-- 这个权限用于进行网络定位-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>

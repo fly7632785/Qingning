@@ -17,6 +17,10 @@
     </style>
 
 
+    <style name="toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
+        <item name="android:textColorPrimary">@color/white</item>
+        </style>
+
     <style name="DetailTheme" parent="AppTheme">
 
         <!-- Customize your theme here. -->
@@ -78,6 +82,7 @@ Layout for query suggestion rows
         <item name="android:maxHeight">12dp</item>
         <item name="android:minHeight">12dp</item>
     </style>
+
     <style name="shopRatingBar" parent="@android:style/Widget.RatingBar">
         <item name="android:progressDrawable">@drawable/shop_ratingbar</item>
         <item name="android:maxHeight">12dp</item>

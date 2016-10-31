@@ -13,6 +13,7 @@
         toolbar:title="租车"
         toolbar:titleTextColor="@color/white"
         android:background="@color/colorPrimary"
+        toolbar:theme="@style/toolbar"
         android:layout_height="?attr/actionBarSize">
         <!--<ImageView-->
             <!--android:layout_width="30dp"-->

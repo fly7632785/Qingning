@@ -1,5 +1,9 @@
 package com.jafir.qingning.app.adapter;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +16,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.flyco.pageindicator.indicator.FlycoPageIndicaor;
 import com.jafir.qingning.R;
+import com.jafir.qingning.app.activity.EventDetailActivity;
 import com.jafir.qingning.app.activity.rent.ChooseBikeActivity;
 import com.jafir.qingning.app.fragment.EventFragment;
 import com.jafir.qingning.model.bean.Event;
@@ -34,6 +39,8 @@ public class EventRecyclerAdapter extends BaseRecyclerAdapter<Event> {
         this.hasHeader = hasHeader;
     }
 
+
+    private int currentPosition;
     @Override
     public RecyclerView.ViewHolder createMyViewHolder(ViewGroup parent, int viewType) {
         if (viewType == 1 && hasHeader) {
@@ -51,6 +58,7 @@ public class EventRecyclerAdapter extends BaseRecyclerAdapter<Event> {
         if (mDatas.isEmpty()) {
             return;
         }
+        currentPosition = position;
         if (myholder instanceof LunboHolder) {
             LunboHolder holder = (LunboHolder) myholder;
             holder.mViewpager.setAdapter(new PagerAdapter() {
@@ -109,7 +117,7 @@ public class EventRecyclerAdapter extends BaseRecyclerAdapter<Event> {
         }
     }
 
-    private class ImageViewHolder extends RecyclerView.ViewHolder {
+    public class ImageViewHolder extends RecyclerView.ViewHolder {
         private ImageView mImageView;
         private RoundImageView mPortrait;
         private TextView mName;
@@ -126,6 +134,10 @@ public class EventRecyclerAdapter extends BaseRecyclerAdapter<Event> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    Intent intent = new Intent(mContext, EventDetailActivity.class);
+                    intent.putExtra("cover",mDatas.get(currentPosition).getImg());
+                    ActivityCompat.startActivity((Activity)mContext,intent, ActivityOptionsCompat.makeSceneTransitionAnimation((Activity)mContext,mImageView,"img").toBundle());
                     if (mOnItemClickListener != null && mDatas.size() != 0) {
                         mOnItemClickListener.onItemClick(v, getAdapterPosition() % mDatas.size());
                     }

@@ -31,6 +31,11 @@ public class CommentRecyclerAdapter extends BaseRecyclerAdapter<Comment> {
 
 
     @Override
+    public int getItemCount() {
+        return mDatas.size()+1;
+    }
+
+    @Override
     public int getItemViewType(int position) {
         if (position == 0) {
             return 0;
@@ -49,7 +54,7 @@ public class CommentRecyclerAdapter extends BaseRecyclerAdapter<Comment> {
             holder.mTotal.setText(mDatas.size()+"条评论");
         }else if(myholder instanceof  ImageViewHolder){
             ImageViewHolder holder = (ImageViewHolder) myholder;
-            Comment comment = mDatas.get(position);
+            Comment comment = mDatas.get(position-1);
 //            Glide.with(mContext).load(comment.getImgUrl()).into(holder.mImageView);
             new KJBitmap.Builder().imageUrl(comment.getImgUrl()).view(holder.mImageView).display();
             holder.mName.setText(comment.getName());
@@ -72,7 +77,7 @@ public class CommentRecyclerAdapter extends BaseRecyclerAdapter<Comment> {
                 @Override
                 public void onClick(View v) {
                     if (mOnItemClickListener != null && mDatas.size() != 0) {
-                        mOnItemClickListener.onItemClick(v, getAdapterPosition() % mDatas.size());
+                        mOnItemClickListener.onItemClick(v, getAdapterPosition()-1 % mDatas.size());
                     }
                 }
             });

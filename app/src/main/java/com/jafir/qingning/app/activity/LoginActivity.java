@@ -187,6 +187,7 @@ public class LoginActivity extends BaseActivity {
             // and hide the relevant UI components.
             mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+
         }
     }
 

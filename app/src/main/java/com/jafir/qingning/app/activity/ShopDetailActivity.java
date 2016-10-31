@@ -16,6 +16,7 @@ import com.jafir.qingning.R;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
 import com.jafir.qingning.app.adapter.CommentRecyclerAdapter;
 import com.jafir.qingning.app.adapter.PicRecyclerAdapter;
+import com.jafir.qingning.app.view.FullyLinearLayoutManager;
 import com.jafir.qingning.model.bean.Comment;
 import com.lsjwzh.widget.recyclerviewpager.RecyclerViewPager;
 
@@ -109,13 +110,14 @@ public class ShopDetailActivity extends BaseActivity {
 
     private void initCommentRecylerViewPager() {
 
-        LinearLayoutManager lllayout = new LinearLayoutManager(aty, LinearLayoutManager.VERTICAL, false);
+        LinearLayoutManager lllayout = new FullyLinearLayoutManager(aty);
+        lllayout.setOrientation(LinearLayoutManager.VERTICAL);
         mCommentRecycler.setLayoutManager(lllayout);
 //        //模拟数据
         mCommentData = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             Comment comment = new Comment();
-            comment.setName("我的名字");
+            comment.setName("我的名字"+i);
             comment.setContent("评论评论评论评论评论评论评论评论评论评论评论评论");
             comment.setTime("2014-3-3 11:32");
             comment.setImgUrl(avatarUrl[i % avatarUrl.length]);
@@ -126,7 +128,7 @@ public class ShopDetailActivity extends BaseActivity {
 
         mCommentAdapter.setData(mCommentData);
         mCommentRecycler.setAdapter(mCommentAdapter);
-
+        mCommentRecycler.setNestedScrollingEnabled(false);
         mCommentAdapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
@@ -141,6 +143,7 @@ public class ShopDetailActivity extends BaseActivity {
         //布局管理器  线性
         LinearLayoutManager lllayout = new LinearLayoutManager(aty, LinearLayoutManager.HORIZONTAL, false);
         mRecyclerView.setLayoutManager(lllayout);
+        mRecyclerView.setNestedScrollingEnabled(false);
 //        //模拟数据
         mPicData = new ArrayList<>();
         for (int i = 0; i < 10; i++) {

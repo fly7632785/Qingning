@@ -35,6 +35,7 @@ public class TimeView extends TextView {
         diff = a.getInteger(R.styleable.TimeView_time, 50) * 1000;
 //        Log.d("TAG", "再打印  onCreate :" + diff);
 
+        a.recycle();
         onCreate();
 
     }

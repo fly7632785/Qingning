@@ -16,7 +16,6 @@ import android.view.ViewGroup;
 
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.AppContext;
-import com.jafir.qingning.app.activity.EventDetailActivity;
 import com.jafir.qingning.app.activity.publishEvent.PublishEventActivity;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
 import com.jafir.qingning.app.adapter.EventRecyclerAdapter;
@@ -117,7 +116,7 @@ public class EventFragment extends SupportFragment {
         mAdapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                startActivity(new Intent(aty, EventDetailActivity.class));
+//                startActivity(new Intent(aty, EventDetailActivity.class));
             }
         });
 

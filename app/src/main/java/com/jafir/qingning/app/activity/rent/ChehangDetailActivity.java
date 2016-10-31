@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -29,6 +30,9 @@ import java.util.ArrayList;
  */
 public class ChehangDetailActivity extends BaseActivity implements NestedScrollView.OnScrollChangeListener {
 
+
+    private String test;
+    private String t1 = new String();
 
     @BindView(id = R.id.toolbar)
     private Toolbar mToolbar;
@@ -67,6 +71,7 @@ public class ChehangDetailActivity extends BaseActivity implements NestedScrollV
     @Override
     public void initData() {
         super.initData();
+
 
 
         setSupportActionBar(mToolbar);
@@ -192,6 +197,16 @@ public class ChehangDetailActivity extends BaseActivity implements NestedScrollV
     }
 
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return super.onTouchEvent(event);
+
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        return super.dispatchTouchEvent(ev);
+    }
 
 
 }

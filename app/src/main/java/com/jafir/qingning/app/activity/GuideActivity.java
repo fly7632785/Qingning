@@ -74,7 +74,11 @@ public class GuideActivity extends BaseActivity {
         //创建dialog
         startActivity(new Intent(aty, LoginActivity.class));
 
+
     }
+
+
+
 
     private void initViewpager() {
         mViewpager.setAdapter(new PagerAdapter() {
@@ -104,8 +108,11 @@ public class GuideActivity extends BaseActivity {
             public void destroyItem(ViewGroup container, int position, Object object) {
 //                container.removeView(container.getChildAt(position));
                 container.removeView((View) object);
+
             }
         });
+
+
 
 
     }

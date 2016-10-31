@@ -16,7 +16,6 @@ import android.widget.TextView;
 
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.util.CommonValidate;
-import com.jafir.qingning.app.util.KeyboardUtil;
 import com.jafir.qingning.model.bean.Result;
 import com.jafir.qingning.model.entity.LoginEntity;
 import com.jafir.qingning.model.entity.RegitsterEntity;
@@ -159,7 +158,8 @@ public class RegisterActivity extends BaseActivity {
                         }
                         return MyHttpClient.getInstance().getApiService().loginRx(phone, password);
                     }
-                }).subscribeOn(Schedulers.newThread())
+                })
+                .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<Result<LoginEntity>>() {
                     @Override

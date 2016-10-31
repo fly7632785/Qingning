@@ -22,7 +22,6 @@ import org.kymjs.kjframe.utils.KJLoger;
 
 import rx.Observable;
 import rx.Subscriber;
-import rx.functions.Func1;
 
 /**
  * Created by jafir on 16/4/18.
@@ -298,13 +297,9 @@ public class MainActivity extends BaseActivity {
             }
         };
         Observable.from(students)
-                .flatMap(new Func1<Student, Observable<Course>>() {
-                    @Override
-                    public Observable<Course> call(Student student) {
-                        return Observable.from(student.getCourses());
-                    }
-                })
+                .flatMap(student -> Observable.from(student.getCourses()))
                 .subscribe(subscriber);
+
 
 
     }

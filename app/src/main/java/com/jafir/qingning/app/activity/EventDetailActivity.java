@@ -1,10 +1,14 @@
 package com.jafir.qingning.app.activity;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,11 +20,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
-import com.jafir.qingning.app.adapter.CommentRecyclerAdapter;
 import com.jafir.qingning.app.adapter.ShopCompleteRecyclerAdapter;
-import com.jafir.qingning.model.bean.Comment;
 import com.jafir.qingning.model.bean.Event;
 import com.jafir.qingning.model.bean.Shop;
 
@@ -86,14 +89,14 @@ public class EventDetailActivity extends BaseActivity {
     public void initData() {
         super.initData();
 
-
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("虹口漂流");
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EventDetailActivity.this.finish();
+//                EventDetailActivity.this.finish();
+                onBackPressed();
             }
         });
 
@@ -103,6 +106,10 @@ public class EventDetailActivity extends BaseActivity {
         titleList = new ArrayList<String>();// 每个页面的Title数据
         titleList.add("活动详情");
         titleList.add("商家竞标");
+
+        String url = getIntent().getStringExtra("cover");
+        ViewCompat.setTransitionName(mImg, "img");
+        Glide.with(this).load(url).into(mImg);
 
 
         initView1(view1);
@@ -208,7 +215,7 @@ public class EventDetailActivity extends BaseActivity {
         for (int i = 0; i < 10; i++) {
             Shop shop = new Shop();
             shop.setName("澳门海底捞");
-            shop.setAvatar(imgUrl[i%imgUrl.length]);
+            shop.setAvatar(imgUrl[i % imgUrl.length]);
             shop.setIntroduce("本店可提供10人豪华特色餐食，更有钓鱼项目可免费烹饪。 更有一体的田更有一体的田更有一体的田");
             shop.setPhone("13982004324");
             shops.add(shop);
@@ -217,11 +224,10 @@ public class EventDetailActivity extends BaseActivity {
         mAdapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                startActivity(new Intent(aty,ShopDetailActivity.class));
+                startActivity(new Intent(aty, ShopDetailActivity.class));
             }
         });
         mShopRecyclerView.setAdapter(mAdapter);
-
 
 
     }
@@ -252,6 +258,16 @@ public class EventDetailActivity extends BaseActivity {
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        if (ActivityCompat.checkSelfPermission(EventDetailActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                            // TODO: Consider calling
+                            //    ActivityCompat#requestPermissions
+                            // here to request the missing permissions, and then overriding
+                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                            //                                          int[] grantResults)
+                            // to handle the case where the user grants the permission. See the documentation
+                            // for ActivityCompat#requestPermissions for more details.
+                            return;
+                        }
                         startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:13982004324")));
                     }
                 })

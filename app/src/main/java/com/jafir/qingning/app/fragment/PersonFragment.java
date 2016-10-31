@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.activity.BezierAcitvity;
+import com.jafir.qingning.app.activity.ContactActivity;
 import com.jafir.qingning.app.activity.MyEventActivity;
 import com.jafir.qingning.app.activity.MyGuideBookActivity;
 import com.jafir.qingning.app.util.OssUtil;
@@ -108,6 +109,8 @@ public class PersonFragment extends SupportFragment {
             case R.id.person_my_likes:
                 break;
             case R.id.person_my_order:
+
+                startActivity(new Intent(aty, ContactActivity.class));
                 break;
             case R.id.person_my_guidebook:
                 startActivity(new Intent(aty, MyGuideBookActivity.class));

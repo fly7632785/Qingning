@@ -76,7 +76,7 @@ public class SplashActivity extends BaseActivity {
 //            UIHelper.showGuide(aty);
             PreferenceHelper.write(aty, TAG, "first_open", false);
         }
-        skipActivity(this,MainActivity.class);
+        skipActivity(this,GuideActivity.class);
         finish();
     }
 

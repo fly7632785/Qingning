@@ -6,6 +6,7 @@ import com.jafir.qingning.net.api.EventService;
 import com.jafir.qingning.net.api.GuideBookService;
 import com.jafir.qingning.net.api.RentService;
 
+import org.kymjs.kjframe.ui.ViewInject;
 import org.kymjs.kjframe.utils.SystemTool;
 
 import java.io.File;
@@ -13,8 +14,10 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
+import okhttp3.CacheControl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -33,12 +36,20 @@ public class MyHttpClient {
     public MyHttpClient() {
     }
 
-    public static synchronized MyHttpClient getInstance() {
-        if (mInstance == null) {
-            mInstance = new MyHttpClient();
-        }
-        return mInstance;
+//    public static synchronized MyHttpClient getInstance() {
+//        if (mInstance == null) {
+//            mInstance = new MyHttpClient();
+//        }
+//        return mInstance;
+//
+//    }
 
+    private static class SingleHolder {
+        private static final MyHttpClient instance = new MyHttpClient();
+    }
+
+    public static MyHttpClient getInstance() {
+        return SingleHolder.instance;
     }
 
 
@@ -50,7 +61,18 @@ public class MyHttpClient {
     final Interceptor REWRITE_CACHE_CONTROL_INTERCEPTOR = new Interceptor() {
         @Override
         public Response intercept(Chain chain) throws IOException {
-            Response originalResponse = chain.proceed(chain.request());
+
+            Request request = chain.request();
+            if (!SystemTool.checkNet(AppContext.context)) {
+                request = request.newBuilder()
+                        .cacheControl(CacheControl.FORCE_CACHE)
+                        .build();
+
+                ViewInject.toast("no network");
+
+            }
+
+            Response originalResponse = chain.proceed(request);
             if (SystemTool.checkNet(AppContext.context)) {
                 int maxAge = 0 * 60; // read from cache for 1 minute
                 return originalResponse.newBuilder()
