@@ -4,7 +4,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.jafir.qingning.R;
-import com.jafir.qingning.app.manager.ActivityManager;
 
 import org.kymjs.kjframe.ui.BindView;
 
@@ -44,16 +43,4 @@ public class RedBagActivity extends BaseActivity {
     }
 
 
-    @Override
-    public void widgetClick(View v) {
-        super.widgetClick(v);
-        switch (v.getId()){
-            case R.id.evaluate_submit:
-                ActivityManager.getScreenManager().popActivity(OrderSuccessActivity.class);
-                ActivityManager.getScreenManager().popActivity(OrderDetailActivity.class);
-                ActivityManager.getScreenManager().popActivity(PayActivity.class);
-                ActivityManager.getScreenManager().popActivity(this);
-                break;
-        }
-    }
 }

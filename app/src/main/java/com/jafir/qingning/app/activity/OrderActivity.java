@@ -7,8 +7,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jafir.qingning.R;
-import com.jafir.qingning.app.activity.rent.ChehangDetailActivity;
-import com.jafir.qingning.app.activity.rent.ChooseBikeActivity;
 import com.jafir.qingning.app.manager.ActivityManager;
 import com.jafir.qingning.model.bean.Bike;
 
@@ -28,7 +26,7 @@ public class OrderActivity extends BaseActivity {
     @BindView(id = R.id.order_layout)
     private LinearLayout mLinear;
 
-    @BindView(id = R.id.order_done,click = true)
+    @BindView(id = R.id.order_done, click = true)
     private TextView mDone;
 
 
@@ -80,14 +78,15 @@ public class OrderActivity extends BaseActivity {
     @Override
     public void widgetClick(View v) {
         super.widgetClick(v);
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.order_done:
-                Intent intent = new Intent(aty,OrderSuccessActivity.class);
-                intent.putExtra("orderdata",mData);
+                Intent intent = new Intent(aty, OrderSuccessActivity.class);
+                intent.putExtra("orderdata", mData);
                 startActivity(intent);
-                ActivityManager.getScreenManager().popActivity(ChooseBikeActivity.class);
-                ActivityManager.getScreenManager().popActivity(ChehangDetailActivity.class);
-                ActivityManager.getScreenManager().popActivity(this);
+//                ActivityManager.getInstance().popActivity(ChooseBikeActivity.class);
+//                ActivityManager.getInstance().popActivity(ChehangDetailActivity.class);
+//                ActivityManager.getInstance().popActivity(this);
+                ActivityManager.getInstance().popAllActivityExceptOne(MainActivity.class);
                 break;
         }
     }

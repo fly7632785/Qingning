@@ -19,7 +19,7 @@ public class EvaluateActivity extends BaseActivity {
     @BindView(id = R.id.toolbar)
     private Toolbar mToolbar;
 
-    @BindView(id = R.id.evaluate_submit,click = true)
+    @BindView(id = R.id.evaluate_submit, click = true)
     private TextView mSubmit;
     @BindView(id = R.id.evaluate_comment)
     private EditText mComment;
@@ -27,7 +27,6 @@ public class EvaluateActivity extends BaseActivity {
     private RatingBar mRatingBike;
     @BindView(id = R.id.evaluate_store)
     private RatingBar mRatingStore;
-
 
 
     @Override
@@ -49,18 +48,15 @@ public class EvaluateActivity extends BaseActivity {
         });
 
 
-
-
-
     }
 
 
     @Override
     public void widgetClick(View v) {
         super.widgetClick(v);
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.evaluate_submit:
-                ActivityManager.getScreenManager().popAllActivityExceptOne(MainActivity.class);
+                ActivityManager.getInstance().popAllActivityUntillOne(MainActivity.class);
                 break;
         }
     }

@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.jafir.qingning.R;
-import com.jafir.qingning.app.manager.ActivityManager;
 
 import org.kymjs.kjframe.ui.BindView;
 
@@ -17,9 +16,8 @@ public class StoreChitActivity extends BaseActivity {
     @BindView(id = R.id.toolbar)
     private Toolbar mToolbar;
 
-    @BindView(id = R.id.evaluate_submit,click = true)
+    @BindView(id = R.id.evaluate_submit, click = true)
     private TextView mSubmit;
-
 
 
     @Override
@@ -41,22 +39,6 @@ public class StoreChitActivity extends BaseActivity {
         });
 
 
-
-
-
     }
 
-
-    @Override
-    public void widgetClick(View v) {
-        super.widgetClick(v);
-        switch (v.getId()){
-            case R.id.evaluate_submit:
-                ActivityManager.getScreenManager().popActivity(OrderSuccessActivity.class);
-                ActivityManager.getScreenManager().popActivity(OrderDetailActivity.class);
-                ActivityManager.getScreenManager().popActivity(PayActivity.class);
-                ActivityManager.getScreenManager().popActivity(this);
-                break;
-        }
-    }
 }

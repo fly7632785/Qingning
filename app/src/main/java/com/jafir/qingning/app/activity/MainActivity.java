@@ -65,7 +65,6 @@ public class MainActivity extends BaseActivity {
     private SupportFragment mCurrentFragment;
 
 
-
     /**
      * @param savedInstanceState
      */
@@ -74,7 +73,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 //        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN|WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
-//        KJLoger.debug("还有activity："+ActivityManager.getScreenManager().getActivityStack().toString());
+//        KJLoger.debug("还有activity："+ActivityManager.getInstance().getActivityStack().toString());
 
         mRentFragment = new RentFragment();
         mEventFragment = new EventFragment();
@@ -259,19 +258,26 @@ public class MainActivity extends BaseActivity {
 //        test();
     }
 
-    public void test (){
+    @Override
+    protected void onStart() {
+        super.onStart();
+        System.gc();
+
+    }
+
+    public void test() {
 
         Student student1 = new Student();
         Student student2 = new Student();
         Student student3 = new Student();
-        Student[] students = new Student[]{student1,student2,student3};
+        Student[] students = new Student[]{student1, student2, student3};
         Course course1 = new Course();
         course1.setName("course1111");
         Course course2 = new Course();
         course2.setName("course2");
         Course course3 = new Course();
         course3.setName("course3");
-        Course[] courses = new Course[]{course1,course2,course3};
+        Course[] courses = new Course[]{course1, course2, course3};
         student1.setCourses(courses);
         student2.setCourses(courses);
         student3.setCourses(courses);
@@ -301,9 +307,7 @@ public class MainActivity extends BaseActivity {
                 .subscribe(subscriber);
 
 
-
     }
-
 
 
     class Student {
@@ -328,7 +332,7 @@ public class MainActivity extends BaseActivity {
     }
 
 
-    class Course{
+    class Course {
         private String name;
 
         public String getName() {
@@ -339,9 +343,6 @@ public class MainActivity extends BaseActivity {
             this.name = name;
         }
     }
-
-
-
 
 
     @Override
