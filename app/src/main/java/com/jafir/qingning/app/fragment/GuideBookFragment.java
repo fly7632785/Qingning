@@ -16,13 +16,8 @@ import android.view.ViewGroup;
 
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.AppContext;
-<<<<<<< 127b4575d460c6d9c69bb819360383abf2ceada9
 import com.jafir.qingning.app.activity.rent.ChehangDetailActivity;
 import com.jafir.qingning.app.activity.EditGuidebookActivity;
-=======
-import com.jafir.qingning.app.activity.EditGuidebookActivity;
-import com.jafir.qingning.app.activity.rent.ChehangDetailActivity;
->>>>>>> demo
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
 import com.jafir.qingning.app.adapter.GuideBookRecyclerAdapter;
 import com.jafir.qingning.model.bean.GuideBook;
@@ -105,13 +100,9 @@ public class GuideBookFragment extends SupportFragment {
                 hanlder.sendEmptyMessageDelayed(1, 3000);
             }
         });
-<<<<<<< 127b4575d460c6d9c69bb819360383abf2ceada9
 
         initRecyclerView();
 
-=======
-        initRecyclerView();
->>>>>>> demo
     }
 
     private void initRecyclerView() {
