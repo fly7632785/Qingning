@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 25
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "com.jafir.qiyou"
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
@@ -40,14 +40,14 @@ repositories {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:design:23.1.1'
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support:design:25.2.0'
     compile 'org.kymjs.kjframe:kjframe:2.6'
-    compile 'com.android.support:cardview-v7:23.2.0'
-    compile 'com.android.support:recyclerview-v7:23.2.0'
+    compile 'com.android.support:cardview-v7:25.2.0'
+    compile 'com.android.support:recyclerview-v7:25.2.0'
     compile files('libs/BaiduLBS_Android.jar')
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.android.support:support-v4:23.2.0'
+    compile 'com.android.support:support-v4:25.2.0'
     //    compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     //indicator
     compile 'com.nineoldandroids:library:2.4.0'
@@ -68,6 +68,8 @@ dependencies {
     compile 'cn.finalteam:galleryfinal:1.4.3'
     //    富文本
     compile 'jp.wasabeef:richeditor-android:1.2.0'
+    compile 'com.github.huzhenjie:RichTextEditor:1.0.2'
+    compile 'org.jsoup:jsoup:1.10.1'
     // log
     compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
     //    dagger
@@ -77,5 +79,6 @@ dependencies {
     //
     compile 'com.lsjwzh:recyclerviewpager:1.0.8'
 
+//    compile project(':richtext')
 
 }

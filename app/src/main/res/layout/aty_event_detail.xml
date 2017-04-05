@@ -87,6 +87,11 @@
 
     </android.support.v4.view.ViewPager>
 
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:id="@+id/container"
+        android:layout_height="match_parent"></FrameLayout>
     <TextView
         android:id="@+id/add"
         android:layout_width="match_parent"
@@ -95,7 +100,7 @@
         android:gravity="center"
         android:text="我要参加"
         android:textColor="@color/colorPrimary"
-        app:layout_anchor="@id/main_content"
+        app:layout_anchor="@id/container"
         app:layout_anchorGravity="bottom|right|end" />
 
 

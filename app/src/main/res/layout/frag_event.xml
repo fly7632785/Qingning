@@ -41,7 +41,10 @@
 
     </LinearLayout>
 
-
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:id="@+id/container"
+        android:layout_height="match_parent"></FrameLayout>
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="45dp"
@@ -50,6 +53,6 @@
         android:src="@mipmap/plus"
         android:layout_marginBottom="@dimen/fab_margin"
         android:layout_marginRight="@dimen/fab_margin"
-        app:layout_anchor="@+id/coordinator"
+        app:layout_anchor="@+id/container"
         app:layout_anchorGravity="bottom|right|end" />
 </android.support.design.widget.CoordinatorLayout>

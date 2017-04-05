@@ -73,6 +73,8 @@
 
 
         <activity android:name=".app.activity.ContactActivity" />
+        <activity android:name=".app.activity.EditActivity" />
+        <activity android:name=".app.activity.GuideBookActivity" />
 
 
         <activity
