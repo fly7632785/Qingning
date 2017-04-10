@@ -23,6 +23,7 @@ import com.jafir.qingning.R;
 import com.jafir.qingning.app.adapter.CityListAdapter;
 import com.jafir.qingning.app.adapter.ResultListAdapter;
 import com.jafir.qingning.app.db.DBManager;
+import com.jafir.qingning.app.util.KeyboardUtil;
 import com.jafir.qingning.app.util.StringUtils;
 import com.jafir.qingning.app.view.SideLetterBar;
 import com.jafir.qingning.model.bean.City;
@@ -293,6 +294,7 @@ public class CityPickerActivity extends AppCompatActivity implements View.OnClic
                 mResultListView.setVisibility(View.GONE);
                 break;
             case R.id.back:
+                KeyboardUtil.closeKeybord(searchBox,CityPickerActivity.this);
                 finish();
                 break;
         }

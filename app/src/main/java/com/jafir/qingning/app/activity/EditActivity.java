@@ -64,7 +64,7 @@ public class EditActivity extends AppCompatActivity {
                 break;
             case R.id.export:
                 Log.e("xxx", richEditText.toHtml());
-                Intent intent = new Intent(EditActivity.this,GuideBookActivity.class);
+                Intent intent = new Intent(EditActivity.this,GuideBookDetailActivity.class);
                 intent.putExtra("data",richEditText.toHtml());
                 startActivity(intent);
 

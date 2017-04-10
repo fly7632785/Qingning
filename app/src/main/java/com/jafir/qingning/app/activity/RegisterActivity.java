@@ -76,7 +76,6 @@ public class RegisterActivity extends BaseActivity {
 
 
     private void attemptRegister() {
-
         // Reset errors.
         mPhoneView.setError(null);
         mPasswordView.setError(null);

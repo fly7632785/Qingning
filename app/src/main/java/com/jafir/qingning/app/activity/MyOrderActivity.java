@@ -8,8 +8,8 @@ import android.view.View;
 
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
-import com.jafir.qingning.app.adapter.GuideBookRecyclerAdapter;
-import com.jafir.qingning.model.bean.GuideBook;
+import com.jafir.qingning.app.adapter.MyOrderRecyclerAdapter;
+import com.jafir.qingning.model.bean.Order;
 
 import org.kymjs.kjframe.ui.BindView;
 
@@ -18,20 +18,20 @@ import java.util.ArrayList;
 /**
  * Created by jafir on 16/5/25.
  */
-public class MyGuideBookActivity extends BaseActivity {
+public class MyOrderActivity extends BaseActivity {
 
 
     @BindView(id = R.id.toolbar)
     private Toolbar mToolbar;
     @BindView(id = R.id.recyclerview)
     private RecyclerView mRecyclerView;
-    private GuideBookRecyclerAdapter mAdapter;
-    private ArrayList<GuideBook> list = new ArrayList<>();
+    private MyOrderRecyclerAdapter mAdapter;
+    private ArrayList<Order> list = new ArrayList<>();
 
 
     @Override
     public void setRootView() {
-        setContentView(R.layout.aty_my_guide_book);
+        setContentView(R.layout.aty_my_order_book);
     }
 
 
@@ -57,7 +57,7 @@ public class MyGuideBookActivity extends BaseActivity {
         LinearLayoutManager manager = new LinearLayoutManager(aty);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(manager);
-        mAdapter = new GuideBookRecyclerAdapter();
+        mAdapter = new MyOrderRecyclerAdapter();
 
 
         mAdapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
@@ -67,14 +67,13 @@ public class MyGuideBookActivity extends BaseActivity {
             }
         });
         for (int i = 0; i < 10; i++) {
-            GuideBook guideBook = new GuideBook();
-            guideBook.setTitle("美食是一道风景。挑战纽约经典面包亲手做一个糖霜包");
-            guideBook.setTime("2015.4.4");
-            guideBook.setImgUrl(imgs[i % imgs.length]);
-            guideBook.setAvatar("http://img3.imgtn.bdimg.com/it/u=2103190071,4127559232&fm=23&gp=0.jpg");
-            guideBook.setAddress("目的地：都江堰朝阳路12号");
-            guideBook.setLikes("有5人喜欢");
-            list.add(guideBook);
+            Order order = new Order();
+            order.setTitle("自由租车行");
+            order.setTime("2017-4-4");
+            order.setStatus(i%3==0?"已完成":"进行中");
+            order.setAvatar(imgs[i % imgs.length]);
+            order.setInfo("死飞2辆 山地自行车5辆 ");
+            list.add(order);
         }
         mAdapter.setData(list);
         mRecyclerView.setAdapter(mAdapter);

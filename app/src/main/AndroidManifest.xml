@@ -61,6 +61,11 @@
         <activity android:name=".app.activity.RedBagActivity" />
         <activity android:name=".app.activity.StoreChitActivity" />
         <activity android:name=".app.activity.BezierAcitvity" />
+        <activity android:name=".app.activity.SettingActivity" />
+        <activity android:name=".app.activity.AboutActivity" />
+        <activity android:name=".app.activity.MyLikeActivity" />
+        <activity android:name=".app.activity.MyOrderActivity" />
+        <activity android:name=".app.activity.JoinPeopleListActivity" />
 
         <activity
             android:name=".app.activity.SelectActivity"
@@ -74,7 +79,7 @@
 
         <activity android:name=".app.activity.ContactActivity" />
         <activity android:name=".app.activity.EditActivity" />
-        <activity android:name=".app.activity.GuideBookActivity" />
+        <activity android:name=".app.activity.GuideBookDetailActivity" />
 
 
         <activity

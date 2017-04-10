@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/ab_like"
+        android:orderInCategory="60"
+        android:icon="@mipmap/guide_detail_like_normal"
+        android:title="喜欢"
+        app:showAsAction="ifRoom"/>
+</menu>

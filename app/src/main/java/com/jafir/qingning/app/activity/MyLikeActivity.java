@@ -1,6 +1,7 @@
 package com.jafir.qingning.app.activity;
 
 import android.content.Intent;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -8,7 +9,7 @@ import android.view.View;
 
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
-import com.jafir.qingning.app.adapter.GuideBookRecyclerAdapter;
+import com.jafir.qingning.app.adapter.MylikeRecyclerAdapter;
 import com.jafir.qingning.model.bean.GuideBook;
 
 import org.kymjs.kjframe.ui.BindView;
@@ -18,20 +19,20 @@ import java.util.ArrayList;
 /**
  * Created by jafir on 16/5/25.
  */
-public class MyGuideBookActivity extends BaseActivity {
+public class MyLikeActivity extends BaseActivity {
 
 
     @BindView(id = R.id.toolbar)
     private Toolbar mToolbar;
     @BindView(id = R.id.recyclerview)
     private RecyclerView mRecyclerView;
-    private GuideBookRecyclerAdapter mAdapter;
+    private MylikeRecyclerAdapter mAdapter;
     private ArrayList<GuideBook> list = new ArrayList<>();
 
 
     @Override
     public void setRootView() {
-        setContentView(R.layout.aty_my_guide_book);
+        setContentView(R.layout.aty_my_like_book);
     }
 
 
@@ -54,10 +55,10 @@ public class MyGuideBookActivity extends BaseActivity {
     private void initRecycler() {
 
         //设置 管理器
-        LinearLayoutManager manager = new LinearLayoutManager(aty);
+        GridLayoutManager manager = new GridLayoutManager(aty,2);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(manager);
-        mAdapter = new GuideBookRecyclerAdapter();
+        mAdapter = new MylikeRecyclerAdapter();
 
 
         mAdapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {

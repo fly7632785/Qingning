@@ -1,19 +1,14 @@
 package com.jafir.qingning.app.activity;
 
-import android.Manifest;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +19,7 @@ import com.bumptech.glide.Glide;
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
 import com.jafir.qingning.app.adapter.ShopCompleteRecyclerAdapter;
+import com.jafir.qingning.app.util.PhoneUtils;
 import com.jafir.qingning.model.bean.Event;
 import com.jafir.qingning.model.bean.Shop;
 
@@ -37,6 +33,7 @@ import java.util.ArrayList;
 public class EventDetailActivity extends BaseActivity {
 
 
+    private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 1;
     @BindView(id = R.id.toolbar)
     private Toolbar mToolbar;
     @BindView(id = R.id.viewpager)
@@ -78,6 +75,8 @@ public class EventDetailActivity extends BaseActivity {
     private TextView destination;
     private TextView money;
     private TextView require;
+    private TextView joinPeople;
+    private View gotoJoinPeople;
 
     @Override
     public void setRootView() {
@@ -95,8 +94,7 @@ public class EventDetailActivity extends BaseActivity {
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                EventDetailActivity.this.finish();
-                onBackPressed();
+                EventDetailActivity.this.finish();
             }
         });
 
@@ -108,8 +106,10 @@ public class EventDetailActivity extends BaseActivity {
         titleList.add("商家竞标");
 
         String url = getIntent().getStringExtra("cover");
-        ViewCompat.setTransitionName(mImg, "img");
-        Glide.with(this).load(url).into(mImg);
+        if(!TextUtils.isEmpty(url)) {
+            ViewCompat.setTransitionName(mImg, "img");
+            Glide.with(this).load(url).into(mImg);
+        }
 
 
         initView1(view1);
@@ -195,12 +195,16 @@ public class EventDetailActivity extends BaseActivity {
         destination = (TextView) view1.findViewById(R.id.event_detail_destination);
         money = (TextView) view1.findViewById(R.id.event_detail_money);
         people = (TextView) view1.findViewById(R.id.event_detail_people);
+        joinPeople = (TextView) view1.findViewById(R.id.event_detail_join_people);
         sparePeople = (TextView) view1.findViewById(R.id.event_detail_spare_people);
         startTime = (TextView) view1.findViewById(R.id.event_detail_start_time);
         endTime = (TextView) view1.findViewById(R.id.event_detail_end_time);
         require = (TextView) view1.findViewById(R.id.event_detail_require);
         days = (TextView) view1.findViewById(R.id.event_detail_days);
+        gotoJoinPeople = view1.findViewById(R.id.goto_join_user);
 
+
+        gotoJoinPeople.setOnClickListener(this);
         userPhone.setOnClickListener(this);
         userAvatar.setOnClickListener(this);
         userName.setOnClickListener(this);
@@ -238,7 +242,9 @@ public class EventDetailActivity extends BaseActivity {
         super.widgetClick(v);
         switch (v.getId()) {
             case R.id.add:
-
+                break;
+            case R.id.goto_join_user:
+                startActivity(new Intent(EventDetailActivity.this,JoinPeopleListActivity.class));
                 break;
             case R.id.event_detail_user_avatar:
                 break;
@@ -252,29 +258,7 @@ public class EventDetailActivity extends BaseActivity {
     }
 
     private void openPhone() {
-        AlertDialog dialog = new AlertDialog.Builder(aty)
-                .setTitle("拨打电话")
-                .setMessage("您要拨打" + "13982004324" + "吗?")
-                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        if (ActivityCompat.checkSelfPermission(EventDetailActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                            // TODO: Consider calling
-                            //    ActivityCompat#requestPermissions
-                            // here to request the missing permissions, and then overriding
-                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                            //                                          int[] grantResults)
-                            // to handle the case where the user grants the permission. See the documentation
-                            // for ActivityCompat#requestPermissions for more details.
-                            return;
-                        }
-                        startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:13982004324")));
-                    }
-                })
-                .setNegativeButton("取消", null)
-                .create();
-        dialog.show();
-
+        PhoneUtils.call("13982004324",this);
     }
 
 

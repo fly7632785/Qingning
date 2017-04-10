@@ -15,10 +15,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jafir.qingning.R;
-import com.jafir.qingning.app.activity.BezierAcitvity;
-import com.jafir.qingning.app.activity.ContactActivity;
 import com.jafir.qingning.app.activity.MyEventActivity;
 import com.jafir.qingning.app.activity.MyGuideBookActivity;
+import com.jafir.qingning.app.activity.MyLikeActivity;
+import com.jafir.qingning.app.activity.MyOrderActivity;
+import com.jafir.qingning.app.activity.SettingActivity;
 import com.jafir.qingning.app.util.OssUtil;
 
 import org.kymjs.kjframe.ui.BindView;
@@ -107,16 +108,17 @@ public class PersonFragment extends SupportFragment {
                 startActivity(new Intent(aty, MyEventActivity.class));
                 break;
             case R.id.person_my_likes:
+                startActivity(new Intent(aty, MyLikeActivity.class));
                 break;
             case R.id.person_my_order:
 
-                startActivity(new Intent(aty, ContactActivity.class));
+                startActivity(new Intent(aty, MyOrderActivity.class));
                 break;
             case R.id.person_my_guidebook:
                 startActivity(new Intent(aty, MyGuideBookActivity.class));
                 break;
             case R.id.person_setting:
-                startActivity(new Intent(aty, BezierAcitvity.class));
+                startActivity(new Intent(aty, SettingActivity.class));
                 break;
             case R.id.person_avatar:
                 GalleryFinal.openGallerySingle(REQUEST_CODE_GALLERY, new GalleryFinal.OnHanlderResultCallback() {
@@ -131,7 +133,7 @@ public class PersonFragment extends SupportFragment {
                             if (bm != null && mAvatar != null) {
                                 KJLoger.debug("youavatar");
                                 mAvatar.setImageBitmap(bm);
-                                OssUtil.upload(aty.getApplicationContext(),path,handler);
+                                OssUtil.upload(aty.getApplicationContext(), path, handler);
                             }
 
                         }
@@ -205,7 +207,6 @@ public class PersonFragment extends SupportFragment {
 //            }
 //        }
 //    }
-
 
 
 }

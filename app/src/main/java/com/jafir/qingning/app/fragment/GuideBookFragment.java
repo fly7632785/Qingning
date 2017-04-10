@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.AppContext;
 import com.jafir.qingning.app.activity.EditActivity;
-import com.jafir.qingning.app.activity.rent.ChehangDetailActivity;
+import com.jafir.qingning.app.activity.GuideBookDetailActivity;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
 import com.jafir.qingning.app.adapter.GuideBookRecyclerAdapter;
 import com.jafir.qingning.model.bean.GuideBook;
@@ -114,7 +114,7 @@ public class GuideBookFragment extends SupportFragment {
         mAdapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                startActivity(new Intent(aty, ChehangDetailActivity.class));
+                startActivity(new Intent(aty, GuideBookDetailActivity.class));
             }
         });
         list = new ArrayList<>();

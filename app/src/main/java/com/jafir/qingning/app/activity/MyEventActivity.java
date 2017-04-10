@@ -1,6 +1,5 @@
 package com.jafir.qingning.app.activity;
 
-import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -11,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jafir.qingning.R;
-import com.jafir.qingning.app.activity.rent.ChehangDetailActivity;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
 import com.jafir.qingning.app.adapter.EventRecyclerAdapter;
 import com.jafir.qingning.model.bean.Event;
@@ -97,13 +95,11 @@ public class MyEventActivity extends BaseActivity {
         mAdapterPublish.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                startActivity(new Intent(aty, ChehangDetailActivity.class));
             }
         });
         mAdapterJoin.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                startActivity(new Intent(aty, ChehangDetailActivity.class));
             }
         });
         listPublish = new ArrayList<>();

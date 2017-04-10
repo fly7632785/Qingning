@@ -8,8 +8,8 @@ import android.view.View;
 
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
-import com.jafir.qingning.app.adapter.GuideBookRecyclerAdapter;
-import com.jafir.qingning.model.bean.GuideBook;
+import com.jafir.qingning.app.adapter.JoinPeopleRecyclerAdapter;
+import com.jafir.qingning.model.bean.User;
 
 import org.kymjs.kjframe.ui.BindView;
 
@@ -18,20 +18,20 @@ import java.util.ArrayList;
 /**
  * Created by jafir on 16/5/25.
  */
-public class MyGuideBookActivity extends BaseActivity {
+public class JoinPeopleListActivity extends BaseActivity {
 
 
     @BindView(id = R.id.toolbar)
     private Toolbar mToolbar;
     @BindView(id = R.id.recyclerview)
     private RecyclerView mRecyclerView;
-    private GuideBookRecyclerAdapter mAdapter;
-    private ArrayList<GuideBook> list = new ArrayList<>();
+    private JoinPeopleRecyclerAdapter mAdapter;
+    private ArrayList<User> list = new ArrayList<>();
 
 
     @Override
     public void setRootView() {
-        setContentView(R.layout.aty_my_guide_book);
+        setContentView(R.layout.aty_join_people_book);
     }
 
 
@@ -57,7 +57,7 @@ public class MyGuideBookActivity extends BaseActivity {
         LinearLayoutManager manager = new LinearLayoutManager(aty);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(manager);
-        mAdapter = new GuideBookRecyclerAdapter();
+        mAdapter = new JoinPeopleRecyclerAdapter();
 
 
         mAdapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
@@ -67,14 +67,11 @@ public class MyGuideBookActivity extends BaseActivity {
             }
         });
         for (int i = 0; i < 10; i++) {
-            GuideBook guideBook = new GuideBook();
-            guideBook.setTitle("美食是一道风景。挑战纽约经典面包亲手做一个糖霜包");
-            guideBook.setTime("2015.4.4");
-            guideBook.setImgUrl(imgs[i % imgs.length]);
-            guideBook.setAvatar("http://img3.imgtn.bdimg.com/it/u=2103190071,4127559232&fm=23&gp=0.jpg");
-            guideBook.setAddress("目的地：都江堰朝阳路12号");
-            guideBook.setLikes("有5人喜欢");
-            list.add(guideBook);
+            User user = new User();
+            user.setNickName("小明");
+            user.setPhone("13982004324");
+            user.setHeadImgUrl(imgs[i%imgs.length]);
+            list.add(user);
         }
         mAdapter.setData(list);
         mRecyclerView.setAdapter(mAdapter);
@@ -83,14 +80,12 @@ public class MyGuideBookActivity extends BaseActivity {
 
 
     public static String[] imgs = new String[]{
-            "http://img1.imgtn.bdimg.com/it/u=1089582262,166446285&fm=21&gp=0.jpg",
-            "http://img5.imgtn.bdimg.com/it/u=3603943369,1952417318&fm=21&gp=0.jpg",
-            "http://img5.imgtn.bdimg.com/it/u=1390800033,3298177266&fm=21&gp=0.jpg",
-            "http://img0.imgtn.bdimg.com/it/u=1584429376,3184583112&fm=21&gp=0.jpg",
-            "http://img5.imgtn.bdimg.com/it/u=3999722898,2097813441&fm=21&gp=0.jpg",
-            "http://img0.imgtn.bdimg.com/it/u=1599679285,12778853&fm=21&gp=0.jpg",
-            "http://img3.imgtn.bdimg.com/it/u=1003865389,4203869868&fm=21&gp=0.jpg",
-            "http://img4.imgtn.bdimg.com/it/u=3910218416,3261859686&fm=21&gp=0.jpg"
+            "http://img3.duitang.com/uploads/item/201604/24/20160424132044_ZzhuX.jpeg",
+            "http://v1.qzone.cc/avatar/201408/03/23/44/53de58e5da74c247.jpg%21200x200.jpg",
+            "http://b.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=f0c5c08030d3d539c16807c70fb7c566/8ad4b31c8701a18bbef9f231982f07082838feba.jpg",
+            "http://img1.touxiang.cn/uploads/20140310/10-055807_930.jpg",
+            "http://www.qqxoo.com/uploads/allimg/170408/2133192L2-1.jpg",
+            "http://m.vstou.com/img/201512/lbs4.jpg"
 
     };
 }

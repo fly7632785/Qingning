@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -11,16 +10,24 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:title="查看"
+        app:title="关于我们"
         app:titleTextColor="@color/white">
-
 
     </android.support.v7.widget.Toolbar>
 
-    <WebView
-        android:layout_width="match_parent"
-        android:id="@+id/webview"
-        android:layout_height="match_parent">
 
-    </WebView>
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:layout_width="150dp"
+        android:src="@mipmap/logo"
+        android:layout_height="150dp" />
+    <TextView
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:padding="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="本APP由Jafir开发制作，且最终解释权归其所有。" />
+
 </LinearLayout>

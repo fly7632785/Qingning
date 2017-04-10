@@ -105,12 +105,16 @@ public class ShopCompleteRecyclerAdapter extends BaseRecyclerAdapter<Shop> {
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        mContext.startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:13982004324")));
+                        Intent intent = new Intent(Intent.ACTION_DIAL);
+                        Uri data = Uri.parse("tel:" + "13982004324");
+                        intent.setData(data);
+                        mContext.startActivity(intent);
                     }
                 })
                 .setNegativeButton("取消", null)
                 .create();
         dialog.show();
+//        PhoneUtils.call("13982004324",mContext);
 
     }
 

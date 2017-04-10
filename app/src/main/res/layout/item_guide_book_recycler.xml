@@ -20,7 +20,7 @@
             android:id="@+id/item_guide_book_img"
             android:layout_height="180dp"
             android:scaleType="centerCrop"
-            android:src="@mipmap/pic" />
+            android:src="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/item_guide_book_title"
