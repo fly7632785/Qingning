@@ -17,12 +17,14 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.jafir.qingning.R;
+import com.jafir.qingning.app.AppConstant;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
 import com.jafir.qingning.app.adapter.ShopCompleteRecyclerAdapter;
 import com.jafir.qingning.app.util.PhoneUtils;
 import com.jafir.qingning.model.bean.Event;
 import com.jafir.qingning.model.bean.Shop;
 
+import org.kymjs.kjframe.KJBitmap;
 import org.kymjs.kjframe.ui.BindView;
 
 import java.util.ArrayList;
@@ -54,14 +56,6 @@ public class EventDetailActivity extends BaseActivity {
     private Event event;
 
 
-    private String[] imgUrl = new String[]{
-            "http://f.hiphotos.baidu.com/image/h%3D200/sign=f3f6ab70cc134954611eef64664f92dd/dcc451da81cb39db1bd474a7d7160924ab18302e.jpg",
-            "http://b.hiphotos.baidu.com/image/h%3D200/sign=0afb9ebc4c36acaf46e091fc4cd88d03/bd3eb13533fa828b670a4066fa1f4134970a5a0e.jpg",
-            "http://img2.imgtn.bdimg.com/it/u=2147665307,4031352505&fm=23&gp=0.jpg",
-            "http://img0.imgtn.bdimg.com/it/u=2769901330,4132322556&fm=23&gp=0.jpg",
-            "http://img1.imgtn.bdimg.com/it/u=693362385,3280695814&fm=23&gp=0.jpg",
-            "http://img4.imgtn.bdimg.com/it/u=3047710011,1274531363&fm=23&gp=0.jpg"
-    };
 
     //    详情相关
     private TextView userName;
@@ -106,6 +100,7 @@ public class EventDetailActivity extends BaseActivity {
         titleList.add("商家竞标");
 
         String url = getIntent().getStringExtra("cover");
+        event = (Event) getIntent().getSerializableExtra("data");
         if(!TextUtils.isEmpty(url)) {
             ViewCompat.setTransitionName(mImg, "img");
             Glide.with(this).load(url).into(mImg);
@@ -203,6 +198,23 @@ public class EventDetailActivity extends BaseActivity {
         days = (TextView) view1.findViewById(R.id.event_detail_days);
         gotoJoinPeople = view1.findViewById(R.id.goto_join_user);
 
+        getSupportActionBar().setTitle(event.getName());
+        userName.setText(event.getAuthor());
+//        Glide.with(this).load(event.getAuthorAvatar()).into(userAvatar);
+        new KJBitmap.Builder().imageUrl(event.getAuthorAvatar()).view(userAvatar).display();
+        destination.setText(event.getTarget());
+        money.setText(event.getMoney());
+        people.setText(event.getPeople()+"人");
+        startTime.setText(event.getStartTime());
+        endTime.setText(event.getEndTime());
+        require.setText(event.getRequire());
+        days.setText(event.getDays());
+        joinPeople.setText(event.getJoinPeople()+"人");
+        int cou = Integer.valueOf(event.getPeople())-Integer.valueOf(event.getJoinPeople());
+        sparePeople.setText(""+cou+"人");
+
+
+
 
         gotoJoinPeople.setOnClickListener(this);
         userPhone.setOnClickListener(this);
@@ -219,7 +231,7 @@ public class EventDetailActivity extends BaseActivity {
         for (int i = 0; i < 10; i++) {
             Shop shop = new Shop();
             shop.setName("澳门海底捞");
-            shop.setAvatar(imgUrl[i % imgUrl.length]);
+            shop.setAvatar(AppConstant.avatar[i % AppConstant.avatar.length]);
             shop.setIntroduce("本店可提供10人豪华特色餐食，更有钓鱼项目可免费烹饪。 更有一体的田更有一体的田更有一体的田");
             shop.setPhone("13982004324");
             shops.add(shop);

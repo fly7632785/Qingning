@@ -7,6 +7,7 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,13 +17,15 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.flyco.pageindicator.indicator.FlycoPageIndicaor;
 import com.jafir.qingning.R;
+import com.jafir.qingning.app.AppConstant;
 import com.jafir.qingning.app.activity.EventDetailActivity;
 import com.jafir.qingning.app.activity.rent.ChooseBikeActivity;
-import com.jafir.qingning.app.fragment.EventFragment;
 import com.jafir.qingning.model.bean.Event;
 
 import org.kymjs.kjframe.KJBitmap;
 import org.kymjs.kjframe.widget.RoundImageView;
+
+import java.io.Serializable;
 
 /**
  * Created by jafir on 16/5/10.
@@ -77,7 +80,7 @@ public class EventRecyclerAdapter extends BaseRecyclerAdapter<Event> {
 
                     ImageView imageView = new ImageView(container.getContext());
                     imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                    Glide.with(container.getContext()).load(EventFragment.imgs[position % EventFragment.imgs.length])
+                    Glide.with(container.getContext()).load(AppConstant.lunbo[position % AppConstant.lunbo.length])
                             .into(imageView);
                     container.addView(imageView);
                     return imageView;
@@ -136,7 +139,9 @@ public class EventRecyclerAdapter extends BaseRecyclerAdapter<Event> {
                 public void onClick(View v) {
 
                     Intent intent = new Intent(mContext, EventDetailActivity.class);
-                    intent.putExtra("cover",mDatas.get(currentPosition).getImg());
+                    intent.putExtra("cover",mDatas.get(getAdapterPosition()).getImg());
+                    intent.putExtra("data", (Serializable) mDatas.get(getAdapterPosition()));
+                    Log.e("debug",""+getAdapterPosition());
                     ActivityCompat.startActivity((Activity)mContext,intent, ActivityOptionsCompat.makeSceneTransitionAnimation((Activity)mContext,mImageView,"img").toBundle());
                     if (mOnItemClickListener != null && mDatas.size() != 0) {
                         mOnItemClickListener.onItemClick(v, getAdapterPosition() % mDatas.size());

@@ -16,6 +16,7 @@
         <View style="@style/line"
             />
         <TextView
+            android:id="@+id/discount_info"
             android:layout_marginTop="40dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

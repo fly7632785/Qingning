@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.jafir.qingning.R;
+import com.jafir.qingning.app.AppConstant;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
 import com.jafir.qingning.app.adapter.JoinPeopleRecyclerAdapter;
 import com.jafir.qingning.model.bean.User;
@@ -70,7 +71,7 @@ public class JoinPeopleListActivity extends BaseActivity {
             User user = new User();
             user.setNickName("小明");
             user.setPhone("13982004324");
-            user.setHeadImgUrl(imgs[i%imgs.length]);
+            user.setHeadImgUrl(AppConstant.avatar[i%AppConstant.avatar.length]);
             list.add(user);
         }
         mAdapter.setData(list);
@@ -79,13 +80,4 @@ public class JoinPeopleListActivity extends BaseActivity {
     }
 
 
-    public static String[] imgs = new String[]{
-            "http://img3.duitang.com/uploads/item/201604/24/20160424132044_ZzhuX.jpeg",
-            "http://v1.qzone.cc/avatar/201408/03/23/44/53de58e5da74c247.jpg%21200x200.jpg",
-            "http://b.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=f0c5c08030d3d539c16807c70fb7c566/8ad4b31c8701a18bbef9f231982f07082838feba.jpg",
-            "http://img1.touxiang.cn/uploads/20140310/10-055807_930.jpg",
-            "http://www.qqxoo.com/uploads/allimg/170408/2133192L2-1.jpg",
-            "http://m.vstou.com/img/201512/lbs4.jpg"
-
-    };
 }

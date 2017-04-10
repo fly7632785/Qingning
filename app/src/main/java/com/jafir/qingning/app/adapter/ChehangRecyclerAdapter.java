@@ -13,6 +13,7 @@ import com.jafir.qingning.R;
 import com.jafir.qingning.model.bean.Chehang;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by jafir on 16/5/10.
@@ -37,6 +38,7 @@ public class ChehangRecyclerAdapter extends BaseRecyclerAdapter implements Filte
         holder.mDistance.setText(chehang.getDistance());
         holder.mZuci.setText(chehang.getZuci());
         holder.mName.setText(chehang.getName());
+        holder.mc.setText(new Random().nextInt(8)+"元/h起");
         Glide.with(mContext).load(chehang.getImg()).centerCrop().into(holder.mImageView);
 
 
@@ -100,6 +102,7 @@ public class ChehangRecyclerAdapter extends BaseRecyclerAdapter implements Filte
         private TextView mDistance;
         //        private TextView mDesc;
         private TextView mZuci;
+        private TextView mc;
 
 
         public ImageViewHolder(View itemView) {
@@ -117,6 +120,7 @@ public class ChehangRecyclerAdapter extends BaseRecyclerAdapter implements Filte
 //            mDesc = (TextView) itemView.findViewById(R.id.item_chehang_desc);
             mZuci = (TextView) itemView.findViewById(R.id.item_chehang_zuci);
             mDistance = (TextView) itemView.findViewById(R.id.item_chehang_distance);
+            mc = (TextView) itemView.findViewById(R.id.item_chehang_least_price);
         }
     }
 

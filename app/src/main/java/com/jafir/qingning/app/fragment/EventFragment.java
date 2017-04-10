@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jafir.qingning.R;
+import com.jafir.qingning.app.AppConstant;
 import com.jafir.qingning.app.AppContext;
 import com.jafir.qingning.app.activity.publishEvent.PublishEventActivity;
 import com.jafir.qingning.app.adapter.BaseRecyclerAdapter;
@@ -25,6 +26,7 @@ import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.ui.SupportFragment;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by jafir on 16/4/19.
@@ -66,21 +68,30 @@ public class EventFragment extends SupportFragment {
                     //加载数据
                     for (int i = 0; i < 10; i++) {
                         Event event = new Event();
-                        event.setName("云墨山水--青城山");
-                        event.setAuthor("jafir");
-                        event.setPeople("有15人参与");
-                        event.setBussiness("4家商家竞标");
-                        event.setTime("2015.4.4");
-                        event.setTimes("123次浏览");
-                        event.setSpareTime("2天");
-                        event.setImg(imgs[i % imgs.length]);
-                        event.setPortrait("http://img3.imgtn.bdimg.com/it/u=2103190071,4127559232&fm=23&gp=0.jpg");
+                        event.setName(AppConstant.huodongname[new Random().nextInt(100)%AppConstant.huodongname.length]);
+                        event.setAuthor("moria");
+                        event.setAuthorAvatar(AppConstant.avatar[new Random().nextInt(100)%AppConstant.avatar.length]);
+                        event.setPeople(new Random().nextInt(10) +"");
+                        event.setJoinPeople(new Random().nextInt(4) + "");
+                        event.setBussiness(new Random().nextInt(5)+"家商家竞标");
+                        event.setTime("2016.7.4");
+                        event.setTarget(AppConstant.target[new Random().nextInt(100)%AppConstant.target.length]);
+                        event.setTimes(new Random().nextInt(15) + "次浏览");
+                        event.setSpareTime(new Random().nextInt(4) + "天");
+                        event.setDesc("desc");
+                        event.setDays(new Random().nextInt(5)+"天");
+                        event.setStartTime("2016-11-2 10:00am");
+                        event.setEndTime("2016-11-4 7:00am");
+                        event.setHowlong("" + new Random().nextInt(5));
+                        event.setMoney(new Random().nextInt(40) + "元");
+                        event.setImg(AppConstant.huodong[new Random().nextInt(100) % AppConstant.huodong.length]);
+                        event.setPortrait(AppConstant.avatar[new Random().nextInt(4)]);
+                        event.setRequire(AppConstant.require[new Random().nextInt(100) % AppConstant.require.length]);
                         list.add(event);
                     }
                     mAdapter.notifyDataSetChanged();
                     //加载完之后要把swip设置为默认位置
                     mSwipeLayout.setProgressViewEndTarget(false, (int) (64 * aty.getResources().getDisplayMetrics().density));
-
                     break;
             }
 
@@ -170,15 +181,25 @@ public class EventFragment extends SupportFragment {
         list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             Event event = new Event();
-            event.setName("云墨山水--青城山");
-            event.setAuthor("jafir");
-            event.setPeople("有15人参与");
-            event.setBussiness("4家商家竞标");
-            event.setTime("2015.4.4");
-            event.setTimes("123次浏览");
-            event.setSpareTime("2天");
-            event.setImg(imgs[i % imgs.length]);
-            event.setPortrait("http://img3.imgtn.bdimg.com/it/u=2103190071,4127559232&fm=23&gp=0.jpg");
+            event.setName(AppConstant.huodongname[new Random().nextInt(100)%AppConstant.huodongname.length]);
+            event.setAuthor("Jafir");
+            event.setAuthorAvatar(AppConstant.avatar[new Random().nextInt(100)%AppConstant.avatar.length]);
+            event.setPeople(new Random().nextInt(10) +"");
+            event.setJoinPeople(new Random().nextInt(4) + "");
+            event.setBussiness(new Random().nextInt(5)+"家商家竞标");
+            event.setTime("2016.7.4");
+            event.setTarget(AppConstant.target[new Random().nextInt(100)%AppConstant.target.length]);
+            event.setTimes(new Random().nextInt(15) + "次浏览");
+            event.setSpareTime(new Random().nextInt(4) + "天");
+            event.setDesc("desc");
+            event.setDays(new Random().nextInt(5)+"天");
+            event.setStartTime("2016-11-2 10:00am");
+            event.setEndTime("2016-11-4 7:00am");
+            event.setHowlong("" + new Random().nextInt(5));
+            event.setMoney(new Random().nextInt(40) + "元");
+            event.setImg(AppConstant.huodong[new Random().nextInt(100) % AppConstant.huodong.length]);
+            event.setPortrait(AppConstant.avatar[new Random().nextInt(4)]);
+            event.setRequire(AppConstant.require[new Random().nextInt(100) % AppConstant.require.length]);
             list.add(event);
         }
         mAdapter.setData(list);
@@ -208,24 +229,12 @@ public class EventFragment extends SupportFragment {
     @Override
     protected void widgetClick(View v) {
         super.widgetClick(v);
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.fab:
                 startActivity(new Intent(aty, PublishEventActivity.class));
                 break;
         }
     }
-
-    public static String[] imgs = new String[]{
-            "http://img1.imgtn.bdimg.com/it/u=1089582262,166446285&fm=21&gp=0.jpg",
-            "http://img5.imgtn.bdimg.com/it/u=3603943369,1952417318&fm=21&gp=0.jpg",
-            "http://img5.imgtn.bdimg.com/it/u=1390800033,3298177266&fm=21&gp=0.jpg",
-            "http://img0.imgtn.bdimg.com/it/u=1584429376,3184583112&fm=21&gp=0.jpg",
-            "http://img5.imgtn.bdimg.com/it/u=3999722898,2097813441&fm=21&gp=0.jpg",
-            "http://img0.imgtn.bdimg.com/it/u=1599679285,12778853&fm=21&gp=0.jpg",
-            "http://img3.imgtn.bdimg.com/it/u=1003865389,4203869868&fm=21&gp=0.jpg",
-            "http://img4.imgtn.bdimg.com/it/u=3910218416,3261859686&fm=21&gp=0.jpg"
-
-    };
 
 
 }

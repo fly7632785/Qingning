@@ -1,9 +1,11 @@
 package com.jafir.qingning.model.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by jafir on 16/5/14.
  */
-public class Event {
+public class Event implements Serializable{
 
 
     private String img;
@@ -12,11 +14,100 @@ public class Event {
     private String times;
     private String spareTime;
     private String author;
+    private String authorAvatar;
     private String bussiness;
     private String people;
+    private String joinPeople;
     private String portrait;
     private String phone;
+    private String target;
+    private String desc;
+    private String startTime;
+    private String endTime;
+    private String howlong;
+    private String money;
+    private String require;
+    private String days;
 
+    public String getAuthorAvatar() {
+        return authorAvatar;
+    }
+
+    public void setAuthorAvatar(String authorAvatar) {
+        this.authorAvatar = authorAvatar;
+    }
+
+    public String getDays() {
+        return days;
+    }
+
+    public void setDays(String days) {
+        this.days = days;
+    }
+
+    public String getJoinPeople() {
+        return joinPeople;
+    }
+
+    public void setJoinPeople(String joinPeople) {
+        this.joinPeople = joinPeople;
+    }
+
+    public String getTarget() {
+        return target;
+    }
+
+    public void setTarget(String target) {
+        this.target = target;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public String getHowlong() {
+        return howlong;
+    }
+
+    public void setHowlong(String howlong) {
+        this.howlong = howlong;
+    }
+
+    public String getMoney() {
+        return money;
+    }
+
+    public void setMoney(String money) {
+        this.money = money;
+    }
+
+    public String getRequire() {
+        return require;
+    }
+
+    public void setRequire(String require) {
+        this.require = require;
+    }
 
     public String getPhone() {
         return phone;

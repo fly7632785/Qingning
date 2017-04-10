@@ -38,7 +38,7 @@ repositories {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support:design:25.2.0'
@@ -78,7 +78,6 @@ dependencies {
     provided 'org.glassfish:javax.annotation:10.0-b28'
     //
     compile 'com.lsjwzh:recyclerviewpager:1.0.8'
-
-//    compile project(':richtext')
-
+    //    compile project(':richtext')
+    compile 'com.google.code.gson:gson:2.2.4'
 }

@@ -2,6 +2,15 @@ package com.jafir.qingning.model.bean;
 
 /**
  * Created by jafir on 16/5/19.
+ *
+ *
+ {
+ "imgUrl":"",
+ "name":"",
+ "time":"",
+ "content":""
+ }
+ *
  */
 public class Comment  {
 

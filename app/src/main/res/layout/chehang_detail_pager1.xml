@@ -28,6 +28,7 @@
                 android:layout_height="24dp" />
 
             <TextView
+                android:id="@+id/location"
                 style="@style/chehang_detail_desc"
                 android:text="青城山上善栖100米" />
         </LinearLayout>
@@ -44,6 +45,7 @@
                 android:layout_height="24dp" />
 
             <TextView
+                android:id="@+id/phone"
                 style="@style/chehang_detail_desc"
                 android:text="13982004324   " />
         </LinearLayout>
@@ -60,6 +62,7 @@
                 android:layout_height="24dp" />
 
             <TextView
+                android:id="@+id/opentime"
                 style="@style/chehang_detail_desc"
                 android:text="8:00AM-10:30PM" />
         </LinearLayout>

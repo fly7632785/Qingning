@@ -14,16 +14,21 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.jafir.qingning.R;
 import com.jafir.qingning.app.activity.BaseActivity;
 import com.jafir.qingning.app.adapter.CommentRecyclerAdapter;
+import com.jafir.qingning.model.bean.Chehang;
 import com.jafir.qingning.model.bean.Comment;
 
 import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.utils.KJLoger;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by jafir on 16/5/10.
@@ -41,26 +46,39 @@ public class ChehangDetailActivity extends BaseActivity implements NestedScrollV
     private ViewPager mViewpager;
     private ArrayList<View> viewList;
     private ArrayList<String> titleList;
-//    @BindView(id = R.id.chehang_detail_xuanche,click = true)
+    //    @BindView(id = R.id.chehang_detail_xuanche,click = true)
 //    private TextView mGoChooseBike;
-    @BindView(id = R.id.fab,click = true)
+    @BindView(id = R.id.fab, click = true)
     private FloatingActionButton mFab;
     @BindView(id = R.id.chehang_detail_tab)
     private TabLayout mTabLayout;
     @BindView(id = R.id.chehang_detail_cover)
     private ImageView mImg;
+    @BindView(id = R.id.chehang_detail_name)
+    private TextView name;
+    @BindView(id = R.id.chehang_detail_score)
+    private TextView score;
+    @BindView(id = R.id.chehang_detail_address)
+    private TextView address;
+    @BindView(id = R.id.chehang_detail_ratingbar)
+    private RatingBar rate;
+    @BindView(id = R.id.chehang_detail_count)
+    private TextView count;
+
+
     private RecyclerView mCommentRecycler;
     private CommentRecyclerAdapter mAdapter;
     private ArrayList<Comment> comments = new ArrayList<>();
 
-     private String[] imgUrl = new String[]{
-             "http://f.hiphotos.baidu.com/image/h%3D200/sign=f3f6ab70cc134954611eef64664f92dd/dcc451da81cb39db1bd474a7d7160924ab18302e.jpg",
-             "http://b.hiphotos.baidu.com/image/h%3D200/sign=0afb9ebc4c36acaf46e091fc4cd88d03/bd3eb13533fa828b670a4066fa1f4134970a5a0e.jpg",
-             "http://img2.imgtn.bdimg.com/it/u=2147665307,4031352505&fm=23&gp=0.jpg",
-             "http://img0.imgtn.bdimg.com/it/u=2769901330,4132322556&fm=23&gp=0.jpg",
-             "http://img1.imgtn.bdimg.com/it/u=693362385,3280695814&fm=23&gp=0.jpg",
-             "http://img4.imgtn.bdimg.com/it/u=3047710011,1274531363&fm=23&gp=0.jpg"
-     };
+    private String[] imgUrl = new String[]{
+            "http://f.hiphotos.baidu.com/image/h%3D200/sign=f3f6ab70cc134954611eef64664f92dd/dcc451da81cb39db1bd474a7d7160924ab18302e.jpg",
+            "http://b.hiphotos.baidu.com/image/h%3D200/sign=0afb9ebc4c36acaf46e091fc4cd88d03/bd3eb13533fa828b670a4066fa1f4134970a5a0e.jpg",
+            "http://img2.imgtn.bdimg.com/it/u=2147665307,4031352505&fm=23&gp=0.jpg",
+            "http://img0.imgtn.bdimg.com/it/u=2769901330,4132322556&fm=23&gp=0.jpg",
+            "http://img1.imgtn.bdimg.com/it/u=693362385,3280695814&fm=23&gp=0.jpg",
+            "http://img4.imgtn.bdimg.com/it/u=3047710011,1274531363&fm=23&gp=0.jpg"
+    };
+    private Chehang chehang;
 
     @Override
     public void setRootView() {
@@ -73,6 +91,14 @@ public class ChehangDetailActivity extends BaseActivity implements NestedScrollV
         super.initData();
 
 
+        chehang = (Chehang) getIntent().getSerializableExtra("data");
+
+        Glide.with(this).load(chehang.getImg()).into(mImg);
+        name.setText(chehang.getName());
+        score.setText(chehang.getScore());
+        address.setText(chehang.getLocation());
+        rate.setRating(Float.parseFloat(chehang.getScore()));
+        count.setText(new Random().nextInt(20)+"次租用");
 
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -86,14 +112,19 @@ public class ChehangDetailActivity extends BaseActivity implements NestedScrollV
 
         LayoutInflater lf = getLayoutInflater().from(this);
         View view1 = lf.inflate(R.layout.chehang_detail_pager1, null);
+
+
         View view2 = lf.inflate(R.layout.chehang_detail_pager2, null);
         View view3 = lf.inflate(R.layout.chehang_detail_pager3, null);
+        init1(view1);
+        init2(view2);
+        init3(view3);
 
         NestedScrollView n1 = (NestedScrollView) view1.findViewById(R.id.nestedScroll1);
         NestedScrollView n2 = (NestedScrollView) view2.findViewById(R.id.nestedScroll2);
 
         mCommentRecycler = (RecyclerView) view3.findViewById(R.id.recyclerview);
-        mCommentRecycler.setLayoutManager(new LinearLayoutManager(aty,LinearLayoutManager.VERTICAL,false));
+        mCommentRecycler.setLayoutManager(new LinearLayoutManager(aty, LinearLayoutManager.VERTICAL, false));
         mAdapter = new CommentRecyclerAdapter();
         //模拟数据
         for (int i = 0; i < 20; i++) {
@@ -101,12 +132,11 @@ public class ChehangDetailActivity extends BaseActivity implements NestedScrollV
             comment.setName("我的名字");
             comment.setContent("评论评论评论评论评论评论评论评论评论评论评论评论");
             comment.setTime("2014-3-3 11:32");
-            comment.setImgUrl(imgUrl[i%imgUrl.length]);
+            comment.setImgUrl(imgUrl[i % imgUrl.length]);
             comments.add(comment);
         }
         mAdapter.setData(comments);
         mCommentRecycler.setAdapter(mAdapter);
-
 
 
         viewList = new ArrayList<View>();// 将要分页显示的View装入数组中
@@ -123,11 +153,27 @@ public class ChehangDetailActivity extends BaseActivity implements NestedScrollV
         initTabLayout();
 
 
-
-        KJLoger.debug("width:"+aty.getResources().getDisplayMetrics().widthPixels+"height:"+aty.getResources().getDisplayMetrics().heightPixels+"density:"+aty.getResources().getDisplayMetrics().density+"densityDpi"+aty.getResources().getDisplayMetrics().densityDpi);
-
+        KJLoger.debug("width:" + aty.getResources().getDisplayMetrics().widthPixels + "height:" + aty.getResources().getDisplayMetrics().heightPixels + "density:" + aty.getResources().getDisplayMetrics().density + "densityDpi" + aty.getResources().getDisplayMetrics().densityDpi);
 
 
+    }
+
+    private void init1(View view1) {
+        TextView location = (TextView) view1.findViewById(R.id.location);
+        TextView phone = (TextView) view1.findViewById(R.id.phone);
+        TextView opentime = (TextView) view1.findViewById(R.id.opentime);
+        location.setText(chehang.getLocationInfo());
+        phone.setText(chehang.getPhone());
+        opentime.setText(chehang.getOpentime());
+
+    }
+
+    private void init2(View view1) {
+        TextView discount = (TextView) view1.findViewById(R.id.discount_info);
+        discount.setText(chehang.getDiscountInfo());
+    }
+
+    private void init3(View view1) {
     }
 
     private void initTabLayout() {
@@ -141,9 +187,9 @@ public class ChehangDetailActivity extends BaseActivity implements NestedScrollV
     @Override
     public void widgetClick(View v) {
         super.widgetClick(v);
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.fab:
-                startActivity(new Intent(aty,ChooseBikeActivity.class));
+                startActivity(new Intent(aty, ChooseBikeActivity.class));
                 break;
 
         }
@@ -193,7 +239,7 @@ public class ChehangDetailActivity extends BaseActivity implements NestedScrollV
 
     @Override
     public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-        KJLoger.debug(""+scrollX+"\n"+scrollY+"\n"+oldScrollX+"\n"+oldScrollY);
+        KJLoger.debug("" + scrollX + "\n" + scrollY + "\n" + oldScrollX + "\n" + oldScrollY);
     }
 
 

@@ -1,43 +1,28 @@
 package com.jafir.qingning.model.bean;
 
-import com.google.gson.annotations.SerializedName;
-
-import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by jafir on 16/5/10.
- *
- *
- {
- "name":"",
- "img":"",
- "desc":"",
- "location":"",
- "locationInfo":"",
- "phone":"",
- "opentime":"",
- "score":"",
- "discountInfo":"",
- "distance":"",
- "zuci":"",
- "comments":[
- {
- "imgUrl":"",
- "name":"",
- "time":"",
- "content":""
- }
- ]
- }
- *
- *
- *
- *
+ * Created by jafir on 2017/4/10.
  */
-public class Chehang implements Serializable{
 
-    @SerializedName(value = "emailAddress", alternate = {"email", "email_address"})
+public class Test
+{
+    /**
+     * name :
+     * img :
+     * desc :
+     * location :
+     * locationInfo :
+     * phone :
+     * opentime :
+     * score :
+     * discountInfo :
+     * distance :
+     * zuci :
+     * comments : [{"imgUrl":"","name":"","time":"","content":""}]
+     */
+
     private String name;
     private String img;
     private String desc;
@@ -49,8 +34,7 @@ public class Chehang implements Serializable{
     private String discountInfo;
     private String distance;
     private String zuci;
-    private List<Comment> comments;
-
+    private List<CommentsBean> comments;
 
     public String getName() {
         return name;
@@ -140,29 +124,57 @@ public class Chehang implements Serializable{
         this.zuci = zuci;
     }
 
-    public List<Comment> getComments() {
+    public List<CommentsBean> getComments() {
         return comments;
     }
 
-    public void setComments(List<Comment> comments) {
+    public void setComments(List<CommentsBean> comments) {
         this.comments = comments;
     }
 
-    @Override
-    public String toString() {
-        return "Chehang{" +
-                "name='" + name + '\'' +
-                ", img='" + img + '\'' +
-                ", desc='" + desc + '\'' +
-                ", location='" + location + '\'' +
-                ", locationInfo='" + locationInfo + '\'' +
-                ", phone='" + phone + '\'' +
-                ", opentime='" + opentime + '\'' +
-                ", score='" + score + '\'' +
-                ", discountInfo='" + discountInfo + '\'' +
-                ", distance='" + distance + '\'' +
-                ", zuci='" + zuci + '\'' +
-                ", comments=" + comments +
-                '}';
+    public static class CommentsBean {
+        /**
+         * imgUrl :
+         * name :
+         * time :
+         * content :
+         */
+
+        private String imgUrl;
+        private String name;
+        private String time;
+        private String content;
+
+        public String getImgUrl() {
+            return imgUrl;
+        }
+
+        public void setImgUrl(String imgUrl) {
+            this.imgUrl = imgUrl;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getTime() {
+            return time;
+        }
+
+        public void setTime(String time) {
+            this.time = time;
+        }
+
+        public String getContent() {
+            return content;
+        }
+
+        public void setContent(String content) {
+            this.content = content;
+        }
     }
 }
