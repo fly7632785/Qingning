@@ -15,14 +15,17 @@ import java.util.List;
 public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter {
 
 
-    protected ArrayList<T> mDatas;
+    /**
+     * 自己维护一个list
+     */
+    protected ArrayList<T> mDatas = new ArrayList<T>();
     protected Context mContext;
 
     protected LayoutInflater mInflater;
 
 
     public void setData(ArrayList<T> list) {
-        this.mDatas = list;
+        this.mDatas.addAll(list);
     }
 
     public ArrayList<T> getmDatas() {
@@ -33,7 +36,8 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter {
     }
 
     public void updateData(ArrayList<T> list){
-        this.mDatas = list;
+        mDatas.clear();
+        this.mDatas.addAll(list);
         notifyDataSetChanged();
     }
 

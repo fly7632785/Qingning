@@ -26,6 +26,7 @@ import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.ui.SupportFragment;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -65,6 +66,7 @@ public class EventFragment extends SupportFragment {
 
                     break;
                 case 2:
+                    List<Event> events = new ArrayList<>();
                     //加载数据
                     for (int i = 0; i < 10; i++) {
                         Event event = new Event();
@@ -87,9 +89,10 @@ public class EventFragment extends SupportFragment {
                         event.setImg(AppConstant.huodong[new Random().nextInt(100) % AppConstant.huodong.length]);
                         event.setPortrait(AppConstant.avatar[new Random().nextInt(4)]);
                         event.setRequire(AppConstant.require[new Random().nextInt(100) % AppConstant.require.length]);
-                        list.add(event);
+                        events.add(event);
                     }
-                    mAdapter.notifyDataSetChanged();
+
+                    mAdapter.addData(events);
                     //加载完之后要把swip设置为默认位置
                     mSwipeLayout.setProgressViewEndTarget(false, (int) (64 * aty.getResources().getDisplayMetrics().density));
                     break;
@@ -205,6 +208,65 @@ public class EventFragment extends SupportFragment {
         mAdapter.setData(list);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+//            @Override
+//            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+//                // 如果停止滑动
+//                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+//                    RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
+//                    if (recyclerView.getLayoutManager() instanceof StaggeredGridLayoutManager) {
+//                        // 获取布局管理器
+//                        StaggeredGridLayoutManager layout =
+//                                (StaggeredGridLayoutManager) layoutManager;
+//                        // 用来记录lastItem的position
+//                        // 由于瀑布流有多个列 所以此处用数组存储
+//                        int column = layout.getColumnCountForAccessibility(null, null);
+//                        int positions[] = new int[column];
+//                        // 获取lastItem的positions
+//                        layout.findLastVisibleItemPositions(positions);
+//                        for (int i = 0; i < positions.length; i++) {
+//                            /**
+//                             * 判断lastItem的底边到recyclerView顶部的距离
+//                             * 是否小于recyclerView的高度
+//                             * 如果小于或等于 说明滚动到了底部
+//                             */
+//                            // 刚才忘了写判断是否是最后一个item了
+//                            if (positions[i] >= (layout.getItemCount() - column)
+//                                    && layout.findViewByPosition(positions[i]).getBottom() <= AppContext.screenH) {
+//                                /**
+//                                 * 此处实现你的业务逻辑
+//                                 */
+//                                Log.e("到底了", "true");
+//                                break;
+//                            }
+//
+//                        }
+//                    } else if (recyclerView.getLayoutManager() instanceof LinearLayoutManager) {
+//
+//                        LinearLayoutManager layout =
+//                                (LinearLayoutManager) layoutManager;
+//                        int position = layout.findLastVisibleItemPosition();
+//                        // 刚才忘了写判断是否是最后一个item了
+//                        if (position - 1 == layout.getItemCount()
+//                                && layout.findViewByPosition(position).getBottom() <= AppContext.screenH) {
+//
+//                            mSwipeLayout.setProgressViewEndTarget(true, AppContext.screenH - 400);
+//                           mSwipeLayout.setRefreshing(true);
+//                            hanlder.sendEmptyMessageDelayed(2, 2000);
+//
+//                            Log.e("到底了", "true");
+//                        }
+//
+//                    }
+//
+//                }
+//
+//                super.onScrollStateChanged(recyclerView, newState);
+//            }
+//
+//            @Override
+//            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+//                super.onScrolled(recyclerView, dx, dy);
+//            }
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);

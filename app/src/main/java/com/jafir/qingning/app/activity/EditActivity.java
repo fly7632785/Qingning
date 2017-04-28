@@ -3,8 +3,12 @@ package com.jafir.qingning.app.activity;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -13,15 +17,30 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.jafir.qingning.R;
+import com.jafir.qingning.app.fragment.GuideBookFragment;
+import com.jafir.qingning.app.util.OssUtil;
 import com.scrat.app.richtext.RichEditText;
+
+import org.greenrobot.eventbus.EventBus;
+import org.kymjs.kjframe.utils.PreferenceHelper;
+
+import java.util.List;
+
+import cn.finalteam.galleryfinal.GalleryFinal;
+import cn.finalteam.galleryfinal.model.PhotoInfo;
+
+import static com.jafir.qingning.app.AppContext.context;
 
 public class EditActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE_GET_CONTENT = 666;
     private static final int WRITE_EXTERNAL_STORAGE_REQUEST_CODE = 444;
     private RichEditText richEditText;
+    private String html;
+    private String url = "http://qing-ning.oss-cn-shenzhen.aliyuncs.com/20170426023956158";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +57,19 @@ public class EditActivity extends AppCompatActivity {
             }
         });
         richEditText = (RichEditText) findViewById(R.id.rich_text);
-        richEditText.fromHtml("<blockquote>Android 端的富文本编辑器</blockquote>" +
-                "<ul><li>支持实时编辑</li><li>支持图片插入,加粗,斜体,下划线,删除线,列表,引用块,超链接,撤销与恢复等</li><li>使用<u>Glide</u>加载图片</li></ul>\n" +
-                "<img src=\"http://img5.duitang.com/uploads/item/201409/07/20140907195835_GUXNn.thumb.700_0.jpeg\">" +
-                "<img src=\"http://www.bz55.com/uploads/allimg/150707/139-150FG61K2.jpg\">");
+        richEditText.fromHtml("<blockquote>青城后山一日游</blockquote><ul><li>时间：2017-5-1</li></ul><ul><li>地点：青城后山</li></ul><ul><li>人数：4-6人</li></ul><ul><li>主题：爬山、戏水、吃青城山老腊肉、山顶烧香、下山缆车</li></ul><img width=\"100%\" src=\"http://qing-ning.oss-cn-shenzhen.aliyuncs.com/20170426023910038\"><br><br>泰安古寺<br><img width=\"100%\" src=\"http://qing-ning.oss-cn-shenzhen.aliyuncs.com/20170426023923338\"><br><br>寺庙<br><img width=\"100%\" src=\"http://qing-ning.oss-cn-shenzhen.aliyuncs.com/20170426023943113\"><br><br>山水<br><img width=\"100%\" src=\"http://qing-ning.oss-cn-shenzhen.aliyuncs.com/20170426023956158\"><br><br>古道\n");
         int len = richEditText.getText().length();
-        int l  = richEditText.length();
+        int l = richEditText.length();
         richEditText.setSelection(richEditText.getText().length());
+
+        findViewById(R.id.publish).setOnClickListener(v -> {
+            html = richEditText.toHtml();
+            Log.d("html", html + "");
+            PreferenceHelper.write(EditActivity.this, "html", "html", html);
+            EventBus.getDefault().post(new GuideBookFragment.RefreshEvent(url));
+            Toast.makeText(getBaseContext(), "发布成功", Toast.LENGTH_SHORT).show();
+            finish();
+        });
     }
 
     @Override
@@ -64,8 +89,8 @@ public class EditActivity extends AppCompatActivity {
                 break;
             case R.id.export:
                 Log.e("xxx", richEditText.toHtml());
-                Intent intent = new Intent(EditActivity.this,GuideBookDetailActivity.class);
-                intent.putExtra("data",richEditText.toHtml());
+                Intent intent = new Intent(EditActivity.this, GuideBookDetailActivity.class);
+                intent.putExtra("data", richEditText.toHtml());
                 startActivity(intent);
 
                 break;
@@ -81,10 +106,40 @@ public class EditActivity extends AppCompatActivity {
         if (data == null || data.getData() == null || requestCode == WRITE_EXTERNAL_STORAGE_REQUEST_CODE)
             return;
 
+        Uri selectedImage = data.getData();
+        String[] filePathColumn = {MediaStore.Images.Media.DATA};
+        Cursor cursor = context.getContentResolver().query(selectedImage,
+                filePathColumn, null, null, null);
+        cursor.moveToFirst();
+        int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+        //picturePath就是图片在储存卡所在的位置
+        String picturePath = cursor.getString(columnIndex);
+        Log.d("picturePath", "::" + picturePath);
+        cursor.close();
+
         final Uri uri = data.getData();
-        final int width = richEditText.getMeasuredWidth() - richEditText.getPaddingLeft() - richEditText.getPaddingRight();
-        richEditText.image(uri, width);
+
+        Log.d("uri", "::" + uri);
+        Log.d("uripath", "::" + uri.getPath());
+
+        url = OssUtil.upload(this, data.getData().getPath(), handler);
+
+
     }
+
+
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if(msg.what ==1) {
+                final int width = richEditText.getMeasuredWidth() - richEditText.getPaddingLeft() - richEditText.getPaddingRight();
+                richEditText.image(Uri.parse(url), width);
+                Log.d("htmal", "1" + richEditText.toHtml());
+            }
+
+        }
+    };
 
     /**
      * 加粗
@@ -135,10 +190,27 @@ public class EditActivity extends AppCompatActivity {
                     WRITE_EXTERNAL_STORAGE_REQUEST_CODE);
         }
 
-        Intent getImage = new Intent(Intent.ACTION_GET_CONTENT);
-        getImage.addCategory(Intent.CATEGORY_OPENABLE);
-        getImage.setType("image/*");
-        startActivityForResult(getImage, REQUEST_CODE_GET_CONTENT);
+//        Intent getImage = new Intent(Intent.ACTION_GET_CONTENT);
+//        getImage.addCategory(Intent.CATEGORY_OPENABLE);
+//        getImage.setType("image/*");
+//        startActivityForResult(getImage, REQUEST_CODE_GET_CONTENT);
+        GalleryFinal.openGallerySingle(1, new GalleryFinal.OnHanlderResultCallback() {
+            @Override
+            public void onHanlderSuccess(int reqeustCode, List<PhotoInfo> resultList) {
+
+                String path = resultList.get(0).getPhotoPath();
+                Log.d("path", "::" + path);
+
+                url = OssUtil.upload(EditActivity.this, path, handler);
+
+            }
+
+            @Override
+            public void onHanlderFailure(int requestCode, String errorMsg) {
+
+            }
+        });
+
     }
 
 }

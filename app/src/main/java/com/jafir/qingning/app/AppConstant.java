@@ -28,12 +28,15 @@ public class AppConstant {
             "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491821999530&di=cf10397226a6cc5734a0e52dab7a36d3&imgtype=0&src=http%3A%2F%2Fwww.yuxiancity.com%2Fkeditor%2Fasp%2F..%2Fattached%2Fimage%2F20150523%2F20150523072693179317.jpg",
             "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491821999529&di=ae9629335fc6da18e3985069b98a2b6e&imgtype=0&src=http%3A%2F%2Fp1.pccoo.cn%2Fyp%2F20131028%2F201310281413332568.jpg",
             "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491822052859&di=f9a71baba78b9ef4e0baa09ed77c4931&imgtype=jpg&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D465518959%2C1461045690%26fm%3D214%26gp%3D0.jpg",
-            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491821999528&di=ee726d6a65357175054aff45423f13b0&imgtype=0&src=http%3A%2F%2Fpic15.huitu.com%2Fres%2F20131230%2F169904_20131230234850729331_1.jpg",
-            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491822036554&di=7cc720ace7ec78b12f5e9c314987a33e&imgtype=0&src=http%3A%2F%2Fimage6.51myd.com%2Fbylm%2Fmedium%2F2015817%2F6357544526183637502b91cc6a-f894-4169-abee-fbaec71e4818.jpg",
-            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491822036553&di=e7c80cd3b58349998c41f2d13b2fad66&imgtype=0&src=http%3A%2F%2Fphoto.biketo.com%2Fd%2Ffile%2Fbusiness%2F2011-02-19%2Fb354bff32b913d07eb179a4dbef0118a.jpg",
-            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491822087971&di=e902ac88690ecfa4f56401733be35228&imgtype=0&src=http%3A%2F%2Fwww.jinlugroup.cn%2Fwebgroud%2F77729%2FIMG_0778.jpg",
-            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491822119498&di=ca807c5cae30a7d67eaeecd81628f0a0&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D2423957206%2C2139596864%26fm%3D214%26gp%3D0.jpg",
-            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491822087969&di=d100a0c706e3e4dc5216ac0a1e9b3484&imgtype=0&src=http%3A%2F%2Fnimg.edushi.com%2FuserupImages%2Fpic_luoyang%2F207%2FDSCN0286.JPG"
+            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491822087969&di=d100a0c706e3e4dc5216ac0a1e9b3484&imgtype=0&src=http%3A%2F%2Fnimg.edushi.com%2FuserupImages%2Fpic_luoyang%2F207%2FDSCN0286.JPG",
+            "http://img.100msh.net/cooperation_network_img/network_img_0_1394952849.jpg",
+            "http://www.mangocity.com/cms/merchants/images/2007-01/09/xinsrc_160104091359531666851.JPG",
+            "http://images.ccoo.cn/yp/2011627/201162711415853.jpg",
+            "http://imgsrc.baidu.com/forum/w%3D580/sign=e14c0752cdfc1e17fdbf8c397a91f67c/5ef523a4462309f732b71d56700e0cf3d5cad6dd.jpg",
+            "http://image1.8264.com/plugin/201309/19/214123eqcurjcs782cjcjq.jpg",
+            "http://cache.house.sina.com.cn/infodichan/dichanpic/aa/1d/a1add41315d70cc4f5efec3cc5acf9a5.jpg"
+
+
     };
 
 

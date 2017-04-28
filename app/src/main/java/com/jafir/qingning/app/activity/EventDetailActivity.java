@@ -244,8 +244,6 @@ public class EventDetailActivity extends BaseActivity {
             }
         });
         mShopRecyclerView.setAdapter(mAdapter);
-
-
     }
 
 

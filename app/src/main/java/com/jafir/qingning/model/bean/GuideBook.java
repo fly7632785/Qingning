@@ -11,6 +11,15 @@ public class GuideBook {
     private String avatar;
     private String likes;
     private String address;
+    private String html;
+
+    public String getHtml() {
+        return html;
+    }
+
+    public void setHtml(String html) {
+        this.html = html;
+    }
 
     public String getTitle() {
         return title;

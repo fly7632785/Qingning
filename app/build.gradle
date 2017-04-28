@@ -3,7 +3,7 @@ apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "23.0.3"
+    buildToolsVersion '25.0.2'
 
     defaultConfig {
         applicationId "com.jafir.qiyou"
@@ -80,4 +80,5 @@ dependencies {
     compile 'com.lsjwzh:recyclerviewpager:1.0.8'
     //    compile project(':richtext')
     compile 'com.google.code.gson:gson:2.2.4'
+    compile 'org.greenrobot:eventbus:3.0.0'
 }

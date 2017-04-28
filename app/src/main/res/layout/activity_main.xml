@@ -2,15 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layout_height="50dp"
         android:background="@color/colorPrimary"
-        android:layout_height="50dp"></android.support.v7.widget.Toolbar>
+        android:gravity="right"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="文本编辑器">
+
+
+    </android.support.v7.widget.Toolbar>
 
     <HorizontalScrollView
 
@@ -97,16 +101,23 @@
             <!--android:scaleType="center"-->
             <!--android:background="?android:selectableItemBackground">-->
             <!--</ImageButton>-->
-
+            <TextView
+                android:id="@+id/publish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="发布"
+                android:layout_gravity="center"
+                android:textColor="@color/white" />
         </LinearLayout>
 
     </HorizontalScrollView>
 
     <ScrollView
-        android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/tools"
+        android:layout_below="@+id/toolbar"
         android:fillViewport="true">
 
         <com.scrat.app.richtext.RichEditText

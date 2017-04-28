@@ -29,6 +29,7 @@ import org.kymjs.kjframe.ui.SupportFragment;
 import org.kymjs.kjframe.utils.KJLoger;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -292,38 +293,38 @@ public class RentFragment extends SupportFragment {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
 
-            switch (msg.what){
+            switch (msg.what) {
                 case 1:
 
                     break;
                 case 2:
                     //加载数据
-                  for (int i = 0; i < 10; i++) {
-                      Chehang c = new Chehang();
-                      c.setName(AppConstant.chenghangname[new Random().nextInt(100) %AppConstant.chenghangname.length]);
-                      c.setDesc("desc" + i);
-                      c.setDistance("[青城山]距离：" + new Random().nextInt(1000) + "m");
-                      c.setImg(AppConstant.chehang[new Random().nextInt(100) %AppConstant.chehang.length]);
-                      c.setZuci("租次" + new Random().nextInt(50));
-                      c.setPhone("13982004324");
-                      c.setOpentime("10:00am-10:00pm");
-                      c.setDiscountInfo(AppConstant.discountInfo[new Random().nextInt(100) %AppConstant.discountInfo.length]);
-                      c.setLocationInfo(AppConstant.locations[new Random().nextInt(100) %AppConstant.locations.length]);
-                      c.setLocation(AppConstant.locations[new Random().nextInt(100) %AppConstant.locations.length]);
-                      c.setScore(""+new Random().nextInt(5));
-                      list.add(c);
-            }
+                    List<Chehang> chehangs = new ArrayList<>();
+                    for (int i = 0; i < 10; i++) {
+                        Chehang c = new Chehang();
+                        c.setName(AppConstant.chenghangname[new Random().nextInt(100) % AppConstant.chenghangname.length]);
+                        c.setDesc("desc" + i);
+                        c.setDistance("[青城山]距离：" + new Random().nextInt(1000) + "m");
+                        c.setImg(AppConstant.chehang[new Random().nextInt(100) % AppConstant.chehang.length]);
+                        c.setZuci("租次" + new Random().nextInt(50));
+                        c.setPhone("13982004324");
+                        c.setOpentime("10:00am-10:00pm");
+                        c.setDiscountInfo(AppConstant.discountInfo[new Random().nextInt(100) % AppConstant.discountInfo.length]);
+                        c.setLocationInfo(AppConstant.locations[new Random().nextInt(100) % AppConstant.locations.length]);
+                        c.setLocation(AppConstant.locations[new Random().nextInt(100) % AppConstant.locations.length]);
+                        c.setScore("" + new Random().nextInt(5));
+                        chehangs.add(c);
+                    }
 //                    Gson gson = new Gson();
 //                    ChehangMock chehangMock = gson.fromJson(json, ChehangMock.class);
 //                    list.addAll(chehangMock.getChehangs());
 
 
-                    mAdapter.notifyDataSetChanged();
+                    mAdapter.addData(chehangs);
                     //加载完之后要把swip设置为默认位置
                     mSwipeLayout.setProgressViewEndTarget(false, (int) (64 * aty.getResources().getDisplayMetrics().density));
 
                     break;
-
 
 
             }
@@ -339,9 +340,9 @@ public class RentFragment extends SupportFragment {
         mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                if(item.getItemId()==R.id.ab_search){
+                if (item.getItemId() == R.id.ab_search) {
 
-                }else if (item.getItemId() == R.id.ab_locate){
+                } else if (item.getItemId() == R.id.ab_locate) {
                     startActivity(new Intent(aty, CityPickerActivity.class));
                 }
                 return false;
@@ -349,7 +350,6 @@ public class RentFragment extends SupportFragment {
         });
 
         mToolbar.inflateMenu(R.menu.rent_menu);
-
 
 
         SearchView searchView =
@@ -366,14 +366,24 @@ public class RentFragment extends SupportFragment {
         searchView.setOnCloseListener(new SearchView.OnCloseListener() {
             @Override
             public boolean onClose() {
-                KJLoger.debug("close");
+                mSwipeLayout.setEnabled(true);
+                KJLoger.debug("query....onClose" );
                 return false;
             }
         });
+        searchView.setOnSearchClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSwipeLayout.setEnabled(false);
+                KJLoger.debug("query....onClick" );
+            }
+        });
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 KJLoger.debug("query...." + query);
+//                mAdapter.getFilter().filter(query);
 
                 return false;
 
@@ -382,7 +392,8 @@ public class RentFragment extends SupportFragment {
             @Override
             public boolean onQueryTextChange(String newText) {
                 KJLoger.debug("changed...." + newText);
-//                mAdapter.getFilter().filter(newText);
+
+                mAdapter.getFilter().filter(newText);
                 return false;
             }
         });
@@ -410,24 +421,25 @@ public class RentFragment extends SupportFragment {
             @Override
             public void onItemClick(View view, int position) {
                 Intent intent = new Intent(aty, ChehangDetailActivity.class);
-                        intent.putExtra("data",list.get(position));
+                intent.putExtra("data", list.get(position));
                 startActivity(intent);
             }
         });
         list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             Chehang c = new Chehang();
-            c.setName(AppConstant.chenghangname[new Random().nextInt(100) %AppConstant.chenghangname.length]);
+            c.setName(AppConstant.chenghangname[new Random().nextInt(100) % AppConstant.chenghangname.length]);
             c.setDesc("desc" + i);
             c.setDistance("[青城山]距离：" + new Random().nextInt(1000) + "m");
-            c.setImg(AppConstant.chehang[new Random().nextInt(100) %AppConstant.chehang.length]);
+//            c.setImg(AppConstant.chehang[new Random().nextInt(100) %AppConstant.chehang.length]);
+            c.setImg(AppConstant.chehang[i % AppConstant.chehang.length]);
             c.setZuci("租次" + new Random().nextInt(50));
             c.setPhone("13982004324");
             c.setOpentime("10:00am-10:00pm");
-            c.setDiscountInfo(AppConstant.discountInfo[new Random().nextInt(100) %AppConstant.discountInfo.length]);
-            c.setLocationInfo(AppConstant.locations[new Random().nextInt(100) %AppConstant.locations.length]);
-            c.setLocation(AppConstant.locations[new Random().nextInt(100) %AppConstant.locations.length]);
-            c.setScore(""+new Random().nextInt(5));
+            c.setDiscountInfo(AppConstant.discountInfo[new Random().nextInt(100) % AppConstant.discountInfo.length]);
+            c.setLocationInfo(AppConstant.locations[new Random().nextInt(100) % AppConstant.locations.length]);
+            c.setLocation(AppConstant.locations[new Random().nextInt(100) % AppConstant.locations.length]);
+            c.setScore("" + new Random().nextInt(5));
             list.add(c);
         }
 //        Gson gson = new Gson();
@@ -441,10 +453,12 @@ public class RentFragment extends SupportFragment {
                 super.onScrollStateChanged(recyclerView, newState);
                 if (newState == RecyclerView.SCROLL_STATE_IDLE
                         && lastVisibleItem + 1 == mAdapter.getItemCount() && !mSwipeLayout.isRefreshing()) {
-                    mSwipeLayout.setProgressViewEndTarget(true, AppContext.screenH - 400);
-                    mSwipeLayout.setRefreshing(true);
-                    //网络请求  加载更多数据
-                    hanlder.sendEmptyMessageDelayed(2, 2000);
+                    if(mSwipeLayout.isEnabled()) {
+                        mSwipeLayout.setProgressViewEndTarget(true, AppContext.screenH - 400);
+                        mSwipeLayout.setRefreshing(true);
+                        //网络请求  加载更多数据
+                        hanlder.sendEmptyMessageDelayed(2, 2000);
+                    }
                 }
             }
 

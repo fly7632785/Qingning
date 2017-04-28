@@ -12,6 +12,8 @@ import com.bumptech.glide.Glide;
 import com.jafir.qingning.R;
 import com.jafir.qingning.model.bean.Chehang;
 
+import org.kymjs.kjframe.utils.KJLoger;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -38,36 +40,37 @@ public class ChehangRecyclerAdapter extends BaseRecyclerAdapter implements Filte
         holder.mDistance.setText(chehang.getDistance());
         holder.mZuci.setText(chehang.getZuci());
         holder.mName.setText(chehang.getName());
-        holder.mc.setText(new Random().nextInt(8)+"元/h起");
+        holder.mc.setText(new Random().nextInt(8) + "元/h起");
         Glide.with(mContext).load(chehang.getImg()).centerCrop().into(holder.mImageView);
 
 
     }
 
+    private ArrayList<Chehang> originalList = new ArrayList<>();
+
     @Override
     public Filter getFilter() {
-        return new MyFilter(this, mDatas);
+        if (originalList.isEmpty()) {
+            originalList.addAll(mDatas);
+        }
+        return new MyFilter();
     }
 
 
     class MyFilter extends Filter {
 
-        private final ChehangRecyclerAdapter adapter;
-
-        private final ArrayList<Chehang> originalList;
 
         private final ArrayList<Chehang> filteredList;
 
-        private MyFilter(ChehangRecyclerAdapter adapter, ArrayList<Chehang> originalList) {
+        private MyFilter() {
             super();
-            this.adapter = adapter;
-            this.originalList = new ArrayList<>(originalList);
             this.filteredList = new ArrayList<>();
         }
 
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            filteredList.clear();
+
+            KJLoger.debug("performFiltering...." + constraint);
             final FilterResults results = new FilterResults();
 
             if (constraint.length() == 0) {
@@ -88,10 +91,7 @@ public class ChehangRecyclerAdapter extends BaseRecyclerAdapter implements Filte
 
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
-//            adapter.mDatas.clear();
-//            adapter.mDatas.addAll((ArrayList<Chehang>) results.values);
-//            adapter.notifyDataSetChanged();
-            adapter.updateData((ArrayList<Chehang>) results.values);
+            updateData((ArrayList<Chehang>) results.values);
         }
     }
 
