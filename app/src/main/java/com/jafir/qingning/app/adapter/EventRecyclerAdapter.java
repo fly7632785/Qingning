@@ -44,6 +44,7 @@ public class EventRecyclerAdapter extends BaseRecyclerAdapter<Event> {
 
 
     private int currentPosition;
+
     @Override
     public RecyclerView.ViewHolder createMyViewHolder(ViewGroup parent, int viewType) {
         if (viewType == 1 && hasHeader) {
@@ -82,6 +83,12 @@ public class EventRecyclerAdapter extends BaseRecyclerAdapter<Event> {
                     imageView.setScaleType(ImageView.ScaleType.FIT_XY);
                     Glide.with(container.getContext()).load(AppConstant.lunbo[position % AppConstant.lunbo.length])
                             .into(imageView);
+                    imageView.setOnClickListener(v -> {
+                        Intent i = new Intent(mContext, EventDetailActivity.class);
+                        i.putExtra("cover", AppConstant.lunbo[position % AppConstant.lunbo.length]);
+                        i.putExtra("data", (Serializable) mDatas.get(position));
+                        mContext.startActivity(i);
+                    });
                     container.addView(imageView);
                     return imageView;
                 }
@@ -129,9 +136,6 @@ public class EventRecyclerAdapter extends BaseRecyclerAdapter<Event> {
         private TextView mBussiness;
 
 
-
-
-
         public ImageViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -139,10 +143,10 @@ public class EventRecyclerAdapter extends BaseRecyclerAdapter<Event> {
                 public void onClick(View v) {
 
                     Intent intent = new Intent(mContext, EventDetailActivity.class);
-                    intent.putExtra("cover",mDatas.get(getAdapterPosition()).getImg());
+                    intent.putExtra("cover", mDatas.get(getAdapterPosition()).getImg());
                     intent.putExtra("data", (Serializable) mDatas.get(getAdapterPosition()));
-                    Log.e("debug",""+getAdapterPosition());
-                    ActivityCompat.startActivity((Activity)mContext,intent, ActivityOptionsCompat.makeSceneTransitionAnimation((Activity)mContext,mImageView,"img").toBundle());
+                    Log.e("debug", "" + getAdapterPosition());
+                    ActivityCompat.startActivity((Activity) mContext, intent, ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) mContext, mImageView, "img").toBundle());
                     if (mOnItemClickListener != null && mDatas.size() != 0) {
                         mOnItemClickListener.onItemClick(v, getAdapterPosition() % mDatas.size());
                     }

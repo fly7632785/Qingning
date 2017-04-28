@@ -430,7 +430,7 @@ public class RentFragment extends SupportFragment {
             Chehang c = new Chehang();
             c.setName(AppConstant.chenghangname[new Random().nextInt(100) % AppConstant.chenghangname.length]);
             c.setDesc("desc" + i);
-            c.setDistance("[青城山]距离：" + new Random().nextInt(1000) + "m");
+            c.setDistance("[青城山]距离：" + (i+1) * 124 + "m");
 //            c.setImg(AppConstant.chehang[new Random().nextInt(100) %AppConstant.chehang.length]);
             c.setImg(AppConstant.chehang[i % AppConstant.chehang.length]);
             c.setZuci("租次" + new Random().nextInt(50));
