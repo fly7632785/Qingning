@@ -254,7 +254,9 @@ public class EventDetailActivity extends BaseActivity {
             case R.id.add:
                 break;
             case R.id.goto_join_user:
-                startActivity(new Intent(EventDetailActivity.this,JoinPeopleListActivity.class));
+                Intent intent = new Intent(EventDetailActivity.this,JoinPeopleListActivity.class);
+                intent.putExtra("count",Integer.valueOf(event.getPeople()));
+                startActivity(intent);
                 break;
             case R.id.event_detail_user_avatar:
                 break;

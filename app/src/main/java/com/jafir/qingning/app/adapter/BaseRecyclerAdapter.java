@@ -29,15 +29,15 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter {
     }
 
     public ArrayList<T> getmDatas() {
-        if(mDatas==null){
+        if (mDatas == null) {
             return null;
         }
         return mDatas;
     }
 
-    public void updateData(ArrayList<T> list){
-        mDatas.clear();
-        this.mDatas.addAll(list);
+    public void updateData(ArrayList<T> list) {
+        mDatas = new ArrayList<>();
+        mDatas.addAll(list);
         notifyDataSetChanged();
     }
 
@@ -53,16 +53,17 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter {
             mContext = parent.getContext();
             mInflater = LayoutInflater.from(mContext);
         }
-        return createMyViewHolder(parent,viewType);
+        return createMyViewHolder(parent, viewType);
     }
 
 
-    public abstract  RecyclerView.ViewHolder createMyViewHolder(ViewGroup parent, int viewType) ;
-    public abstract  void bindMyViewHolder(RecyclerView.ViewHolder holder, int position) ;
+    public abstract RecyclerView.ViewHolder createMyViewHolder(ViewGroup parent, int viewType);
+
+    public abstract void bindMyViewHolder(RecyclerView.ViewHolder holder, int position);
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder myholder, int position) {
-        bindMyViewHolder(myholder,position);
+        bindMyViewHolder(myholder, position);
     }
 
     @Override
@@ -103,13 +104,13 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter {
     }
 
 
-    public interface OnItemClickListener{
+    public interface OnItemClickListener {
         void onItemClick(View view, int position);
 
     }
 
 
-    protected  OnItemClickListener mOnItemClickListener = null;
+    protected OnItemClickListener mOnItemClickListener = null;
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         mOnItemClickListener = listener;

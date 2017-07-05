@@ -32,6 +32,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static com.baidu.location.h.i.R;
+
 /**
  * Created by jafir on 16/4/19.
  */
@@ -421,7 +423,7 @@ public class RentFragment extends SupportFragment {
             @Override
             public void onItemClick(View view, int position) {
                 Intent intent = new Intent(aty, ChehangDetailActivity.class);
-                intent.putExtra("data", list.get(position));
+                intent.putExtra("data", (Chehang)mAdapter.getmDatas().get(position));
                 startActivity(intent);
             }
         });

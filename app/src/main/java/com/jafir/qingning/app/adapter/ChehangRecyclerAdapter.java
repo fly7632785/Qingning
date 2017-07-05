@@ -15,6 +15,7 @@ import com.jafir.qingning.model.bean.Chehang;
 import org.kymjs.kjframe.utils.KJLoger;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -46,25 +47,19 @@ public class ChehangRecyclerAdapter extends BaseRecyclerAdapter implements Filte
 
     }
 
-    private ArrayList<Chehang> originalList = new ArrayList<>();
+    MyFilter filter = new MyFilter();
 
     @Override
     public Filter getFilter() {
-        if (originalList.isEmpty()) {
-            originalList.addAll(mDatas);
-        }
-        return new MyFilter();
+        return filter;
     }
 
 
     class MyFilter extends Filter {
-
-
-        private final ArrayList<Chehang> filteredList;
+        private ArrayList<Chehang> mOriginalItems;
 
         private MyFilter() {
             super();
-            this.filteredList = new ArrayList<>();
         }
 
         @Override
@@ -72,28 +67,79 @@ public class ChehangRecyclerAdapter extends BaseRecyclerAdapter implements Filte
 
             KJLoger.debug("performFiltering...." + constraint);
             final FilterResults results = new FilterResults();
-
-            if (constraint.length() == 0) {
-                filteredList.addAll(originalList);
+            //如果为空就出事话 以addall的方式 而不是 直接指向
+            if (mOriginalItems == null) {
+                mOriginalItems = new ArrayList<>(mDatas);
+            }
+            //如果为空的话，就把结果集设置为 之前的数据源
+            if (constraint == null || constraint.length() == 0) {
+                results.values = mOriginalItems;
+                results.count = mOriginalItems.size();
+                //our filter was cleared we can now forget the old OriginalItems
+                mOriginalItems = null;
             } else {
+                //如果不为空就看那些符合 然后加到filterItems里面 返回结果集
                 final String filterPattern = constraint.toString().toLowerCase().trim();
+                List<Chehang> filteredItems = new ArrayList<>();
 
-                for (final Chehang chehang : originalList) {
+
+                for (final Chehang chehang : mOriginalItems) {
                     if (chehang.getName().contains(filterPattern)) {
-                        filteredList.add(chehang);
+                        filteredItems.add(chehang);
                     }
                 }
+
+                results.values = filteredItems;
+                results.count = filteredItems.size();
+
+
             }
-            results.values = filteredList;
-            results.count = filteredList.size();
             return results;
         }
 
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
+            //更新数据结果
             updateData((ArrayList<Chehang>) results.values);
         }
     }
+//    class MyFilter extends Filter {
+//
+//
+//        private final ArrayList<Chehang> filteredList;
+//
+//        private MyFilter() {
+//            super();
+//            this.filteredList = new ArrayList<>();
+//        }
+//
+//        @Override
+//        protected FilterResults performFiltering(CharSequence constraint) {
+//
+//            KJLoger.debug("performFiltering...." + constraint);
+//            final FilterResults results = new FilterResults();
+//
+//            if (constraint.length() == 0) {
+//                filteredList.addAll(originalList);
+//            } else {
+//                final String filterPattern = constraint.toString().toLowerCase().trim();
+//
+//                for (final Chehang chehang : originalList) {
+//                    if (chehang.getName().contains(filterPattern)) {
+//                        filteredList.add(chehang);
+//                    }
+//                }
+//            }
+//            results.values = filteredList;
+//            results.count = filteredList.size();
+//            return results;
+//        }
+//
+//        @Override
+//        protected void publishResults(CharSequence constraint, FilterResults results) {
+//            updateData((ArrayList<Chehang>) results.values);
+//        }
+//    }
 
 
     private class ImageViewHolder extends RecyclerView.ViewHolder {

@@ -67,7 +67,8 @@ public class JoinPeopleListActivity extends BaseActivity {
                 startActivity(new Intent(aty, GuideBookDetailActivity.class));
             }
         });
-        for (int i = 0; i < 10; i++) {
+        int count = getIntent().getIntExtra("count",0);
+        for (int i = 0; i < count; i++) {
             User user = new User();
             user.setNickName("小明");
             user.setPhone("13982004324");
